@@ -25,8 +25,8 @@ Travail de fin d’études en vue de l’obtention du Diplôme de bachelier en I
 - fontAwsome 5.15.1 (https://fontawesome.com/)
 
 
-## Schéma UML
+## Modèle conceptuel des données
 
-![alt text](https://github.com/tophc/hmt/blob/master/analyse/mcd.png?raw=true)
+![MCD](https://github.com/tophc/hmt/blob/master/analyse/mcd.png?raw=true)
 
 (*) Environnement de développement
