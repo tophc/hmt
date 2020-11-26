@@ -23,6 +23,7 @@ Travail de fin d’études en vue de l’obtention du Diplôme de bachelier en I
 - Bootstrap 4 (https://getbootstrap.com/)
 - Bootswatch Theme (https://bootswatch.com/) 
 - fontAwsome 5.15.1 (https://fontawesome.com/)
+
 (*) Environnement de développement uniquement
 
 ## Modèle Conceptuel des Données
