@@ -3,8 +3,6 @@ Travail de fin d’études en vue de l’obtention du Diplôme de bachelier en I
 
 ## Outils & Technologie
 
-
-
 -Visual Studio Code (1.51.1)
 -Symfony Framework (4.7, 5.0, 5.1)
 -Wamp (3.2.0)
