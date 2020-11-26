@@ -15,12 +15,13 @@ Travail de fin d’études en vue de l’obtention du Diplôme de bachelier en I
 - Composer 1.10.15 (https://getcomposer.org/)
 - Symfony Framework 5.1 (https://symfony.com/releases/5.1)
   - symfonyapache-pack (https://github.com/symfony/apache-pack)
-  - Fixtures (https://github.com/doctrine/DoctrineFixturesBundle)
-  - Faker (https://github.com/fzaninotto/faker)
-  - Slugify (https://github.com/cocur/slugify)
+  - Fixtures* (https://github.com/doctrine/DoctrineFixturesBundle)
+  - Faker* (https://github.com/fzaninotto/faker)
+  - Slugify* (https://github.com/cocur/slugify)
   - DoctrineExtensions (https://github.com/beberlei/DoctrineExtensions)
   - TwigExtension (https://github.com/twigphp/intl-extra)
 - Bootstrap 4 (https://getbootstrap.com/)
 - Bootswatch Theme (https://bootswatch.com/) 
 - fontAwsome 5.15.1 (https://fontawesome.com/)
 
+(*) Environnement de développement
