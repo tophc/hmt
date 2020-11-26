@@ -1,0 +1,58 @@
+div.container, div.container-fluid {
+    margin-top: 20px;  
+}
+
+.jumbotron {
+    background: url('/././img/home/hayam4.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    text-align: right;
+    text-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+ }
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.image-role {
+    height: 200px; 
+    width: 100%;  
+    border-radius: 15% 5%;
+}
+
+.avatar {
+    max-width: 128px;
+    max-height: 128px;
+    border-radius: 50%;
+}
+
+.avatar-medium {
+    max-width: 64px;
+    max-height: 64px;
+}
+
+.avatar-mini{
+    max-width: 24px;
+    max-height: 24px;
+}
+
+.avatar-micro {
+    max-width: 20px;
+    max-height: 20px;
+} 
+
+.avatar-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+.flag {
+    max-width: 20px;
+    max-height: 20px;   
+}

@@ -1,0 +1,1790 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="nl" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="Z7aWRoY" resname="Dashboard">
+        <source>Dashboard</source>
+        <target>Dashboard</target>
+      </trans-unit>
+      <trans-unit id="kQ_gLKG" resname="Pending request">
+        <source>Pending request</source>
+        <target>Aanvraag in behandeling</target>
+      </trans-unit>
+      <trans-unit id="DyamuiU" resname="Closed request">
+        <source>Closed request</source>
+        <target>Gesloten aanvraag</target>
+      </trans-unit>
+      <trans-unit id="cT1IzjW" resname="The request is archived, and not modifiable">
+        <source>The request is archived, and not modifiable</source>
+        <target>De aanvraag wordt gearchiveerd en kan niet worden gewijzigd</target>
+      </trans-unit>
+      <trans-unit id="nG2nArZ" resname="The request">
+        <source>The request</source>
+        <target>De aanvraag </target>
+      </trans-unit>
+      <trans-unit id="1XbrZHO" resname="has been processed">
+        <source>has been processed</source>
+        <target>is verwerkt</target>
+      </trans-unit>
+      <trans-unit id="IahKQ0p" resname="Process a request">
+        <source>Process a request</source>
+        <target>Verwerking van een aanvraag</target>
+      </trans-unit>
+      <trans-unit id="Xb2Z4Ai" resname="The file doesn't exist">
+        <source>The file doesn't exist</source>
+        <target>Het bestand bestaat niet</target>
+      </trans-unit>
+      <trans-unit id="ponlQ8P" resname="Drivers list">
+        <source>Drivers list</source>
+        <target>Lijst van chauffeurs</target>
+      </trans-unit>
+      <trans-unit id="sMHfyR0" resname="Secretariat list">
+        <source>Secretariat list</source>
+        <target>Lijst van secretariaat</target>
+      </trans-unit>
+      <trans-unit id="IEenqvh" resname="Logistics list">
+        <source>Logistics list</source>
+        <target>Lijst van de logistieke</target>
+      </trans-unit>
+      <trans-unit id="DuiY6lh" resname="The user type doesn't exist">
+        <source>The user type doesn't exist</source>
+        <target>Type gebruiker bestaat niet</target>
+      </trans-unit>
+      <trans-unit id="iC92cKi" resname="Drivers list untagged">
+        <source>Drivers list untagged</source>
+        <target>Lijst van ongelabelde bestuurders</target>
+      </trans-unit>
+      <trans-unit id="uVmnayI" resname="Secretariats list untagged">
+        <source>Secretariats list untagged</source>
+        <target>Lijst van ongelabelde secretariaat</target>
+      </trans-unit>
+      <trans-unit id="ZsW2W64" resname="Logistics untagged list">
+        <source>Logistics untagged list</source>
+        <target>Lijst van ongelabelde logistieke</target>
+      </trans-unit>
+      <trans-unit id="9kWtBFa" resname="Verify service name">
+        <source>Verify service name</source>
+        <target>Controleer de servicenaam</target>
+      </trans-unit>
+      <trans-unit id="_EiP1v8" resname="The user has been added">
+        <source>The user has been added</source>
+        <target>De gebruiker is toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="2j3EfZr" resname="Logistics user add">
+        <source>Logistics user add</source>
+        <target>Een logistieke gebruiker toevoegen</target>
+      </trans-unit>
+      <trans-unit id="pK8uCTJ" resname="Secretariat user add">
+        <source>Secretariat user add</source>
+        <target>Een gebruiker van het secretariaat toevoegen</target>
+      </trans-unit>
+      <trans-unit id="vYoYdfs" resname="The driver has been deleted">
+        <source>The driver has been deleted</source>
+        <target>De bestuurder is verwijderd</target>
+      </trans-unit>
+      <trans-unit id="nRD7CyF" resname="The driver has been added">
+        <source>The driver has been added</source>
+        <target>De bestuurder is toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="bdz4xUK" resname="The driver has been edited">
+        <source>The driver has been edited</source>
+        <target>De bestuurder is bewerkt</target>
+      </trans-unit>
+      <trans-unit id="DpljIAV" resname="Service doesn't exist">
+        <source>Service doesn't exist</source>
+        <target>De dienst bestaat niet</target>
+      </trans-unit>
+      <trans-unit id="Xyhe0yL" resname="The password has been reset">
+        <source>The password has been reset</source>
+        <target>Het wachtwoord is gereset</target>
+      </trans-unit>
+      <trans-unit id="gmdVSwv" resname="User is disabled : enable before resetting password">
+        <source>User is disabled : enable before resetting password</source>
+        <target>Gebruiker is uitgeschakeld: activeren voor het resetten van het wachtwoord</target>
+      </trans-unit>
+      <trans-unit id="NFvpMcQ" resname="The password has already been reset">
+        <source>The password has already been reset</source>
+        <target>Het wachtwoord is al gereset</target>
+      </trans-unit>
+      <trans-unit id="SheT6ZA" resname="User not found">
+        <source>User not found</source>
+        <target>Gebruiker niet gevonden</target>
+      </trans-unit>
+      <trans-unit id="dJX37qT" resname="User has been disabled">
+        <source>User has been disabled</source>
+        <target>De gebruiker word uitgeschakeld</target>
+      </trans-unit>
+      <trans-unit id="sZ._q64" resname="User has been enabled">
+        <source>User has been enabled</source>
+        <target>De gebruiker word ingeschakeld</target>
+      </trans-unit>
+      <trans-unit id="LyxAvPo" resname="Password has to be changed">
+        <source>Password has to be changed</source>
+        <target>Het wachtwoord moet worden gewijzigd</target>
+      </trans-unit>
+      <trans-unit id="O0G6nHy" resname="No data">
+        <source>No data</source>
+        <target>Geen gegevens</target>
+      </trans-unit>
+      <trans-unit id="i3OxHRB" resname="Dayat 2.0">
+        <source>Dayat 2.0</source>
+        <target>Dayat 2.0</target>
+      </trans-unit>
+      <trans-unit id="1pajW90" resname="Profile">
+        <source>Profile</source>
+        <target>Profiel</target>
+      </trans-unit>
+      <trans-unit id="Z0C9RfA" resname="Requests list">
+        <source>Requests list</source>
+        <target>Lijst van verzoeken</target>
+      </trans-unit>
+      <trans-unit id="UlUVsrm" resname="The message has been sent successfully">
+        <source>The message has been sent successfully</source>
+        <target>Het bericht werd met succes verzonden</target>
+      </trans-unit>
+      <trans-unit id="aMERMzy" resname="Contact logistics">
+        <source>Contact logistics</source>
+        <target>Logistiek contact</target>
+      </trans-unit>
+      <trans-unit id="EN1MMj5" resname="Contact secretariat">
+        <source>Contact secretariat</source>
+        <target>Contact secretariaat</target>
+      </trans-unit>
+      <trans-unit id="a14vEhF" resname="You are not authorised to download this file">
+        <source>You are not authorised to download this file</source>
+        <target>U bent niet bevoegd om dit bestand te downloaden</target>
+      </trans-unit>
+      <trans-unit id="rrCp9XE" resname="My planning">
+        <source>My planning</source>
+        <target>Mijn agenda</target>
+      </trans-unit>
+      <trans-unit id="8eAFXNH" resname="Fines list">
+        <source>Fines list</source>
+        <target>Lijst van boetes</target>
+      </trans-unit>
+      <trans-unit id="ULkUJkR" resname="Drivers help">
+        <source>Drivers help</source>
+        <target>Hulp aan de bestuurder</target>
+      </trans-unit>
+      <trans-unit id="CdTXVz1" resname="Rounds list">
+        <source>Rounds list</source>
+        <target>Lijst van de rondleidingen</target>
+      </trans-unit>
+      <trans-unit id="WWdvpT1" resname="The round can be deleted, it has no assigments">
+        <source>The round can be deleted, it has no assigments</source>
+        <target>De rondleiding kan worden verwijderd, er zijn geen gerelateerde opdrachten</target>
+      </trans-unit>
+      <trans-unit id="EZNhh1z" resname="The round has not been deleted">
+        <source>The round has not been deleted</source>
+        <target>De rondleiding is niet verwijderd</target>
+      </trans-unit>
+      <trans-unit id="M2THTo5" resname="The round has been added">
+        <source>The round has been added</source>
+        <target>De rondleiding is toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="YOMQiww" resname="The round has been deleted">
+        <source>The round has been deleted</source>
+        <target>De rondleiding is verwijderd</target>
+      </trans-unit>
+      <trans-unit id="pu35NHg" resname="The round has been edited">
+        <source>The round has been edited</source>
+        <target>De rondleiding is bewerkt</target>
+      </trans-unit>
+      <trans-unit id="ElSR7Ld" resname="Edit round">
+        <source>Edit round</source>
+        <target>De rondleiding bewerken</target>
+      </trans-unit>
+      <trans-unit id="eEuoEJ2" resname="Add a round">
+        <source>Add a round</source>
+        <target>Een rondleiding toevoegen</target>
+      </trans-unit>
+      <trans-unit id="j__eMDg" resname="The assignment has been edited">
+        <source>The assignment has been edited</source>
+        <target>De opdracht is bewerkt</target>
+      </trans-unit>
+      <trans-unit id="hp151Y6" resname="The assignment has been deleted">
+        <source>The assignment has been deleted</source>
+        <target>De opdracht is verwijderd</target>
+      </trans-unit>
+      <trans-unit id="LIJ2jTv" resname="This round still has one or more assignments">
+        <source>This round still has one or more assignments</source>
+        <target>Deze  rondleiding heeft al één of meerdere opdrachten</target>
+      </trans-unit>
+      <trans-unit id="KaRTgZd" resname="Details of the round">
+        <source>Details of the round</source>
+        <target>Details van de rondleiding</target>
+      </trans-unit>
+      <trans-unit id="Tc5Q6q1" resname="Round parcels list">
+        <source>Round parcels list</source>
+        <target>Lijst van pakketten voor een rondleiding</target>
+      </trans-unit>
+      <trans-unit id="BSYL0YZ" resname="Details of the delivery">
+        <source>Details of the delivery</source>
+        <target>Leveringsgegevens</target>
+      </trans-unit>
+      <trans-unit id="dTucLJt" resname="Details of the pickup">
+        <source>Details of the pickup</source>
+        <target>Verwijderingsdetails</target>
+      </trans-unit>
+      <trans-unit id="721BFTr" resname="Round Assignment">
+        <source>Round Assignment</source>
+        <target>Rondleidingopdrachten</target>
+      </trans-unit>
+      <trans-unit id="7eBtkAe" resname="Assignments list">
+        <source>Assignments list</source>
+        <target>Opdrachtenlijst</target>
+      </trans-unit>
+      <trans-unit id="gGWOpKS" resname="Assignment archives list">
+        <source>Assignment archives list</source>
+        <target>Lijst van gearchiveerde opdrachten</target>
+      </trans-unit>
+      <trans-unit id="w0cQ0Cv" resname="Invalid Assignments list">
+        <source>Invalid Assignments list</source>
+        <target>Lijst van ongeldige opdrachten</target>
+      </trans-unit>
+      <trans-unit id="Q_S.l11" resname="Past assingments can't be edites">
+        <source>Past assingments can't be edites</source>
+        <target>Verleden opdrachten kunnen niet worden bewerkt</target>
+      </trans-unit>
+      <trans-unit id="6xoZYyo" resname="Please, check entered informations">
+        <source>Please, check entered informations</source>
+        <target>Controleer de ingevoerde informatie</target>
+      </trans-unit>
+      <trans-unit id="9U0yKg7" resname="Edit assignment">
+        <source>Edit assignment</source>
+        <target>Opdracht bewerken</target>
+      </trans-unit>
+      <trans-unit id="YTxytmH" resname="Add an assignment">
+        <source>Add an assignment</source>
+        <target>Een opdracht toevoegen</target>
+      </trans-unit>
+      <trans-unit id="hTsZnTY" resname="The unique assignment has been added">
+        <source>The unique assignment has been added</source>
+        <target>De enkele opdracht is toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="EB28vUQ" resname="Multiple assignments list">
+        <source>Multiple assignments list</source>
+        <target>Lijst van meerdere opdrachten</target>
+      </trans-unit>
+      <trans-unit id="Mq1NZYv" resname="Past assingments can't be deleted">
+        <source>Past assingments can't be deleted</source>
+        <target>Vroegere opdrachten kunnen niet worden gewist</target>
+      </trans-unit>
+      <trans-unit id="KOCNXsT" resname="Details of the assignment">
+        <source>Details of the assignment</source>
+        <target>Details van de opdracht</target>
+      </trans-unit>
+      <trans-unit id="SDO4iy5" resname="Driver assignments">
+        <source>Driver assignments</source>
+        <target>Bestuurdersopdrachten</target>
+      </trans-unit>
+      <trans-unit id="XVlEULF" resname="Vehicles list">
+        <source>Vehicles list</source>
+        <target>Voertuigen lijst</target>
+      </trans-unit>
+      <trans-unit id=".EeYEzo" resname="Free vehicles list">
+        <source>Free vehicles list</source>
+        <target>Lijst van beschikbare voertuigen</target>
+      </trans-unit>
+      <trans-unit id="kwP6Uif" resname="Vehicle assignments">
+        <source>Vehicle assignments</source>
+        <target>Voertuigopdrachten</target>
+      </trans-unit>
+      <trans-unit id="dULc.B6" resname="Deliveries list">
+        <source>Deliveries list</source>
+        <target>Lijst van leveringen</target>
+      </trans-unit>
+      <trans-unit id="78hWhf." resname="Pickup list">
+        <source>Pickup list</source>
+        <target>Pick-up lijst</target>
+      </trans-unit>
+      <trans-unit id="knBjCyP" resname="Today deliveries list">
+        <source>Today deliveries list</source>
+        <target>Dagelijkse leveringslijst</target>
+      </trans-unit>
+      <trans-unit id="s9cSwCa" resname="Today pickup list">
+        <source>Today pickup list</source>
+        <target>Afhalen lijst van de dag</target>
+      </trans-unit>
+      <trans-unit id="R_BSMNU" resname="Opened deliveries list">
+        <source>Opened deliveries list</source>
+        <target>Lijst van openstaande zendingen</target>
+      </trans-unit>
+      <trans-unit id="ihe4e.k" resname="Opened pickup list">
+        <source>Opened pickup list</source>
+        <target>Lijst van openstaande pick-up</target>
+      </trans-unit>
+      <trans-unit id="yZDckoJ" resname="Closed deliveries list">
+        <source>Closed deliveries list</source>
+        <target>Gesloten leveringslijst</target>
+      </trans-unit>
+      <trans-unit id="44SSmwv" resname="Closed pickup list">
+        <source>Closed pickup list</source>
+        <target>Gesloten pick-up lijst</target>
+      </trans-unit>
+      <trans-unit id="_TEpIh8" resname="Issues deliveries list">
+        <source>Issues deliveries list</source>
+        <target>Lijst van leveringsgeschillen</target>
+      </trans-unit>
+      <trans-unit id="ArHkDdR" resname="Issues pickup list">
+        <source>Issues pickup list</source>
+        <target>Lijst van ontvoeringsgeschillen</target>
+      </trans-unit>
+      <trans-unit id="c9gdrNv" resname="Express deliveries list">
+        <source>Express deliveries list</source>
+        <target>Expresverzendlijst</target>
+      </trans-unit>
+      <trans-unit id="2VYTiSo" resname="File contains more than 15000 entries">
+        <source>File contains more than 15000 entries</source>
+        <target>Het bestand bevat meer dan 15000 regels</target>
+      </trans-unit>
+      <trans-unit id="B.63ItA" resname="Upload deliveries list">
+        <source>Upload deliveries list</source>
+        <target>Laad de leveringslijst</target>
+      </trans-unit>
+      <trans-unit id="Juuuhcl" resname="Upload pickup list">
+        <source>Upload pickup list</source>
+        <target>Laad de pick-up lijst</target>
+      </trans-unit>
+      <trans-unit id="VgoxkTQ" resname="The parcel has been edited">
+        <source>The parcel has been edited</source>
+        <target>Het pakket is bewerkt</target>
+      </trans-unit>
+      <trans-unit id="FCp1Gqu" resname="The parcel has been closed">
+        <source>The parcel has been closed</source>
+        <target>Het pakket is gesloten</target>
+      </trans-unit>
+      <trans-unit id="OKU2eED" resname="Add delivery comment">
+        <source>Add delivery comment</source>
+        <target>Commentaar op een levering</target>
+      </trans-unit>
+      <trans-unit id="vLMi8mV" resname="Add pickup comment">
+        <source>Add pickup comment</source>
+        <target>Commentaar op een pick up</target>
+      </trans-unit>
+      <trans-unit id="COpJxyM" resname="Postal codes list">
+        <source>Postal codes list</source>
+        <target>Postcodelijst</target>
+      </trans-unit>
+      <trans-unit id="ab1Uoe_" resname="The postal code has been edited">
+        <source>The postal code has been edited</source>
+        <target>De postcode is bewerkt</target>
+      </trans-unit>
+      <trans-unit id="qV9a6Ib" resname="The postal code has been added">
+        <source>The postal code has been added</source>
+        <target>De postcode is toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="uEXXy3q" resname="The postal code has been deleted">
+        <source>The postal code has been deleted</source>
+        <target>De postcode is verwijderd</target>
+      </trans-unit>
+      <trans-unit id="wdrbnsf" resname="Edit postal code">
+        <source>Edit postal code</source>
+        <target>Een postcode bewerken</target>
+      </trans-unit>
+      <trans-unit id="BXdXlbs" resname="Add a postal code">
+        <source>Add a postal code</source>
+        <target>Voeg een postcode toe</target>
+      </trans-unit>
+      <trans-unit id="imaLLUk" resname="The parcel has been tagged as 'Waiting for more information'">
+        <source>The parcel has been tagged as 'Waiting for more information'</source>
+        <target>Het pakket is gemarkeerd als 'Wachtend op aanvullende informatie'</target>
+      </trans-unit>
+      <trans-unit id="SHn9NbR" resname="The file is too large">
+        <source>The file is too large</source>
+        <target>Het bestand is te groot</target>
+      </trans-unit>
+      <trans-unit id="m7S3gYY" resname="Contact administration">
+        <source>Contact administration</source>
+        <target>Contact administratie</target>
+      </trans-unit>
+      <trans-unit id="MkwUboF" resname="The fine has been deleted">
+        <source>The fine has been deleted</source>
+        <target>De boete is verwijderd</target>
+      </trans-unit>
+      <trans-unit id="IaoLojz" resname="The fine has been added">
+        <source>The fine has been added</source>
+        <target>L'amende a été ajouté</target>
+      </trans-unit>
+      <trans-unit id="28EQuCu" resname="The fine has been edited">
+        <source>The fine has been edited</source>
+        <target>De boete is bewerkt</target>
+      </trans-unit>
+      <trans-unit id="rdR9DxA" resname="Add a fine">
+        <source>Add a fine</source>
+        <target>Een boete toevoegen</target>
+      </trans-unit>
+      <trans-unit id="4AZ6oTG" resname="Edit fine">
+        <source>Edit fine</source>
+        <target>Boete Bewerken</target>
+      </trans-unit>
+      <trans-unit id="l.yUVxI" resname="Details of the fine">
+        <source>Details of the fine</source>
+        <target>Details van de boete</target>
+      </trans-unit>
+      <trans-unit id="gWrarUU" resname="Disabled drivers list">
+        <source>Disabled drivers list</source>
+        <target>Lijst van uitgeschakeld bestuurders</target>
+      </trans-unit>
+      <trans-unit id="rGBRxyR" resname="Driver add">
+        <source>Driver add</source>
+        <target>Een chauffeur toevoegen</target>
+      </trans-unit>
+      <trans-unit id="IdIBoOG" resname="No changes are possible until driver activation">
+        <source>No changes are possible until driver activation</source>
+        <target>Er zijn geen wijzigingenmogelijk voordat de bestuurder wordt geactiveerd</target>
+      </trans-unit>
+      <trans-unit id="mVhZk_z" resname="Edit driver">
+        <source>Edit driver</source>
+        <target>Bestuurder bewerken</target>
+      </trans-unit>
+      <trans-unit id="NmGPYjH" resname="Details of the driver">
+        <source>Details of the driver</source>
+        <target>Details van de bestuurder</target>
+      </trans-unit>
+      <trans-unit id="xRcK6fY" resname="Disabled vehicles list">
+        <source>Disabled vehicles list</source>
+        <target>Lijst van uitgeschakeld voertuigen</target>
+      </trans-unit>
+      <trans-unit id="7tBAliH" resname="Vehicle inspection expired">
+        <source>Vehicle inspection expired</source>
+        <target>De autokeuring verlopende</target>
+      </trans-unit>
+      <trans-unit id="b05OKQi" resname="Vehicle inspection refused">
+        <source>Vehicle inspection refused</source>
+        <target>Autokeuring geweigerd</target>
+      </trans-unit>
+      <trans-unit id="7lGrd1Z" resname="Vehicle inspection expires soon">
+        <source>Vehicle inspection expires soon</source>
+        <target>De autokeuring vervalt binnenkort</target>
+      </trans-unit>
+      <trans-unit id="MUI4zU4" resname="maintenance required">
+        <source>maintenance required</source>
+        <target>noodzakelijk onderhoud</target>
+      </trans-unit>
+      <trans-unit id="_aGlMT4" resname="The vehicle has been added">
+        <source>The vehicle has been added</source>
+        <target>Het voertuig is toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="vPllz3G" resname="The vehicle has been edited">
+        <source>The vehicle has been edited</source>
+        <target>Het voertuig is bewerkt</target>
+      </trans-unit>
+      <trans-unit id=".aT2yNK" resname="The vehicle has been deleted">
+        <source>The vehicle has been deleted</source>
+        <target>Het voertuig is verwijderd</target>
+      </trans-unit>
+      <trans-unit id="hrd6D.O" resname="The vehicle has been enabled">
+        <source>The vehicle has been enabled</source>
+        <target>Het voertuig is ingeschakeld</target>
+      </trans-unit>
+      <trans-unit id="lcCwXRF" resname="The vehicle has been disabled">
+        <source>The vehicle has been disabled</source>
+        <target>Het voertuig is uitgeschakeld</target>
+      </trans-unit>
+      <trans-unit id="GWp0vAp" resname="Add a vehicle">
+        <source>Add a vehicle</source>
+        <target>Een voertuig toevoegen</target>
+      </trans-unit>
+      <trans-unit id="Ccov4Kq" resname="No changes are possible until vehicle activation">
+        <source>No changes are possible until vehicle activation</source>
+        <target>Er zijn geen wijzigingen mogelijk voordat het voertuig wordt geactiveerd</target>
+      </trans-unit>
+      <trans-unit id="pizUJAs" resname="Edit vehicle">
+        <source>Edit vehicle</source>
+        <target>Een voertuig bewerken</target>
+      </trans-unit>
+      <trans-unit id="xKhIF5t" resname="Vehicle details">
+        <source>Vehicle details</source>
+        <target>Details van het voertuig</target>
+      </trans-unit>
+      <trans-unit id="6dRTaPD" resname="Models list">
+        <source>Models list</source>
+        <target>Lijst van modellen</target>
+      </trans-unit>
+      <trans-unit id="WbTLRKS" resname="The model has been added">
+        <source>The model has been added</source>
+        <target>Het model is toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="WihKk3L" resname="The model has been edited">
+        <source>The model has been edited</source>
+        <target>Het model is bewerkt</target>
+      </trans-unit>
+      <trans-unit id=".Ie83j5" resname="The model has been deleted">
+        <source>The model has been deleted</source>
+        <target>Het model is verwijderd</target>
+      </trans-unit>
+      <trans-unit id="NpDHCye" resname="Add a model">
+        <source>Add a model</source>
+        <target>Een model toevoegen</target>
+      </trans-unit>
+      <trans-unit id="FzPKeYn" resname="Edit model">
+        <source>Edit model</source>
+        <target>Een model bewerken</target>
+      </trans-unit>
+      <trans-unit id="XdvB500" resname="Model details">
+        <source>Model details</source>
+        <target>Details van het model</target>
+      </trans-unit>
+      <trans-unit id="1VXNNVq" resname="Categories list">
+        <source>Categories list</source>
+        <target>Lijst van categorieën</target>
+      </trans-unit>
+      <trans-unit id="vsjIjmY" resname="The category has been added">
+        <source>The category has been added</source>
+        <target>De categorie is toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="a.zfCbw" resname="The category has been edited">
+        <source>The category has been edited</source>
+        <target>De categorie is bewerkt</target>
+      </trans-unit>
+      <trans-unit id="H83yjCw" resname="The category has been deleted">
+        <source>The category has been deleted</source>
+        <target>De categorie is verwijderd</target>
+      </trans-unit>
+      <trans-unit id="IWEN1vH" resname="Edit category">
+        <source>Edit category</source>
+        <target>Categorie bewerken</target>
+      </trans-unit>
+      <trans-unit id="dqW1SWJ" resname="Add a category">
+        <source>Add a category</source>
+        <target>Een categorie toevoegen</target>
+      </trans-unit>
+      <trans-unit id="kfy5GRR" resname="Your message has been successfully sent">
+        <source>Your message has been successfully sent</source>
+        <target>Uw bericht is met succes verzonden</target>
+      </trans-unit>
+      <trans-unit id="p86LrTV" resname="Maintenances list">
+        <source>Maintenances list</source>
+        <target>Onderhouds lijst</target>
+      </trans-unit>
+      <trans-unit id="VjaA7wc" resname="The maintenance has been added">
+        <source>The maintenance has been added</source>
+        <target>Het onderhoud is toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="DNY496." resname="The maintenance has been edited">
+        <source>The maintenance has been edited</source>
+        <target>Het onderhoud is bewerkt</target>
+      </trans-unit>
+      <trans-unit id="Jmu6Zx." resname="Add a maintenance">
+        <source>Add a maintenance</source>
+        <target>Een ondehoud toevoegen</target>
+      </trans-unit>
+      <trans-unit id="9D0xhcU" resname="Edit maintenance">
+        <source>Edit maintenance</source>
+        <target>Een onderhoud bewerken</target>
+      </trans-unit>
+      <trans-unit id="l5SibJE" resname="Vehicle inspections list">
+        <source>Vehicle inspections list</source>
+        <target>Lijst van autokeuringen</target>
+      </trans-unit>
+      <trans-unit id="tfWurtb" resname="The vehicle inspection has been added">
+        <source>The vehicle inspection has been added</source>
+        <target>De autokeuring is toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="z03XRM7" resname="The vehicle inspection has been edited">
+        <source>The vehicle inspection has been edited</source>
+        <target>De autokeuring is bewerkt</target>
+      </trans-unit>
+      <trans-unit id="o2I1ME5" resname="Edit vehicle inspection">
+        <source>Edit vehicle inspection</source>
+        <target>Autokeuring bewerken</target>
+      </trans-unit>
+      <trans-unit id="ecXbodk" resname="Add a V.I.">
+        <source>Add a V.I.</source>
+        <target>Een autokeuring toevoegen</target>
+      </trans-unit>
+      <trans-unit id="Bv1DwrN" resname="No assignment before">
+        <source>No assignment before</source>
+        <target>Geen opdrachten tot</target>
+      </trans-unit>
+      <trans-unit id="Cga_XIJ" resname="The driver is already assigned for this date">
+        <source>The driver is already assigned for this date</source>
+        <target>De bestuurder is al toegewezen voor deze datum</target>
+      </trans-unit>
+      <trans-unit id="fMTT_Dy" resname="Driver is disabled">
+        <source>Driver is disabled</source>
+        <target>De bestuurder is uitgeschakeld</target>
+      </trans-unit>
+      <trans-unit id="gMHQtIV" resname="Vehicle is already assigned for this date">
+        <source>Vehicle is already assigned for this date</source>
+        <target>Het voertuig is op deze datum al toegewezen</target>
+      </trans-unit>
+      <trans-unit id="Ezyqfoh" resname="Vehicle is disabled">
+        <source>Vehicle is disabled</source>
+        <target>Het voertuig is uitgeschakeld</target>
+      </trans-unit>
+      <trans-unit id="J9kfVF7" resname="End date must be greater than">
+        <source>End date must be greater than</source>
+        <target>De einddatum moet groter zijn dan</target>
+      </trans-unit>
+      <trans-unit id="z9hyXFV" resname="No assignment has been added">
+        <source>No assignment has been added</source>
+        <target>Er zijn geen opdrachten toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="SZO1o7j" resname="The multiple assignment has been added">
+        <source>The multiple assignment has been added</source>
+        <target>Meervoudige opdracht is toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="g2nrR1Z" resname="This vehicle need a 'B' category">
+        <source>This vehicle need a 'B' category</source>
+        <target>Voor dit voertuig is een rijbewijs van categorie 'B' vereist</target>
+      </trans-unit>
+      <trans-unit id="MaZLUtH" resname="This vehicle need a 'C1' category">
+        <source>This vehicle need a 'C1' category</source>
+        <target>Voor dit voertuig is een rijbewijs van de categorie 'C1' vereist</target>
+      </trans-unit>
+      <trans-unit id="ULnfRVh" resname="This vehicle need a 'C' category">
+        <source>This vehicle need a 'C' category</source>
+        <target>Voor dit voertuig is een rijbewijs van categorie 'C' vereist</target>
+      </trans-unit>
+      <trans-unit id="ZOxKW4J" resname="This vehicle has no MMA">
+        <source>This vehicle has no MMA</source>
+        <target>Dit voertuig heeft geen MMA</target>
+      </trans-unit>
+      <trans-unit id="XzK8Yd1" resname="See details">
+        <source>See details</source>
+        <target>Zie details</target>
+      </trans-unit>
+      <trans-unit id="n4Mev1L" resname="Delete assignment">
+        <source>Delete assignment</source>
+        <target>De opdracht verwijderen</target>
+      </trans-unit>
+      <trans-unit id="6sRnB89" resname="Are you sure you want to delete this assignment">
+        <source>Are you sure you want to delete this assignment</source>
+        <target>Weet u zeker dat u deze opdracht wilt verwijderen</target>
+      </trans-unit>
+      <trans-unit id="nF5SpbL" resname="This action is irreversible">
+        <source>This action is irreversible</source>
+        <target>Deze actie is onomkeerbaar</target>
+      </trans-unit>
+      <trans-unit id="6MFW3gP" resname="New parcel(s) are added">
+        <source>New parcel(s) are added</source>
+        <target>Nieuwe pakketten worden toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="Dv0lG0n" resname="Parcels has not been added">
+        <source>Parcels has not been added</source>
+        <target>Pakketten zijn niet toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="RCJpW12" resname="File Error : can not open this file">
+        <source>File Error : can not open this file</source>
+        <target>Bestandsfout : Kan dit bestand niet openen</target>
+      </trans-unit>
+      <trans-unit id="PSqF3R9" resname="Edit delivery">
+        <source>Edit delivery</source>
+        <target>Levering bewerken</target>
+      </trans-unit>
+      <trans-unit id="xFO30qd" resname="Edit pickup">
+        <source>Edit pickup</source>
+        <target>Pick-up bewerken</target>
+      </trans-unit>
+      <trans-unit id="XF2xIMs" resname="Jan">
+        <source>Jan</source>
+        <target>Jan</target>
+      </trans-unit>
+      <trans-unit id="yvcbP1g" resname="Feb">
+        <source>Feb</source>
+        <target>Feb</target>
+      </trans-unit>
+      <trans-unit id="tLfTgY2" resname="Mar">
+        <source>Mar</source>
+        <target>Maa</target>
+      </trans-unit>
+      <trans-unit id="YXUxtP7" resname="Apr">
+        <source>Apr</source>
+        <target>Apr</target>
+      </trans-unit>
+      <trans-unit id="jHj_W5k" resname="May">
+        <source>May</source>
+        <target>Mei</target>
+      </trans-unit>
+      <trans-unit id="sn.UbtG" resname="Jun">
+        <source>Jun</source>
+        <target>Jun</target>
+      </trans-unit>
+      <trans-unit id="xD9WuYB" resname="Jul">
+        <source>Jul</source>
+        <target>Jul</target>
+      </trans-unit>
+      <trans-unit id="QeHYKqm" resname="Aug">
+        <source>Aug</source>
+        <target>Aug</target>
+      </trans-unit>
+      <trans-unit id="RR4rcZB" resname="Sep">
+        <source>Sep</source>
+        <target>Sep</target>
+      </trans-unit>
+      <trans-unit id="aHfoSUw" resname="Oct">
+        <source>Oct</source>
+        <target>Okt</target>
+      </trans-unit>
+      <trans-unit id="PmMNKWS" resname="Nov">
+        <source>Nov</source>
+        <target>Nov</target>
+      </trans-unit>
+      <trans-unit id="8qDPvPG" resname="Dec">
+        <source>Dec</source>
+        <target>Dec</target>
+      </trans-unit>
+      <trans-unit id="T_ygr1H" resname="unknow">
+        <source>unknow</source>
+        <target>onbekende</target>
+      </trans-unit>
+      <trans-unit id="NwguaN_" resname="January">
+        <source>January</source>
+        <target>Januari</target>
+      </trans-unit>
+      <trans-unit id="yHfG.0B" resname="February">
+        <source>February</source>
+        <target>Februari</target>
+      </trans-unit>
+      <trans-unit id="nZWizw1" resname="March">
+        <source>March</source>
+        <target>Maart</target>
+      </trans-unit>
+      <trans-unit id="Sv5uoVD" resname="April">
+        <source>April</source>
+        <target>April</target>
+      </trans-unit>
+      <trans-unit id="1YCMDgp" resname="June">
+        <source>June</source>
+        <target>Juni</target>
+      </trans-unit>
+      <trans-unit id="6c96HKS" resname="July">
+        <source>July</source>
+        <target>Juli</target>
+      </trans-unit>
+      <trans-unit id="pm2JcOV" resname="August">
+        <source>August</source>
+        <target>_Augustus</target>
+      </trans-unit>
+      <trans-unit id="zVWeoKv" resname="September">
+        <source>September</source>
+        <target>September</target>
+      </trans-unit>
+      <trans-unit id=".deReHt" resname="October">
+        <source>October</source>
+        <target>Oktober</target>
+      </trans-unit>
+      <trans-unit id="neb_HXJ" resname="November">
+        <source>November</source>
+        <target>November</target>
+      </trans-unit>
+      <trans-unit id="j7IEykY" resname="December">
+        <source>December</source>
+        <target>December</target>
+      </trans-unit>
+      <trans-unit id="9A1.Ufa" resname="Mon">
+        <source>Mon</source>
+        <target>Maa</target>
+      </trans-unit>
+      <trans-unit id="0es5sJv" resname="Tue">
+        <source>Tue</source>
+        <target>Din</target>
+      </trans-unit>
+      <trans-unit id="WDOfRd_" resname="Wed">
+        <source>Wed</source>
+        <target>Woe</target>
+      </trans-unit>
+      <trans-unit id="faESEu0" resname="Thu">
+        <source>Thu</source>
+        <target>Don</target>
+      </trans-unit>
+      <trans-unit id="Ztq0DOo" resname="Fri">
+        <source>Fri</source>
+        <target>Vri</target>
+      </trans-unit>
+      <trans-unit id=".etxtWn" resname="Sat">
+        <source>Sat</source>
+        <target>Zat</target>
+      </trans-unit>
+      <trans-unit id="2xjxf_U" resname="Sun">
+        <source>Sun</source>
+        <target>Zon</target>
+      </trans-unit>
+      <trans-unit id="agDfwdy" resname="Monday">
+        <source>Monday</source>
+        <target>maandag</target>
+      </trans-unit>
+      <trans-unit id="fYrx3hJ" resname="Tuesday">
+        <source>Tuesday</source>
+        <target>Dinsdag</target>
+      </trans-unit>
+      <trans-unit id="wKbMgpz" resname="Wednesday">
+        <source>Wednesday</source>
+        <target>Woensdag</target>
+      </trans-unit>
+      <trans-unit id=".CZiBi." resname="Thursday">
+        <source>Thursday</source>
+        <target>Donderdag</target>
+      </trans-unit>
+      <trans-unit id="4h8.Nyp" resname="Friday">
+        <source>Friday</source>
+        <target>Vrijdag</target>
+      </trans-unit>
+      <trans-unit id="2_Ncc2P" resname="Saturday">
+        <source>Saturday</source>
+        <target>Zaterdag</target>
+      </trans-unit>
+      <trans-unit id="hz.vdg5" resname="Sunday">
+        <source>Sunday</source>
+        <target>Zondag</target>
+      </trans-unit>
+      <trans-unit id="0VmPGIY" resname="Parcel taken in charge">
+        <source>Parcel taken in charge</source>
+        <target>Het verzorgen van het pakket</target>
+      </trans-unit>
+      <trans-unit id="rsnBZ.1" resname="On the way to delivery (first pass)">
+        <source>On the way to delivery (first pass)</source>
+        <target>Op weg naar de levering (eerste pas)</target>
+      </trans-unit>
+      <trans-unit id="xzIJaY1" resname="Failure first pass">
+        <source>Failure first pass</source>
+        <target>Mislukking van de eerste pas</target>
+      </trans-unit>
+      <trans-unit id="UsHPsFq" resname="Waiting for second pass">
+        <source>Waiting for second pass</source>
+        <target>Wachten op een tweede pas</target>
+      </trans-unit>
+      <trans-unit id="uy0reSf" resname="On the way to delivery (second passage)">
+        <source>On the way to delivery (second passage)</source>
+        <target>Op weg naar de levering (tweede pas)</target>
+      </trans-unit>
+      <trans-unit id="ywMdYbV" resname="Parcel refused by the recipient">
+        <source>Parcel refused by the recipient</source>
+        <target>Door de ontvanger geweigerde verpakking</target>
+      </trans-unit>
+      <trans-unit id="pveqTZp" resname="Error address">
+        <source>Error address</source>
+        <target>Fout in adres</target>
+      </trans-unit>
+      <trans-unit id="5Hu_z0n" resname="Return to sender">
+        <source>Return to sender</source>
+        <target>Terug naar de afzender</target>
+      </trans-unit>
+      <trans-unit id="qd1NpaI" resname="Awaiting information (investigation in progress)">
+        <source>Awaiting information (investigation in progress)</source>
+        <target>Wachtende informatie (lopend onderzoek)</target>
+      </trans-unit>
+      <trans-unit id="Oax6W7_" resname="Lost parcels">
+        <source>Lost parcels</source>
+        <target>Verloren pakje</target>
+      </trans-unit>
+      <trans-unit id="2n_CumO" resname="On the way to the sorting center">
+        <source>On the way to the sorting center</source>
+        <target>Op weg naar het sorteercentrum</target>
+      </trans-unit>
+      <trans-unit id="hekE0dS" resname="Parcel delivered">
+        <source>Parcel delivered</source>
+        <target>Geleverd pakketje</target>
+      </trans-unit>
+      <trans-unit id="DiImtSN" resname="Welcome">
+        <source>Welcome</source>
+        <target>Welkom</target>
+      </trans-unit>
+      <trans-unit id="t5yskm4" resname="Help">
+        <source>Help</source>
+        <target>Hulp</target>
+      </trans-unit>
+      <trans-unit id="Tvyg0Qx" resname="About">
+        <source>About</source>
+        <target>Over ons</target>
+      </trans-unit>
+      <trans-unit id="dLfRcNK" resname="Driver login">
+        <source>Driver login</source>
+        <target>Driver verbinding</target>
+      </trans-unit>
+      <trans-unit id="BXAPvHF" resname="Secretariat login">
+        <source>Secretariat login</source>
+        <target>Secretarieel verbinding</target>
+      </trans-unit>
+      <trans-unit id="pVOHmTs" resname="Logistics login">
+        <source>Logistics login</source>
+        <target>Logistieke verbinding</target>
+      </trans-unit>
+      <trans-unit id="MBorlHp" resname="Administration login">
+        <source>Administration login</source>
+        <target>Beheerder Login</target>
+      </trans-unit>
+      <trans-unit id="BotNt.." resname="The password entered does not match the current password">
+        <source>The password entered does not match the current password</source>
+        <target>Het ingevoerde wachtwoord komt niet overeen met het huidige wachtwoord</target>
+      </trans-unit>
+      <trans-unit id="C6ndesI" resname="The new password has been saved">
+        <source>The new password has been saved</source>
+        <target>Het nieuwe wachtwoord is opgeslagen</target>
+      </trans-unit>
+      <trans-unit id="P5yZH2O" resname="Change password">
+        <source>Change password</source>
+        <target>Verander wachtwoord</target>
+      </trans-unit>
+      <trans-unit id="X2zQRc0" resname="Secretariat">
+        <source>Secretariat</source>
+        <target>Secretariaat</target>
+      </trans-unit>
+      <trans-unit id="rm6YkJy" resname="Logistics">
+        <source>Logistics</source>
+        <target>Logistiek</target>
+      </trans-unit>
+      <trans-unit id="n_TGjsI" resname="Driver">
+        <source>Driver</source>
+        <target>Bestuurder</target>
+      </trans-unit>
+      <trans-unit id="ybPDgkf" resname="Total">
+        <source>Total</source>
+        <target>Totaal</target>
+      </trans-unit>
+      <trans-unit id="dQgbWT0" resname="Disabled">
+        <source>Disabled</source>
+        <target>Uitgeschakeld</target>
+      </trans-unit>
+      <trans-unit id="ksHN.fT" resname="Enabled">
+        <source>Enabled</source>
+        <target>Ingeschakeld</target>
+      </trans-unit>
+      <trans-unit id="2u52BrM" resname="Reset">
+        <source>Reset</source>
+        <target>Reset</target>
+      </trans-unit>
+      <trans-unit id="9RYiBjG" resname="Valid">
+        <source>Valid</source>
+        <target>Geldig</target>
+      </trans-unit>
+      <trans-unit id="7iUFZs." resname="Dated">
+        <source>Dated</source>
+        <target>Datum</target>
+      </trans-unit>
+      <trans-unit id="1ncZDgq" resname="Service">
+        <source>Service</source>
+        <target>Dienst</target>
+      </trans-unit>
+      <trans-unit id="2VCCou5" resname="Author">
+        <source>Author</source>
+        <target>Auteur</target>
+      </trans-unit>
+      <trans-unit id="aJcSg4Q" resname="Subject">
+        <source>Subject</source>
+        <target>Onderwerp</target>
+      </trans-unit>
+      <trans-unit id="L3dmip3" resname="Message">
+        <source>Message</source>
+        <target>Bericht</target>
+      </trans-unit>
+      <trans-unit id="UACc4dp" resname="File">
+        <source>File</source>
+        <target>Bestand</target>
+      </trans-unit>
+      <trans-unit id="wh6tBhT" resname="Closed">
+        <source>Closed</source>
+        <target>Gesloten</target>
+      </trans-unit>
+      <trans-unit id="2NosSd8" resname="Note">
+        <source>Note</source>
+        <target>Opmerking</target>
+      </trans-unit>
+      <trans-unit id="u.doYK6" resname="No file">
+        <source>No file</source>
+        <target>Geen bestand</target>
+      </trans-unit>
+      <trans-unit id="3347Bgu" resname="Get file">
+        <source>Get file</source>
+        <target>Haal het bestand</target>
+      </trans-unit>
+      <trans-unit id="ZM.xMZ0" resname="Action">
+        <source>Action</source>
+        <target>Actie</target>
+      </trans-unit>
+      <trans-unit id="vPeU_kT" resname="Reply request">
+        <source>Reply request</source>
+        <target>Beantwoord de vraag</target>
+      </trans-unit>
+      <trans-unit id="jwLcZ0L" resname="Request date">
+        <source>Request date</source>
+        <target>Datum van aanvraag</target>
+      </trans-unit>
+      <trans-unit id="OEOXHc." resname="ID">
+        <source>ID</source>
+        <target>ID</target>
+      </trans-unit>
+      <trans-unit id="e0iIBJR" resname="Last name">
+        <source>Last name</source>
+        <target>Naam</target>
+      </trans-unit>
+      <trans-unit id="cC75Ie0" resname="First name">
+        <source>First name</source>
+        <target>Voornaam</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>E-mail</target>
+      </trans-unit>
+      <trans-unit id="l0xxzZ0" resname="Initialized">
+        <source>Initialized</source>
+        <target>Geïnitialiseerd</target>
+      </trans-unit>
+      <trans-unit id="_ip2XJS" resname="Disable user">
+        <source>Disable user</source>
+        <target>De gebruiker uitgeschakelen</target>
+      </trans-unit>
+      <trans-unit id="yTifRMu" resname="Enable user">
+        <source>Enable user</source>
+        <target>De gebruiker ingeschakeld</target>
+      </trans-unit>
+      <trans-unit id="TnDx.SS" resname="Reset Password">
+        <source>Reset Password</source>
+        <target>Wachtwoord resetten</target>
+      </trans-unit>
+      <trans-unit id="ksHgT2N" resname="H.G.M.T.">
+        <source>H.G.M.T.</source>
+        <target>H.G.M.T.</target>
+      </trans-unit>
+      <trans-unit id="vYLPFmm" resname="Number">
+        <source>Number</source>
+        <target>Nummer</target>
+      </trans-unit>
+      <trans-unit id="SeltfN9" resname="Amount">
+        <source>Amount</source>
+        <target>Bedrag</target>
+      </trans-unit>
+      <trans-unit id="piOUukr" resname="Vehicle">
+        <source>Vehicle</source>
+        <target>Voertuig</target>
+      </trans-unit>
+      <trans-unit id="mcQKtAW" resname="Date">
+        <source>Date</source>
+        <target>Datum</target>
+      </trans-unit>
+      <trans-unit id="CQ7UMW8" resname="Brand">
+        <source>Brand</source>
+        <target>Merk</target>
+      </trans-unit>
+      <trans-unit id="XixhTCP" resname="Model">
+        <source>Model</source>
+        <target>Model</target>
+      </trans-unit>
+      <trans-unit id="zZVYrPw" resname="Round">
+        <source>Round</source>
+        <target>Rondleidingen</target>
+      </trans-unit>
+      <trans-unit id="nQiJU4V" resname="Today assignments">
+        <source>Today assignments</source>
+        <target>Opdrachten van de dag</target>
+      </trans-unit>
+      <trans-unit id="6YHdrkX" resname="Warning">
+        <source>Warning</source>
+        <target>Afwijzing</target>
+      </trans-unit>
+      <trans-unit id="K8ECuU6" resname="Driver's license">
+        <source>Driver's license</source>
+        <target>Rijbewijs</target>
+      </trans-unit>
+      <trans-unit id="VfVz269" resname="Expires today">
+        <source>Expires today</source>
+        <target>Verloopt vandaag</target>
+      </trans-unit>
+      <trans-unit id="QkolUdN" resname="Expired">
+        <source>Expired</source>
+        <target>Vervallen</target>
+      </trans-unit>
+      <trans-unit id="3plnUk8" resname="Expires in">
+        <source>Expires in</source>
+        <target>Verloopt in</target>
+      </trans-unit>
+      <trans-unit id="q1EATp1" resname="days">
+        <source>days</source>
+        <target>dagen</target>
+      </trans-unit>
+      <trans-unit id="WJ3O79h" resname="Next assignments">
+        <source>Next assignments</source>
+        <target>Komende Opdrachten</target>
+      </trans-unit>
+      <trans-unit id="tATtPDc" resname="vehicle">
+        <source>vehicle</source>
+        <target>voertuig</target>
+      </trans-unit>
+      <trans-unit id="NDRX_SA" resname="Last requests">
+        <source>Last requests</source>
+        <target>Laatste verzoeken</target>
+      </trans-unit>
+      <trans-unit id="DNhlxm_" resname="Eraze data">
+        <source>Eraze data</source>
+        <target>De gegevens gewist</target>
+      </trans-unit>
+      <trans-unit id="KsUeRrU" resname="Reload screen">
+        <source>Reload screen</source>
+        <target>Herladen van het scherm</target>
+      </trans-unit>
+      <trans-unit id="azLDsAc" resname="Ready to scan">
+        <source>Ready to scan</source>
+        <target>Klaar om gescand te worden</target>
+      </trans-unit>
+      <trans-unit id="GH6Auk2" resname="Mobile number">
+        <source>Mobile number</source>
+        <target>Mobiel telefoonnummer</target>
+      </trans-unit>
+      <trans-unit id="f.NmGX0" resname="National registry">
+        <source>National registry</source>
+        <target>Nationaal register</target>
+      </trans-unit>
+      <trans-unit id="60xOI5E" resname="Date of birth">
+        <source>Date of birth</source>
+        <target>Geboortedatum</target>
+      </trans-unit>
+      <trans-unit id="qhHCUrl" resname="Civil status">
+        <source>Civil status</source>
+        <target>Burgerlijke staat</target>
+      </trans-unit>
+      <trans-unit id="Vu_PIJV" resname="Address">
+        <source>Address</source>
+        <target>Postadres</target>
+      </trans-unit>
+      <trans-unit id="5nNM.NW" resname="Fines">
+        <source>Fines</source>
+        <target>Boetes</target>
+      </trans-unit>
+      <trans-unit id="iKgYFUC" resname="fine(s) this month">
+        <source>fine(s) this month</source>
+        <target>boete(s) deze maand</target>
+      </trans-unit>
+      <trans-unit id="7XqZh.J" resname="Congratulations">
+        <source>Congratulations</source>
+        <target>Gefeliciteerd</target>
+      </trans-unit>
+      <trans-unit id="q2K1j6i" resname="License number">
+        <source>License number</source>
+        <target>Rijbewijsnummer</target>
+      </trans-unit>
+      <trans-unit id="nDBQ6Ge" resname="Validity">
+        <source>Validity</source>
+        <target>Geldigheid</target>
+      </trans-unit>
+      <trans-unit id="ks0FTad" resname="Valid until">
+        <source>Valid until</source>
+        <target>Geldig tot</target>
+      </trans-unit>
+      <trans-unit id="KSwG8AR" resname="Category">
+        <source>Category</source>
+        <target>Categorie</target>
+      </trans-unit>
+      <trans-unit id="LS9wxai" resname="Invalid file format! File format must be only &quot;PDF&quot;">
+        <source>Invalid file format! File format must be only "PDF"</source>
+        <target>Ongeldig bestandsformaat: het formaat moet '.pdf' zijn</target>
+      </trans-unit>
+      <trans-unit id="SN2ghSX" resname="Maximum file size limit is 4 MB">
+        <source>Maximum file size limit is 4 MB</source>
+        <target>Maximale bestandsgrootte is 4 MB</target>
+      </trans-unit>
+      <trans-unit id="e3Xb_.q" resname="Select a file">
+        <source>Select a file</source>
+        <target>Selecteer een bestand</target>
+      </trans-unit>
+      <trans-unit id="3uN3z9j" resname="Statut">
+        <source>Statut</source>
+        <target>Status</target>
+      </trans-unit>
+      <trans-unit id="2L7A08I" resname="In process">
+        <source>In process</source>
+        <target>Huidige behandelingen</target>
+      </trans-unit>
+      <trans-unit id="lHSRykk" resname="Hayam - Global Management Tools">
+        <source>Hayam - Global Management Tools</source>
+        <target>Hayam - Global Management Tools</target>
+      </trans-unit>
+      <trans-unit id="14FDDBP" resname="Driver area">
+        <source>Driver area</source>
+        <target>Bestuurder gebied</target>
+      </trans-unit>
+      <trans-unit id="Y5pA6Cu" resname="Connection">
+        <source>Connection</source>
+        <target>Verbinding</target>
+      </trans-unit>
+      <trans-unit id="_UuY7bQ" resname="Secretariat area">
+        <source>Secretariat area</source>
+        <target>Secretarieel gebied</target>
+      </trans-unit>
+      <trans-unit id="nTNXspF" resname="Logistics area">
+        <source>Logistics area</source>
+        <target>Logistiek gebied</target>
+      </trans-unit>
+      <trans-unit id="tZ08pY_" resname="Licence category">
+        <source>Licence category</source>
+        <target>Rijbewijs categorie</target>
+      </trans-unit>
+      <trans-unit id="uRucrFB" resname="No category">
+        <source>No category</source>
+        <target>Geen categorie</target>
+      </trans-unit>
+      <trans-unit id="zOUJL7L" resname="No driver's licence">
+        <source>No driver's licence</source>
+        <target>Geen rijbewijs</target>
+      </trans-unit>
+      <trans-unit id="TutmmGK" resname="License plate">
+        <source>License plate</source>
+        <target>Voertuigregistratie</target>
+      </trans-unit>
+      <trans-unit id="o8M3DMc" resname="Model name">
+        <source>Model name</source>
+        <target>Modelnaam</target>
+      </trans-unit>
+      <trans-unit id="rmXQllU" resname="Capacity">
+        <source>Capacity</source>
+        <target>Capaciteit</target>
+      </trans-unit>
+      <trans-unit id="FwMioy8" resname="Info">
+        <source>Info</source>
+        <target>Info</target>
+      </trans-unit>
+      <trans-unit id="bj14OEZ" resname="Extra driver">
+        <source>Extra driver</source>
+        <target>Extra bestuurder</target>
+      </trans-unit>
+      <trans-unit id="2mZ4.XC" resname="Driver license Category">
+        <source>Driver license Category</source>
+        <target>Categorie van het rijbewijs</target>
+      </trans-unit>
+      <trans-unit id="IN72_Hk" resname="Modele">
+        <source>Modele</source>
+        <target>Model</target>
+      </trans-unit>
+      <trans-unit id="g22i7ZT" resname="See the list of invalid assignments">
+        <source>See the list of invalid assignments</source>
+        <target>Zie lijst van ongeldige opdrachten</target>
+      </trans-unit>
+      <trans-unit id="FTzarsV" resname="Assignment">
+        <source>Assignment</source>
+        <target>Opdracht</target>
+      </trans-unit>
+      <trans-unit id="VvUyOIe" resname="No assignment : add one">
+        <source>No assignment : add one</source>
+        <target>Geen opdracht : meer toevoegen</target>
+      </trans-unit>
+      <trans-unit id="6kurB4s" resname="Driver assigments list">
+        <source>Driver assigments list</source>
+        <target>Opdrachtlijst van de bestuurder</target>
+      </trans-unit>
+      <trans-unit id="rlPOqCK" resname="Postal code">
+        <source>Postal code</source>
+        <target>Postcode</target>
+      </trans-unit>
+      <trans-unit id="I2IfwPV" resname="Locality">
+        <source>Locality</source>
+        <target>Plaats</target>
+      </trans-unit>
+      <trans-unit id="iJGwlW8" resname="Delete postal code">
+        <source>Delete postal code</source>
+        <target>Postcode verwijderen</target>
+      </trans-unit>
+      <trans-unit id="zpjUAos" resname="Are you sure you want to remove this postcode">
+        <source>Are you sure you want to remove this postcode</source>
+        <target>Weet u zeker dat u deze postcode wilt verwijderen</target>
+      </trans-unit>
+      <trans-unit id="php7lYs" resname="Invalid file format! File format must be only &quot;csv&quot;">
+        <source>Invalid file format! File format must be only "csv"</source>
+        <target>Ongeldig bestandsformaat: het formaat moet '.csv' zijn</target>
+      </trans-unit>
+      <trans-unit id="dD16H9p" resname="Maximum file size limit is 6 MB">
+        <source>Maximum file size limit is 6 MB</source>
+        <target>Maximale bestandsgrootte is 6 MB</target>
+      </trans-unit>
+      <trans-unit id="KX0WE9x" resname="Parcel number">
+        <source>Parcel number</source>
+        <target>Pakketnummer</target>
+      </trans-unit>
+      <trans-unit id="gEWDNSB" resname="Parcel">
+        <source>Parcel</source>
+        <target>Pakket</target>
+      </trans-unit>
+      <trans-unit id="NV958p1" resname="Comments">
+        <source>Comments</source>
+        <target>Opmerkingen</target>
+      </trans-unit>
+      <trans-unit id="3.XPOzA" resname="No comments">
+        <source>No comments</source>
+        <target>Geen commentaar</target>
+      </trans-unit>
+      <trans-unit id="s5SaVIt" resname="Tracking History">
+        <source>Tracking History</source>
+        <target>Geschiedenis van de follow-ups</target>
+      </trans-unit>
+      <trans-unit id="6T8pySA" resname="Statut code">
+        <source>Statut code</source>
+        <target>Statuscode</target>
+      </trans-unit>
+      <trans-unit id="AFKxVun" resname="Statut info">
+        <source>Statut info</source>
+        <target>Statusinformatie</target>
+      </trans-unit>
+      <trans-unit id="aoRsSCM" resname="Tag as delivered">
+        <source>Tag as delivered</source>
+        <target>Gemarkeerd geleverd</target>
+      </trans-unit>
+      <trans-unit id="OD0gHWJ" resname="Tag as issue">
+        <source>Tag as issue</source>
+        <target>Gemarkeerde rechtszaken</target>
+      </trans-unit>
+      <trans-unit id="ifhlrGY" resname="Are you sure you want to add a new comment">
+        <source>Are you sure you want to add a new comment</source>
+        <target>Weet u zeker dat u een nieuwe commentator wilt toevoegen</target>
+      </trans-unit>
+      <trans-unit id="QGEau92" resname="Validate">
+        <source>Validate</source>
+        <target>Bevestigen</target>
+      </trans-unit>
+      <trans-unit id="72aRVF0" resname="Standard">
+        <source>Standard</source>
+        <target>Standaard</target>
+      </trans-unit>
+      <trans-unit id="VyoUFkv" resname="Express">
+        <source>Express</source>
+        <target>Express</target>
+      </trans-unit>
+      <trans-unit id="ZmBn3Td" resname="Issues">
+        <source>Issues</source>
+        <target>Geschillen</target>
+      </trans-unit>
+      <trans-unit id="toUHamB" resname="Pickup">
+        <source>Pickup</source>
+        <target>Pick-up</target>
+      </trans-unit>
+      <trans-unit id="iL2ZCvM" resname="Free drivers">
+        <source>Free drivers</source>
+        <target>Vrij bestuurderen</target>
+      </trans-unit>
+      <trans-unit id="w2O8XYb" resname="No free driver">
+        <source>No free driver</source>
+        <target>Geen extra bestuurderen</target>
+      </trans-unit>
+      <trans-unit id="WOSuJdI" resname="Free vehicles">
+        <source>Free vehicles</source>
+        <target>Vrij voertuigen</target>
+      </trans-unit>
+      <trans-unit id="KBRRoL5" resname="No free vehicle">
+        <source>No free vehicle</source>
+        <target>Geen extra voertuig</target>
+      </trans-unit>
+      <trans-unit id="pBXDxgZ" resname="Logistic help">
+        <source>Logistic help</source>
+        <target>Hulp aan de logistieke</target>
+      </trans-unit>
+      <trans-unit id="cSMXXVp" resname="Address (number)">
+        <source>Address (number)</source>
+        <target>Adres (nummer)</target>
+      </trans-unit>
+      <trans-unit id="uq3fcPt" resname="Type">
+        <source>Type</source>
+        <target>Type</target>
+      </trans-unit>
+      <trans-unit id="Ur.lhKX" resname="Delivery">
+        <source>Delivery</source>
+        <target>Levering</target>
+      </trans-unit>
+      <trans-unit id="cb_Qk1." resname="Reference">
+        <source>Reference</source>
+        <target>Referentie</target>
+      </trans-unit>
+      <trans-unit id="DW_dCwZ" resname="No postal codes">
+        <source>No postal codes</source>
+        <target>Geen postcodes</target>
+      </trans-unit>
+      <trans-unit id="iWM02cM" resname="Parcels list">
+        <source>Parcels list</source>
+        <target>Lijst van pakketten</target>
+      </trans-unit>
+      <trans-unit id="UHwVCtc" resname="Delete round">
+        <source>Delete round</source>
+        <target>De rondleiding verwijderen</target>
+      </trans-unit>
+      <trans-unit id="m2vLhgN" resname="Are you sure you want to remove this round">
+        <source>Are you sure you want to remove this round</source>
+        <target>Weet u zeker dat u deze rondleiding wilt annuleren</target>
+      </trans-unit>
+      <trans-unit id="I6THLC1" resname="Current assignments">
+        <source>Current assignments</source>
+        <target>Huidige opdrachten</target>
+      </trans-unit>
+      <trans-unit id="edxEV_d" resname="No assignments for today">
+        <source>No assignments for today</source>
+        <target>Geen opdracht voor vandaag</target>
+      </trans-unit>
+      <trans-unit id="Y7aLhL3" resname="Round assignments">
+        <source>Round assignments</source>
+        <target>Rondleidingenopdrachten</target>
+      </trans-unit>
+      <trans-unit id="KnS3aS3" resname="Postal codes">
+        <source>Postal codes</source>
+        <target>Postcode</target>
+      </trans-unit>
+      <trans-unit id="6V_8tGk" resname="Number - City">
+        <source>Number - City</source>
+        <target>Nummer - Stad</target>
+      </trans-unit>
+      <trans-unit id="HLC6El_" resname="Information">
+        <source>Information</source>
+        <target>Informatie</target>
+      </trans-unit>
+      <trans-unit id="0foeNKC" resname="Parcels in progress">
+        <source>Parcels in progress</source>
+        <target>Colis en cours</target>
+      </trans-unit>
+      <trans-unit id="b2crxTm" resname="Numberplate">
+        <source>Numberplate</source>
+        <target>Kenteken</target>
+      </trans-unit>
+      <trans-unit id="WfA9ZCt" resname="Request">
+        <source>Request</source>
+        <target>Verzoek</target>
+      </trans-unit>
+      <trans-unit id="byAvVKe" resname="List">
+        <source>List</source>
+        <target>Lijst</target>
+      </trans-unit>
+      <trans-unit id="n9coxmy" resname="Add">
+        <source>Add</source>
+        <target>Toevoegen</target>
+      </trans-unit>
+      <trans-unit id="aOew_NT" resname="Password change">
+        <source>Password change</source>
+        <target>Wijziging van het wachtwoord</target>
+      </trans-unit>
+      <trans-unit id="0FJ_Sz1" resname="Logout">
+        <source>Logout</source>
+        <target>Afmelden</target>
+      </trans-unit>
+      <trans-unit id=".S6aCAC" resname="Dayat">
+        <source>Dayat</source>
+        <target>Dayat</target>
+      </trans-unit>
+      <trans-unit id="ftzl0Dw" resname="Request history">
+        <source>Request history</source>
+        <target>Toepassingsgeschiedenis</target>
+      </trans-unit>
+      <trans-unit id="IcwwUJV" resname="Planning">
+        <source>Planning</source>
+        <target>Agenda</target>
+      </trans-unit>
+      <trans-unit id="NEYcjd0" resname="My profil">
+        <source>My profil</source>
+        <target>Mijn profiel</target>
+      </trans-unit>
+      <trans-unit id="vko3pnY" resname="All rights reserved">
+        <source>All rights reserved</source>
+        <target>Alle rechten voorbehouden</target>
+      </trans-unit>
+      <trans-unit id="Muc6TPw" resname="Hayam Transport Ltd">
+        <source>Hayam Transport Ltd</source>
+        <target>Hayam Vervoer Bvba</target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>Huis</target>
+      </trans-unit>
+      <trans-unit id="JUFYewr" resname="Assignment add">
+        <source>Assignment add</source>
+        <target>Opdracht toevoegen</target>
+      </trans-unit>
+      <trans-unit id="oC3MF_." resname="Assignment archives">
+        <source>Assignment archives</source>
+        <target>Opdrachtarchief</target>
+      </trans-unit>
+      <trans-unit id="l5_y1b0" resname="Round add">
+        <source>Round add</source>
+        <target>Een rondleiding toevoegen</target>
+      </trans-unit>
+      <trans-unit id="VSobzik" resname="Postal code add">
+        <source>Postal code add</source>
+        <target>Postcode toevoegen</target>
+      </trans-unit>
+      <trans-unit id="fxA7H43" resname="All deliveries">
+        <source>All deliveries</source>
+        <target>Alle leveringen</target>
+      </trans-unit>
+      <trans-unit id="KwZcfJz" resname="Today">
+        <source>Today</source>
+        <target>Vandaag</target>
+      </trans-unit>
+      <trans-unit id="7Qd.PYE" resname="Open">
+        <source>Open</source>
+        <target>Open</target>
+      </trans-unit>
+      <trans-unit id="Ub1GYkH" resname="All pickup">
+        <source>All pickup</source>
+        <target>Alle pick up</target>
+      </trans-unit>
+      <trans-unit id="vwKo_Jt" resname="Pickup add">
+        <source>Pickup add</source>
+        <target>Een pick up toevoegen</target>
+      </trans-unit>
+      <trans-unit id="S0LGaQ6" resname="Administration">
+        <source>Administration</source>
+        <target>Administratie</target>
+      </trans-unit>
+      <trans-unit id="6BjO5RT" resname="Drivers">
+        <source>Drivers</source>
+        <target>Bestuurders</target>
+      </trans-unit>
+      <trans-unit id="5ASqgNj" resname="Archives">
+        <source>Archives</source>
+        <target>Archief</target>
+      </trans-unit>
+      <trans-unit id="Ej.xNsh" resname="Licenses list">
+        <source>Licenses list</source>
+        <target>Lijst van rijbewijzen</target>
+      </trans-unit>
+      <trans-unit id="0ZgrS.5" resname="Categories add">
+        <source>Categories add</source>
+        <target>Categorieën toevoegen</target>
+      </trans-unit>
+      <trans-unit id="kRN5alL" resname="Vehicles">
+        <source>Vehicles</source>
+        <target>Voertuigen</target>
+      </trans-unit>
+      <trans-unit id="VbDLz.9" resname="Vehicle add">
+        <source>Vehicle add</source>
+        <target>Een voertuig toevoegen</target>
+      </trans-unit>
+      <trans-unit id="4DZKuMv" resname="Model add">
+        <source>Model add</source>
+        <target>Een model toevoegen</target>
+      </trans-unit>
+      <trans-unit id="OarI88I" resname="V.I. refused">
+        <source>V.I. refused</source>
+        <target>Autokeuring geweigerd</target>
+      </trans-unit>
+      <trans-unit id="xPtKve1" resname="V.I. passed">
+        <source>V.I. passed</source>
+        <target>Autokeuring uitgevoerd</target>
+      </trans-unit>
+      <trans-unit id="7dKsKe6" resname="Fine add">
+        <source>Fine add</source>
+        <target>Een boete toevoegen</target>
+      </trans-unit>
+      <trans-unit id="pP5lJk7" resname="Language">
+        <source>Language</source>
+        <target>Taal</target>
+      </trans-unit>
+      <trans-unit id="_mcwOuz" resname="Fine">
+        <source>Fine</source>
+        <target>Boete</target>
+      </trans-unit>
+      <trans-unit id=".7PSowZ" resname="No driver Found, for more informations, contact logistic operator">
+        <source>No driver Found, for more informations, contact logistic operator</source>
+        <target>Geen bestuudrer gevonden, voor meer informatie kunt u contact opnemen met de logistieke dienstverlener.</target>
+      </trans-unit>
+      <trans-unit id="Gy8tbOb" resname="Delete fine">
+        <source>Delete fine</source>
+        <target>De boete verwijderen</target>
+      </trans-unit>
+      <trans-unit id="saaD3zw" resname="Are you sure you want to delete the fine">
+        <source>Are you sure you want to delete the fine</source>
+        <target>Weet u zeker dat u de boete wilt verwijderen</target>
+      </trans-unit>
+      <trans-unit id="3NHVIj9" resname="Name">
+        <source>Name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="l_G758k" resname="Personal informations">
+        <source>Personal informations</source>
+        <target>Persoonlijke gegevens</target>
+      </trans-unit>
+      <trans-unit id="U1YHecJ" resname="Contact informations">
+        <source>Contact informations</source>
+        <target>Contactgegevens</target>
+      </trans-unit>
+      <trans-unit id="G6H88oK" resname="Driver informations">
+        <source>Driver informations</source>
+        <target>Bestuurdersinformatie</target>
+      </trans-unit>
+      <trans-unit id="6B91ral" resname="Disable driver">
+        <source>Disable driver</source>
+        <target>De bestuurder uitgeschakelen</target>
+      </trans-unit>
+      <trans-unit id="PuFkUUJ" resname="Are you sure you want to disable this driver">
+        <source>Are you sure you want to disable this driver</source>
+        <target>Weet u zeker dat u deze driver wilt uitschakelen</target>
+      </trans-unit>
+      <trans-unit id="x93zvcU" resname="This action is reversible">
+        <source>This action is reversible</source>
+        <target>Deze actie is omkeerbaar</target>
+      </trans-unit>
+      <trans-unit id="wVZ8Dam" resname="Driver's license has expired">
+        <source>Driver's license has expired</source>
+        <target>Rijbewijs verlopen</target>
+      </trans-unit>
+      <trans-unit id="DXvQ3SI" resname="Driver's license expires in">
+        <source>Driver's license expires in</source>
+        <target>Het rijbewijs vervalt in</target>
+      </trans-unit>
+      <trans-unit id="r.NrZrQ" resname="Edit driver to add category">
+        <source>Edit driver to add category</source>
+        <target>Wijzig de bestuurder om een categorie toe te voegen</target>
+      </trans-unit>
+      <trans-unit id="KA_Vsc_" resname="Driver's licenses list">
+        <source>Driver's licenses list</source>
+        <target>Lijst van rijbewijzen</target>
+      </trans-unit>
+      <trans-unit id="oEYw74v" resname="Gender">
+        <source>Gender</source>
+        <target>Geslacht</target>
+      </trans-unit>
+      <trans-unit id="WaoZMoz" resname="Edit driver to add licence">
+        <source>Edit driver to add licence</source>
+        <target>Wijzig de bestuurder om een rijbewijs toe te voegen</target>
+      </trans-unit>
+      <trans-unit id="fTtkpzW" resname="Enable driver">
+        <source>Enable driver</source>
+        <target>De bestuurder ingeschakeld</target>
+      </trans-unit>
+      <trans-unit id=".xJOzTo" resname="Add reasons for refusal">
+        <source>Add reasons for refusal</source>
+        <target>Een reden voor weigering toevoegen</target>
+      </trans-unit>
+      <trans-unit id="u76PzdW" resname="See vehicle details">
+        <source>See vehicle details</source>
+        <target>Voertuig details</target>
+      </trans-unit>
+      <trans-unit id="pdz__Zs" resname="Expires soon">
+        <source>Expires soon</source>
+        <target>Verloopt binnenkort</target>
+      </trans-unit>
+      <trans-unit id="ZrhzVDr" resname="Refused">
+        <source>Refused</source>
+        <target>Weigering</target>
+      </trans-unit>
+      <trans-unit id="F8z6W2g" resname="Maintenance">
+        <source>Maintenance</source>
+        <target>Onderhoud</target>
+      </trans-unit>
+      <trans-unit id="b0WwAF4" resname="Interval">
+        <source>Interval</source>
+        <target>Interval</target>
+      </trans-unit>
+      <trans-unit id="._RKAXk" resname="Mileage">
+        <source>Mileage</source>
+        <target>Kilometerstand</target>
+      </trans-unit>
+      <trans-unit id="t0jtAUx" resname="Secretariat help">
+        <source>Secretariat help</source>
+        <target>Hulp aan de secretariaat</target>
+      </trans-unit>
+      <trans-unit id="B2O2a3Y" resname="Vehicle model">
+        <source>Vehicle model</source>
+        <target>Voertuigmodel</target>
+      </trans-unit>
+      <trans-unit id="bx.jnIb" resname="Are you sure you want to remove this model of vehicle">
+        <source>Are you sure you want to remove this model of vehicle</source>
+        <target>Weet u zeker dat u dit model voertuig wilt verwijderen</target>
+      </trans-unit>
+      <trans-unit id="VuTU13p" resname="Delete driver's license">
+        <source>Delete driver's license</source>
+        <target>Het rijbewijs verwijderen</target>
+      </trans-unit>
+      <trans-unit id="a7ZmsMi" resname="Are you sure you want to remove this license">
+        <source>Are you sure you want to remove this license</source>
+        <target>Weet u zeker dat u deze rijbewijs wilt verwijderen</target>
+      </trans-unit>
+      <trans-unit id="fz_OwfP" resname="Edit driver to enable">
+        <source>Edit driver to enable</source>
+        <target>Wijzig de driver om deze te activeren</target>
+      </trans-unit>
+      <trans-unit id="N4Yxhxk" resname="Maintenance interval">
+        <source>Maintenance interval</source>
+        <target>Onderhoudsinterval</target>
+      </trans-unit>
+      <trans-unit id="VYzKYOq" resname="Frame number">
+        <source>Frame number</source>
+        <target>Chassisnummer</target>
+      </trans-unit>
+      <trans-unit id="uW.dBBk" resname="Are you sure you want to disable this vehicle">
+        <source>Are you sure you want to disable this vehicle</source>
+        <target>Weet u zeker dat u dit voertuig wilt uitschakelen</target>
+      </trans-unit>
+      <trans-unit id="wLvlp8R" resname="Vehicle inspection">
+        <source>Vehicle inspection</source>
+        <target>Autokeuring</target>
+      </trans-unit>
+      <trans-unit id="_7oAO2K" resname="Disable vehicle">
+        <source>Disable vehicle</source>
+        <target>Het voertuig  uitgeschakelen</target>
+      </trans-unit>
+      <trans-unit id="7A.Wbd." resname="Enable vehicle">
+        <source>Enable vehicle</source>
+        <target>Het voertuig ingeschakeld</target>
+      </trans-unit>
+      <trans-unit id="DFWdKnM" resname="An error occured, please check your usename and password">
+        <source>An error occured, please check your usename and password</source>
+        <target>Er is een fout opgetreden, controleer de verbindingsinformatie</target>
+      </trans-unit>
+      <trans-unit id="P6fF7xk" resname="Your email address">
+        <source>Your email address</source>
+        <target>Uw e-mail adres</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Wachtwoord</target>
+      </trans-unit>
+      <trans-unit id="u9pwK0s" resname="Your password">
+        <source>Your password</source>
+        <target>Uw wachtwoord</target>
+      </trans-unit>
+      <trans-unit id="wYmEDPf" resname="Log in">
+        <source>Log in</source>
+        <target>Inloggen</target>
+      </trans-unit>
+      <trans-unit id="rhfRI8_" resname="Date of validity">
+        <source>Date of validity</source>
+        <target>Geldigheidsdatum</target>
+      </trans-unit>
+      <trans-unit id="0anOqot" resname="expires soon">
+        <source>expires soon</source>
+        <target>Verloopt binnenkort</target>
+      </trans-unit>
+      <trans-unit id="_mTqHoL" resname="expired">
+        <source>expired</source>
+        <target>is verlopen</target>
+      </trans-unit>
+      <trans-unit id="xRLTH6h" resname="The driver's license has been deleted">
+        <source>The driver's license has been deleted</source>
+        <target>het rijbewijs is verwijderd</target>
+      </trans-unit>
+      <trans-unit id="eRDsH7h" resname="Error">
+        <source>Error</source>
+        <target>Fout</target>
+      </trans-unit>
+      <trans-unit id="ekPsH8V" resname="No weekend assignments">
+        <source>No weekend assignments</source>
+        <target>Geen weekendopdrachten</target>
+      </trans-unit>
+      <trans-unit id="D678WoY" resname="Status code">
+        <source>Status code</source>
+        <target>Statuscode</target>
+      </trans-unit>
+      <trans-unit id="D688WoY" resname="Description">
+        <source>Description</source>
+        <target>Beschrijving</target>
+      </trans-unit>
+      <trans-unit id="D689WoY" resname="Add status">
+        <source>Add status</source>
+        <target>Een status toevoegen</target>
+      </trans-unit>
+      <trans-unit id="D690WoY" resname="Edit status">
+        <source>Edit status</source>
+        <target>Een status gewijzigen</target>
+      </trans-unit>
+      <trans-unit id="D691WoY" resname="Status">
+        <source>Status</source>
+        <target>Status</target>
+      </trans-unit>
+      <trans-unit id="D692WoY" resname="The status has been edited">
+        <source>The status has been edited</source>
+        <target>Het status is gewijzigd</target>
+      </trans-unit>
+      <trans-unit id="D693WoY" resname="The state has been added">
+        <source>The state has been added</source>
+        <target>Het status is toegevoegd</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

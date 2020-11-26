@@ -1,0 +1,97 @@
+security:
+    encoders:
+        App\Entity\Chauffeur:
+            algorithm: auto
+        App\Entity\Secretariat:
+            algorithm: auto
+        App\Entity\Logistique:
+            algorithm: auto 
+        App\Entity\Administration:
+            algorithm: auto          
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        users_in_memory: { memory: null }
+
+        chauffeur_in_database:
+            entity:
+                class: App\Entity\Chauffeur
+                property: emailChauffeur
+
+        secretariat_in_database:
+            entity:
+                class: App\Entity\Secretariat
+                property: emailSecretariat
+
+        logistique_in_database:
+            entity:
+                class: App\Entity\Logistique
+                property: emailLogistique
+
+        administration_in_database:
+            entity:
+                class: App\Entity\Administration
+                property: emailAdministration
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        
+        chauffeur:
+            pattern: ^/chauffeur
+            anonymous: true
+            provider: chauffeur_in_database
+            form_login:     
+                login_path: chauffeur_login
+                check_path: chauffeur_login 
+                failure_path: chauffeur_login   
+        
+        secretariat:    
+            pattern: ^/secretariat
+            anonymous: true
+            provider: secretariat_in_database
+            form_login:     
+                login_path: secretariat_login
+                check_path: secretariat_login  
+                failure_path: secretariat_login
+
+        logistique:
+            pattern: ^/logistique
+            anonymous: true
+            provider: logistique_in_database
+            form_login:     
+                login_path: logistique_login
+                check_path: logistique_login         
+                failure_path: logistique_login
+        administration:
+            pattern: ^/administration
+            anonymous: true
+            provider: administration_in_database
+            form_login:     
+                login_path: administration_login
+                check_path: administration_login         
+                failure_path: administration_login    
+        main:
+            anonymous: true 
+            logout:
+                path: account_logout
+                target: home           
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/chauffeur/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/chauffeur, roles: [ROLE_CHAUFFEUR, ROLE_ADMINISTRATION]}
+        - { path: ^/secretariat/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/secretariat, roles: ROLE_SECRETARIAT }
+        - { path: ^/logistique/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/logistique, roles: ROLE_LOGISTIQUE }
+        - { path: ^/administration/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/administration, roles: ROLE_ADMINISTRATION }

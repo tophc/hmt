@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="/css/dataTables/dataTables.bootstrap4.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <table class = "table display responsive table-striped" width = "100%" id = "liste-tournee">    
+                    <thead>
+                        <tr>                         
+                            <th>{% trans %}Number - City{% endtrans %}</th>
+                            <th>{% trans %}Information{% endtrans %}</th>
+                            <th>{% trans %}Today assignments{% endtrans %}</th>
+                            <th>{% trans %}Postal code{% endtrans %}</th>
+                            <th>{% trans %}Parcels in progress {% endtrans %}</th>
+                            <th class = "text-right">{% trans %}Action{% endtrans %}</th>                         
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tournee in tournees %}
+                            <tr>    
+                                <td>{{ tournee.numTournee }}</td>
+                                <td>{{ tournee.infoTournee }}</td>
+                                <td>
+                                    {% set cpt = 0 %}
+                                    {% for afectation in tournee.affectations %}
+                                        {% if  afectation.dateAffectation == date('today') %}
+                                            {% set cpt = cpt +1 %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    <p {% if cpt == 0  and resultat[tournee.id] != 0 %}class="text-danger"{% elseif cpt == 0  %} class="text-warning"{% endif %} >{{ cpt }}</p>
+                                </td>
+                                <td><p {% if tournee.codePostals | length == 0 %} class="text-warning"{% endif %}> {{ tournee.codePostals | length}}</p></td>
+                                <td><p {% if resultat[tournee.id] == 0 %}class="text-success"{% endif %}>{{ resultat[tournee.id] }}</p></td>
+                                <td class = "text-right">    
+                                    <a href="{{ path('logistique_tournee_details', {'id': tournee.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}See details{% endtrans %}" class="btn btn-outline-dark"><i class="fas fa-eye"></i></a>
+                                    <a href="{{ path('logistique_tournee_modifier', {'id': tournee.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Edit round{% endtrans %}" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
+                                    {% if tournee.affectations is empty %} 
+                                    <a href="{{ path('logistique_tournee_supprimer', {'id': tournee.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Delete round{% endtrans %}" class="btn btn-outline-danger card-link float-center"  onclick="return confirm( `{% trans %}Are you sure you want to remove this round{% endtrans %} ?\n{% trans %}This action is irreversible{% endtrans %} !`)"><i class="fas fa-trash"></i></a>   
+                                    {% endif %}                                          
+                                </td>
+                            </tr>
+                        {% endfor %}   
+                    </tbody>
+                </table>  
+             </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+	<script type="text/javascript" language="javascript" src="/js/dataTables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="/js/dataTables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/moment.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/date-eu.js"></script>
+    
+    {# pagination/recherche/tri dans un tableau #}
+    <script type="text/javascript" class="init">
+        $(document).ready(function()
+        {    
+            locale = '{{app.request.locale}}';     
+            $('#liste-tournee').DataTable( 
+            {
+                language: { "url": "/js/dataTables/"+locale+".lang" },
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Tous"]],
+                columnDefs: 
+                [
+                    {
+                        targets: [ 2, 3, 4 ],
+                        searchable: false,
+                        bSortable: false
+                    },
+                ]         
+            });
+        });
+    </script>
+    
+    {# affichage d'une infobule au passage de la souris sur un élément #}
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="jumbotron text-white mb-4 bg-dark">
+        <h1 class="display-3">{% trans %}H.G.M.T.{% endtrans %}</h1>   
+        <h4 class="lead">{% trans %}Hayam - Global Management Tools{% endtrans %}</h4>     
+    </div> 
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <div class="card bg-light mb-3 text-dark" >
+                <div class="card-header" >
+                    <img src="img/home/chauffeur.jpg" alt="chauffeur"  class="image-role">
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">{% trans %}Driver area{% endtrans %}</h4>
+                  <p class="card-text"><a href="{{ path('chauffeur_dashboard') }}" class="btn btn-light"><i class="fas fa-lock-open"></i> {% trans %}Connection{% endtrans %}</a></p>
+                </div>
+            </div>
+        </div> 
+        <div class="col-md-4 text-center">
+            <div class="card bg-light mb-3 text-dark" >
+                <div class="card-header" >                  
+                    <img src="img/home/secretariat.jpg" alt="secretariat"  class="image-role">
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">{% trans %}Secretariat area{% endtrans %}</h4>
+                  <p class="card-text"><a href="{{ path('secretariat_dashboard') }}" class="btn btn-light"><i class="fas fa-lock-open"></i> {% trans %}Connection{% endtrans %}</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="card bg-light mb-3 text-dark" >
+                <div class="card-header">   
+                    <img src="img/home/logistique.jpg" alt="logistique"  class="image-role">
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">{% trans %}Logistics area{% endtrans %}</h4>    
+                  <p class="card-text"><a href="{{ path('logistique_dashboard') }}" class="btn btn-light"><i class="fas fa-lock-open"></i> {% trans %}Connection{% endtrans %}</a></p>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div> 
+{% endblock %}

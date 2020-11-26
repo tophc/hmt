@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="card-deck">
+            {# card statistique "requeteOuverteSecretariat" #}
+            <div class="card bg-light mb-3 {% if statistiques.requeteOuverteSecretariat > 0 %} clickable-card {% endif %}" data-href="{{ path('administration_requete_ouvert', {'requerant' : 'secretariat'}) }}">
+                <div class="card-body">
+                    <div class="row {% if statistiques.requeteOuverteSecretariat == 0 %} text-success {% elseif statistiques.requeteOuverteSecretariat <= 2 %} text-warning {% else %} text-danger {% endif %}">
+                        <div class="col-5">
+                            <i class="fas fa-hands-helping fa-5x"></i>
+                        </div>
+                        <div class="col-7">
+                            <div class="row"><h4 class="card-title">{% trans %}Secretariat{% endtrans %}</h4></div>
+                            <div class="row"> <h5>{% if statistiques.requeteOuverteSecretariat == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.requeteOuverteSecretariat}}{% endif %}</h5></div>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {# card statistique "requeteOuverteLogistique" #}
+            <div class="card bg-light mb-3 {% if statistiques.requeteOuverteLogistique > 0 %} clickable-card {% endif %}" data-href="{{ path('administration_requete_ouvert', {'requerant' : 'logistique'}) }}">
+                <div class="card-body">
+                    <div class="row {% if statistiques.requeteOuverteLogistique == 0 %} text-success {% elseif statistiques.requeteOuverteLogistique <= 2 %} text-warning {% else %} text-danger {% endif %}">
+                        <div class="col-5">
+                            <i class="fas fa-hands-helping fa-5x"></i>
+                        </div>
+                        <div class="col-7">
+                            <div class="row"><h4 class="card-title">{% trans %}Logistics{% endtrans %}</h4></div>
+                            <div class="row"> <h5>{% if statistiques.requeteOuverteLogistique == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.requeteOuverteLogistique}}{% endif %}</h5></div>      
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>     
+        {# card statistique "Chauffeur #}
+        <div class="card bg-light mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3"><h4>{% trans %}Driver{% endtrans %}</h4></div>
+                    <div class="col-9">
+                        <div class="row">
+                            {# Chauffeur total #}
+                            <div class="col {% if statistiques.chauffeurUser.total > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste', {'service' : 'chauffeur'} )}}"><h5>{{statistiques.chauffeurUser.total}}</h5>{% trans %}Total{% endtrans %}</div>
+                            {# Chauffeur disabled #}
+                            <div class="col {% if statistiques.chauffeurUser.disabled > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste_role', {'service' : 'chauffeur', 'role' : 'ROLE_DISABLED'} )}}"><h5>{{statistiques.chauffeurUser.disabled}}</h5>{% trans %}Disabled{% endtrans %}</div> 
+                            {# Chauffeur enabled #}
+                            <div class="col {% if statistiques.chauffeurUser.enabled > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste_valide', {'service' : 'chauffeur', 'role' : 'ROLE_DISABLED'} )}}"><h5>{{statistiques.chauffeurUser.enabled}}</h5>{% trans %}Enabled{% endtrans %}</div>
+                            {# Chauffeur reset #}
+                            <div class="col {% if statistiques.chauffeurUser.reset > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste_role', {'service' : 'chauffeur', 'role' : 'ROLE_NEW_USER'} )}}"><h5>{{statistiques.chauffeurUser.reset}}</h5>{% trans %}Reset{% endtrans %}</div>   
+                            {# Chauffeur valide #}
+                            <div class="col {% if statistiques.chauffeurUser.valide > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste_valide', {'service' : 'chauffeur', 'role' : 'ROLE_NEW_USER'} )}}"><h5>{{statistiques.chauffeurUser.valide}}</h5>{% trans %}Valid{% endtrans %}</div>            
+                        </div>             
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# card statistique "Secretariat #}
+        <div class="card bg-light mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3"><h4>{% trans %}Secretariat{% endtrans %}</h4></div>
+                    <div class="col-9">
+                        <div class="row">
+                            {# Secretariat total #}
+                            <div class="col {% if statistiques.secretariatUser.total > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste', {'service' : 'secretariat'} )}}"><h5>{{statistiques.secretariatUser.total}}</h5>{% trans %}Total{% endtrans %}</div>
+                            {# Secretariat disabled #}
+                            <div class="col {% if statistiques.secretariatUser.disabled > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste_role', {'service' : 'secretariat', 'role' : 'ROLE_DISABLED'} )}}"><h5>{{statistiques.secretariatUser.disabled}}</h5>{% trans %}Disabled{% endtrans %}</div> 
+                            {# Secretariat enabled #}
+                            <div class="col {% if statistiques.secretariatUser.enabled > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste_valide', {'service' : 'secretariat', 'role' : 'ROLE_DISABLED'} )}}"><h5>{{statistiques.secretariatUser.enabled}}</h5>{% trans %}Enabled{% endtrans %}</div>
+                            {# Secretariat reset #}
+                            <div class="col {% if statistiques.secretariatUser.reset > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste_role', {'service' : 'secretariat', 'role' : 'ROLE_NEW_USER'} )}}"><h5>{{statistiques.secretariatUser.reset}}</h5>{% trans %}Reset{% endtrans %}</div>   
+                            {# Secretariat valide #}
+                            <div class="col {% if statistiques.secretariatUser.valide > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste_valide', {'service' : 'secretariat', 'role' : 'ROLE_NEW_USER'} )}}"><h5>{{statistiques.secretariatUser.valide}}</h5>{% trans %}Valid{% endtrans %}</div>            
+                        </div>             
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# card statistique "Logistique #}
+        <div class="card bg-light mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3"><h4>{% trans %}Logistics{% endtrans %}</h4></div>
+                    <div class="col-9">
+                        <div class="row">
+                            {# Logistique total #}
+                            <div class="col {% if statistiques.logistiqueUser.total > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste', {'service' : 'logistique'} )}}"><h5>{{statistiques.logistiqueUser.total}}</h5>{% trans %}Total{% endtrans %}</div>
+                            {# Logistique disabled #}
+                            <div class="col {% if statistiques.logistiqueUser.disabled > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste_role', {'service' : 'logistique', 'role' : 'ROLE_DISABLED'} )}}"><h5>{{statistiques.logistiqueUser.disabled}}</h5>{% trans %}Disabled{% endtrans %}</div> 
+                            {# Logistique enabled #}
+                            <div class="col {% if statistiques.logistiqueUser.enabled > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste_valide', {'service' : 'logistique', 'role' : 'ROLE_DISABLED'} )}}"><h5>{{statistiques.logistiqueUser.enabled}}</h5>{% trans %}Enabled{% endtrans %}</div>
+                            {# Logistique reset #}
+                            <div class="col {% if statistiques.logistiqueUser.reset > 0 %} clickable-element {% endif %}" data-href="{{ path('administration_user_liste_role', {'service' : 'logistique', 'role' : 'ROLE_NEW_USER'} )}}"><h5>{{statistiques.logistiqueUser.reset}}</h5>{% trans %}Reset{% endtrans %}</div>   
+                            {# Logistique valide #}
+                            <div class="col {% if statistiques.logistiqueUser.valide > 0 %} clickable-element  {% endif %}" data-href="{{ path('administration_user_liste_valide', {'service' : 'logistique', 'role' : 'ROLE_NEW_USER'} )}}"><h5>{{statistiques.logistiqueUser.valide}}</h5>{% trans %}Valid{% endtrans %}</div>            
+                        </div>             
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %} 
+    {# permet rendre cliquable une card #}
+    <script>  
+        jQuery(document).ready(function($) {
+           $(".clickable-card").mouseover(function() {
+                $(this).removeClass("bg-light").addClass("bg-secondary text-white");
+            });
+            $(".clickable-card").mouseout(function() {
+                $(this).removeClass("bg-secondary text-white").addClass("bg-light");
+            });
+            $(".clickable-card").click(function() {
+                window.location = $(this).data("href");
+            });
+            $(".clickable-element").mouseover(function() {
+                $(this).addClass("text-secondary");
+            });
+            $(".clickable-element").mouseout(function() {
+                $(this).removeClass("text-secondary");
+            });
+            $(".clickable-element").click(function() {
+                window.location = $(this).data("href");
+            });
+        });
+    </script> 
+{% endblock %}

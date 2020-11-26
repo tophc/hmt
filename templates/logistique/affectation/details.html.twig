@@ -1,0 +1,145 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="card-deck">
+			{# Card: Chauffeur détails #}
+			<div class="card mb-3">
+                <h3 class="card-header {% if not affectation.chauffeur.statutChauffeur %} bg-warning" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Driver is disabled{% endtrans %} {% endif %}">{% trans %}Driver{% endtrans %}</h3>
+				<div class="card-body">
+                    <dl class="row">
+                        <dt class="col-md-4">{% trans %}Last name{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{affectation.chauffeur.nomChauffeur}}</dd>
+                        <dt class="col-md-4">{% trans %}First name{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{affectation.chauffeur.prenomChauffeur}}</dd>
+                        <dt class="col-md-4">{% trans %}Email{% endtrans %} : </dt>
+                        <dd class="col-md-8"><a href="mailto:{{affectation.chauffeur.emailChauffeur}}">{{affectation.chauffeur.emailChauffeur}}</a></dd>
+                        <dt class="col-md-4">{% trans %}Mobile number{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{affectation.chauffeur.mobileChauffeur}}</dd>
+                        <dt class="col-md-4">{% trans %}Address{% endtrans %} : </dt>
+                        <dd class="col-md-8">{{affectation.chauffeur.adressePostaleChauffeur}}</dd>
+                         <dt class="col-md-4">{% trans %}Licence category{% endtrans %} : </dt>
+                        {% if affectation.chauffeur.permisConduire %}
+                            {% if affectation.chauffeur.permisConduire.categoriePermisConduires is not empty %}
+                                <dd class="col-md-8">
+                                    {% for categorie in affectation.chauffeur.permisConduire.categoriePermisConduires %} 
+                                        <p class="badge badge-dark " title="{% trans %}Category{% endtrans %} : {{categorie.nomCategoriePermisConduire}}" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="{{categorie.infoCategoriePermisConduire}}">
+                                            {{categorie.nomCategoriePermisConduire}}
+                                        </p> 
+                                    {% endfor %}
+                                </dd>   
+                            {% else %}
+                                <dd class="col-md-8">   
+                                    <span class="btn btn-outline-outline-light text-danger">{% trans %}No category{% endtrans %}</span>
+                                 </dd>
+                            {% endif %}
+                        {% else %}    
+                         <span class="btn btn-outline-light text-danger">{% trans %}No driver's licence{% endtrans %}</span>
+                        {% endif %} 
+                    </dl>		                                
+                </div>
+            </div> 
+            {# Card: véhicule détail #}         
+			<div class="card mb-3">
+                <h3 class="card-header {% if not affectation.vehicule.statutVehicule %} bg-warning" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Vehicle is disabled{% endtrans %} {% endif %}">{% trans %}Vehicle{% endtrans %}</h3>
+				<div class="card-body">
+                    <dl class="row">
+                        <dt class="col-md-4">{% trans %}License plate{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{affectation.vehicule.immatriculationVehicule}}</dd>
+                        <dt class="col-md-4">{% trans %}Brand{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{affectation.vehicule.modeleVehicule.nomModeleVehicule}}</dd>
+                        <dt class="col-md-4">{% trans %}Model name{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{affectation.vehicule.modeleVehicule.marqueModeleVehicule }}</dd>
+                        <dt class="col-md-4">{% trans %}Capacity{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{affectation.vehicule.modeleVehicule.capaciteModeleVehicule}}</dd>
+                    </dl>		                        
+                </div>
+            </div>
+            {# Card: Tournee détails #}
+			<div class="card mb-3">
+                <h3 class="card-header">{% trans %}Round{% endtrans %}</h3>
+				<div class="card-body">                 
+                    <dl class="row">
+                        <dt class="col-md-4">{% trans %}Number{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{affectation.tournee.numTournee}}</dd>
+                        <dt class="col-md-4">{% trans %}Info{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{affectation.tournee.infoTournee}}</dd>
+                    </dl>                                   
+                    {% for codePostal in affectation.tournee.codePostals  %}                          
+                        <p class="badge badge-dark"  data-toggle="tooltip" data-placement="bottom" title="{{codePostal.localiteCodePostal}}">{{codePostal.numCodePostal}}</p>       
+                    {% endfor %}                		                 
+                </div>
+            </div>	
+        </div>
+        {% if not extra is empty %}
+            <div class="card mb-3">
+                <h3 class="card-header"><i class="fas fa-user"></i> {% trans %}Extra driver{% endtrans %}</h3>
+                <div class="card-body">	
+                    <table class = "table table-hover display responsive" width = "100%" id = "liste-extra">
+                        <thead>
+                            <tr>
+                                <th>{% trans %}Last name{% endtrans %}</th>
+                                <th>{% trans %}First name{% endtrans %}</th>
+                                <th>{% trans %}Mobile number{% endtrans %}</th>
+                                <th>{% trans %}Driver license Category{% endtrans %}</th>	
+                                <th>{% trans %}Vehicle{% endtrans %}</th>
+                                <th>{% trans %}Modele{% endtrans %}</th>								
+                            </tr>
+                        </thead>
+                        <tbody>						
+                            {% for affectation in extra  %}																
+                                <tr class='clickable-row' data-href="{{ path('logistique_affectation_details', {'id': affectation.id}) }}">
+                                    <td>{{affectation.chauffeur.nomChauffeur}}</td>
+                                    <td>{{affectation.chauffeur.prenomChauffeur}}</td>
+                                    <td>{{affectation.chauffeur.mobileChauffeur}}</td>
+                                    <td >
+                                        {% if affectation.chauffeur.permisConduire %}
+                                            {% if affectation.chauffeur.permisConduire.categoriePermisConduires is not empty %}
+                                                {% for categorie in affectation.chauffeur.permisConduire.categoriePermisConduires %} 
+                                                    <span class="badge badge-dark " title="{% trans %}Category{% endtrans %} : {{categorie.nomCategoriePermisConduire}}" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="{{categorie.infoCategoriePermisConduire}}">
+                                                        {{categorie.nomCategoriePermisConduire}}
+                                                    </span> 
+                                                {% endfor %}
+                                            {% else %}
+                                                <span class="btn btn-outline-light text-danger">{% trans %}No category{% endtrans %}</span>
+                                            {% endif %}
+                                        {% else %}    
+                                            <span class="btn btn-outline-light text-danger">{% trans %}No driver's licence{% endtrans %}</span>
+                                        {% endif %} 
+                                    </td> 
+                                    <td>{{affectation.vehicule.immatriculationVehicule}}</td>
+                                    <td>{{affectation.vehicule.modeleVehicule.nomModeleVehicule}}</td> 
+                                </tr>										
+                            {% endfor %} 							   
+                        </tbody>	
+                    </table>			
+                </div>
+            </div>		
+        {% endif %}
+    </div>   
+{% endblock %}
+
+{% block javascripts %}
+    {# affichage d'une infobule au passage de la souris sur un élément #}
+    <script>
+        $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+    </script>
+    
+    {# affichage popup au passage de la souris sur une categorie de permis #}
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();
+        })
+    </script>
+
+    {# permet rendre cliquable une ligne du tableau  #}
+    <script>  
+        jQuery(document).ready(function($) {
+            $(".clickable-row").click(function() {
+                window.location = $(this).data("href");
+            });
+        });
+    </script> 
+{% endblock %}

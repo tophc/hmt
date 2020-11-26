@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="card-deck">
+			{# Card: Amende détails #}
+			<div class="card">
+                <div class="row no-gutters">
+                    <div class="col"><h3 class="card-header">{% trans %}Fine{% endtrans %}</h3></div>
+                    <div class="col"><h3 class="card-header">{% trans %}Vehicle{% endtrans %}</h3></div>
+                    <div class="col">
+                        {% if affectation %}
+                            <h3 class="card-header {% if not affectation.chauffeur.statutChauffeur %} bg-warning {% endif %} '"><i class="fas fa-{{affectation.chauffeur.genreChauffeur}}"></i> {% trans %}Driver{% endtrans %} </h3>
+                        {% else %}
+                            <h3 class="card-header">{% trans %}Driver{% endtrans %} </h3>
+                        {% endif %}
+                    </div>
+                </div>               
+				<div class="card-body">
+                    <div class="row ">
+                        <div class="col ">
+                            <dl class="row">
+                                <dt class="col-md-4">{% trans %}Dated{% endtrans %} :</dt>
+                                <dd class="col-md-8">{{amende.dateAmende | date('d.m.Y')}}</dd>
+                                <dt class="col-md-4">{% trans %}Number{% endtrans %} :</dt>
+                                <dd class="col-md-8">{{amende.numAmende}}</dd>
+                                <dt class="col-md-4">{% trans %}Amount{% endtrans %} :</dt>
+                                <dd class="col-md-8">{{amende.montantAmende}} &euro;</dd>
+                                <dt class="col-md-4">{% trans %}Note{% endtrans %} :</dt>
+                                <dd class="col-md-8">{{amende.remarqueAmende}}</dd>
+                            </dl>	
+                        </div>
+                        <div class="col">
+                            <dl class="row">
+                                <dt class="col-md-4">{% trans %}Numberplate{% endtrans %} :</dt>
+                                <dd class="col-md-8">{{amende.vehicule.immatriculationVehicule}}</dd>
+                                <dt class="col-md-4">{% trans %}Model{% endtrans %} :</dt>
+                                <dd class="col-md-8">{{amende.vehicule.modeleVehicule.nomModeleVehicule}}</dd>
+                                <dt class="col-md-4">{% trans %}Brand{% endtrans %} :</dt>
+                                <dd class="col-md-8">{{amende.vehicule.modeleVehicule.marqueModeleVehicule}}</dd>
+                                <dt class="col-md-4">{% trans %}Capacity{% endtrans %} :</dt>
+                                <dd class="col-md-8">{{amende.vehicule.modeleVehicule.capaciteModeleVehicule}} Kg</dd>
+                            </dl>
+                        </div>   
+                        <div class="col">
+                            {% if affectation %}
+                                <dl class="row">
+                                    <dt class="col-md-4">{% trans %}Last name{% endtrans %} :</dt>
+                                    <dd class="col-md-8">{{affectation.chauffeur.nomChauffeur}}</dd>   
+                                    <dt class="col-md-4">{% trans %}First name{% endtrans %} :</dt>
+                                    <dd class="col-md-8">{{affectation.chauffeur.prenomChauffeur}}</dd>
+                                    <dt class="col-md-4">{% trans %}Email{% endtrans %} : </dt>
+                                    <dd class="col-md-8">{{affectation.chauffeur.emailChauffeur}}</dd>                
+                                    <dt class="col-md-4">{% trans %}Date of birth{% endtrans %} :</dt>
+                                    <dd class="col-md-8">{{affectation.chauffeur.dateNaissanceChauffeur | date('d.m.Y')}}</dd>
+                                    <dt class="col-md-4">{% trans %}Address{% endtrans %} : </dt>
+                                    <dd class="col-md-8">{{affectation.chauffeur.adressePostaleChauffeur}}</dd>
+                                    <dt class="col-md-4">{% trans %}Civil status{% endtrans %} : </dt>
+                                    <dd class="col-md-8">{{affectation.chauffeur.etatCivilChauffeur.nomEtatCivil}}</dd>
+                                    <dt class="col-md-4">{% trans %}National registry{% endtrans %} : </dt>
+                                    <dd class="col-md-8">{{affectation.chauffeur.numeroNationalChauffeur}}</dd>
+                                </dl>
+                            {% elseif not affectation %}
+                                <div class="alert alert-danger">
+                                    <h4 class="alert-heading">{% trans %}Warning{% endtrans %} !</h4>
+                                    <p class="mb-0">{% trans %}No driver Found, for more informations, contact logistic operator{% endtrans %}</p>
+                                </div>
+                            {% endif %}	
+                        </div>
+                    </div>    
+                </div>
+                <div class="card-footer">
+                    <a href="{{ path('secretariat_amende_liste') }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Fines list{% endtrans %}" class="btn btn-outline-dark card-link center"><i class="fas fa-list"></i></a>
+                    <a href="{{ path('secretariat_amende_modifier', {'id': amende.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Edit fine{% endtrans %}" class="btn btn-outline-warning card-link center"><i class="fas fa-edit"></i></a>
+                    <a href="{{ path('secretariat_amende_supprimer', {'id': amende.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Delete fine{% endtrans %}" class="btn btn-outline-danger card-link float-center" onclick="return confirm(
+                        '{% trans %}Are you sure you want to delete the fine{% endtrans %} : {{amende.numAmende}}?\n{% trans %}This action is irreversible{% endtrans %} !')"><i class="fas fa-trash"></i></a>       
+                </div>
+            </div>            
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+{# affichage d'une infobule au passage de la souris sur une cellule du tableau #}
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+{% endblock %}

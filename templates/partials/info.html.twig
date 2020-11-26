@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-secondary">
+                <h3 class="alert-heading text-center">{{titre | raw}}</h3>
+            </div>
+        </div>
+    </div>  
+    {# Affiche les message labelisé warning, danger ou succès  #}   
+    {% for label,messages in app.flashes(['success', 'warning', 'danger']) %}          
+        {% for message in messages %}
+        <div class="alert alert-{{ label }} text-center">
+            {{message | raw}}</div>
+        {% endfor %}          
+    {% endfor %} 
+</div>

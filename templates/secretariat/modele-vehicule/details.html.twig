@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="card-deck">
+			{# Card: modeleVehicule détails #} 
+			<div class="card mb-3">
+                <h3 class="card-header">{% trans %}Vehicle model{% endtrans %}</h3>
+				<div class="card-body">
+                    <h5 class="card-title">{% trans %}Reference{% endtrans %} n° : {{modeleVehicule.id}}</h5>
+                    <dl class="row">
+                        <dt class="col-md-4">{% trans %}Brand{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{modeleVehicule.marqueModeleVehicule}}</dd>
+                        <dt class="col-md-4">{% trans %}Model name{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{modeleVehicule.nomModeleVehicule }}</dd>
+                        <dt class="col-md-4">{% trans %}Capacity{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{modeleVehicule.capaciteModeleVehicule}} :</dd>
+                    </dl>		            
+                <a href="{{ path('secretariat_modele-vehicule_liste') }}" class="btn btn-outline-dark card-link center"><i class="fas fa-list"></i></a>
+                <a href="{{ path('secretariat_modele-vehicule_modifier', {'id': modeleVehicule.id}) }}" class="btn btn-outline-warning card-link center"><i class="fas fa-edit"></i></a>
+                <a href="{{ path('secretariat_modele-vehicule_supprimer', {'id': modeleVehicule.id}) }}" class="btn btn-outline-danger card-link float-center" onclick="return confirm(
+                    '{% trans %}Are you sure you want to remove this model of vehicle{% endtrans %} : {{modeleVehicule.nomModeleVehicule}} ?\n{% trans %}This action is irreversible{% endtrans %} !')"><i class="fas fa-trash"></i></a>         
+                </div>
+            </div>		
+		</div>
+    </div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %} 
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="/css/dataTables/dataTables.bootstrap4.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">  
+       <div class="row"> 
+            <div class="col">
+                <table class = "table display responsive table-striped" width = "100%" id = "liste-chauffeur-affectation">    
+                    <thead>
+                        <tr>
+                            <th>{% trans %}Date{% endtrans %}</th>      
+                            <th>{% trans %}Vehicle{% endtrans %}</th>
+                            <th>{% trans %}Brand{% endtrans %} - {% trans %}Model{% endtrans %}</th>
+                            <th>{% trans %}Round{% endtrans %}</th>                                             
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for affectation in affectations %}
+                            <tr>               
+                                <td{% if  affectation.dateAffectation | date('Y-m-d') == "now"|date("Y-m-d") %} class="text-success" data-toggle="tooltip" data-placement="right" title="{% trans %}Today assignments{% endtrans %}"{% endif %}>{{affectation.dateAffectation | date('d.m.Y') }}</td>
+                                <td {% if not affectation.vehicule.statutVehicule %} class="table-warning" data-toggle="tooltip" data-placement="right" title="{% trans %}Warning{% endtrans %} : {% trans %}Vehicle is disabled{% endtrans %}"{% endif %}>{{affectation.vehicule.immatriculationVehicule}}</td>
+                                <td>{{affectation.vehicule.modeleVehicule.marqueModeleVehicule}} - {{affectation.vehicule.modeleVehicule.nomModeleVehicule}}</td>
+                                <td>{{affectation.tournee.numTournee}} - {{affectation.tournee.infoTournee}}</td>
+                            </tr>
+                        {% endfor %}   
+                    </tbody>
+                </table>  
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+	<script type="text/javascript" language="javascript" src="/js/dataTables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="/js/dataTables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/moment.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/date-eu.js"></script>
+
+    {# pagination/recherche/tri dans un tableau #}
+    <script type="text/javascript" class="init">
+        $(document).ready(function()
+        {    
+            locale = '{{app.request.locale}}';     
+            $('#liste-chauffeur-affectation').DataTable( 
+            {
+                language: { "url": "/js/dataTables/"+locale+".lang" },
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Tous"]],
+                order: [ 0, 'asc' ],
+                searching: false,
+                columnDefs: 
+                [
+                    {
+                        targets: [ 0 ],
+                        type: 'date-eu',
+                        searchable: true,
+                        bSortable: true
+                    },
+                    { 
+                        targets: [ 1, 2, 3 ],
+                        bSortable:false,
+                        searchable: false, 
+                    },
+                ]         
+            });
+        });
+    </script>
+    
+    {# affichage d'une infobule au passage de la souris sur un élément #}
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+{% endblock %}
+   

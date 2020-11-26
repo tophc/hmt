@@ -1,0 +1,6 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    form_themes: ['bootstrap_4_layout.html.twig']
+    # On déclare ci-dessous le nom de la variable globale qui contiendra un tableau de langues disponibles
+    globals:
+        locales: '%app.locales%'

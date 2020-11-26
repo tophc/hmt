@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <dl class= "row">
+            <dt class="col-md-4">{% trans %}Service{% endtrans %} :</dt> 
+            <dd class="col-md-8">{{requete.requerantRequete}}</dd>
+            <dt class="col-md-4">{% trans %}Author{% endtrans %} :</dt>
+            <dd class="col-md-8">
+                {% if requete.requerantRequete == 'chauffeur'%}
+                    {{requete.chauffeur.nomChauffeur}} {{requete.chauffeur.prenomChauffeur}}
+                {% elseif requete.requerantRequete == 'secretariat' %}
+                    {{requete.secretariat.nomSecretariat }} {{requete.secretariat.prenomSecretariat }}
+                {% endif %}             
+            </dd>
+            <dt class="col-md-4">{% trans %}Subject{% endtrans %} :</dt>
+            <dd class="col-md-8">{{requete.objetRequete}}</dd>
+            <dt class="col-md-4">{% trans %}Request date{% endtrans %} :</dt>
+            <dd class="col-md-8">{{requete.dateRequete | date('d.m.Y H:i s')}}</dd>
+            <dt class="col-md-4">{% trans %}Message{% endtrans %} :</dt>
+            <dd class="col-md-8">{{requete.messageRequete}}</dd>          
+        </dl>
+        {{form_start(form)}}
+        {{form_widget(form)}}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

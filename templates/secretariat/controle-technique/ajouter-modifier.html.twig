@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form _self %}
+
+{% block body %}
+    <div class="container">
+        {{form_start(form)}}
+       
+        {{ form_row(form.dateControleTechnique) }}
+
+        {{ form_row(form.statutControleTechnique) }}
+        
+        <div id = "motifs" style="display:none;">
+            {{ form_row(form.motifs) }}
+        </div>
+        
+        {{ form_end(form)}}
+    </div>
+{% endblock %}
+
+{# personalisation du widget "motifs" #}
+{% block _controle_technique_motifs_row %}
+    <p>{% trans %}Add reasons for refusal{% endtrans %}</p>
+   
+    {{ form_widget(form) }}
+    
+    {# Permet de corriger le bug d'index des sous-formulaire de la collection #}
+    <input type="hidden" id = "widgets-counter" value = "0">
+
+    <div class="form-group">
+        <button type = "button" id = "add-motifs" class = "btn btn-outline-dark"><i class="fas fa-plus"></i></button> 
+    </div>
+{% endblock %}
+
+{# personalisation du widget de la row de l'entry "motifs" #}
+{% block _controle_technique_motifs_entry_row %} 
+<div class="form-group" id = "block_{{id}}">
+    <div class="row">
+        <div class="col-10">{{form_widget(form)}}</div>
+        <div class="col-2"><button type="button" data-action ="delete" data-target = "#block_{{id}}" class = "btn btn-outline-danger" ><i class="fas fa-trash"></i></button> </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {# Masque les champs "motifs" si le "statutControleTechnique" est a false (passed) #}
+    <script>
+        // Afficer ou non le champ "Motif" au chargement de la page
+        $(document).ready(function() {
+            var valdepart = $("input[name^='controle_technique']:checked").val()  ;
+           
+            if (valdepart == 1)  document.getElementById("motifs").style.display = "inline";  
+            else document.getElementById("motifs").style.display = "none";  
+        });
+       
+       // Afficer ou non le champ "Motif" au click des boutons radio
+        $('input[name^="controle_technique"]').change(function () {
+            if (this.value == 1)  document.getElementById("motifs").style.display = "inline";  
+            else document.getElementById("motifs").style.display = "none";  
+        });
+    </script>
+   
+    <script>
+        //se 'connecte'  au bouton et au click execute la fonction 'annonyme'
+        $('#add-motifs').click(function(){
+
+            // Récupère le nombre de champ existant grace au widgets-counter le "+" sert a caster le string en int
+            const index = +$('#widgets-counter').val();
+
+            // Récupère le prototype des entrées
+            const tmpl = $('#controle_technique_motifs').data('prototype').replace(/__name__/g, index);
+            
+            // Injecte le prototype modifié au sein de la div
+            $('#controle_technique_motifs').append(tmpl);
+
+            // Incrémente le widget-counter lors de l'ajout d'un champ
+            $('#widgets-counter').val(index + 1);
+
+            // Gère le bouton supprimer lors de l'ajout d'un champ de la collection
+            handleDeleteButtons(); 
+        });
+        
+        function handleDeleteButtons(){
+            $('button[data-action = "delete"]').click(function(){
+                const target = this.dataset.target;
+                
+                $(target).remove();
+            });
+        }
+
+        // Gère le bouton supprimer lors du chargement du formulaire (en principe pas nécessaire)
+        handleDeleteButtons();
+    </script>
+{% endblock %}

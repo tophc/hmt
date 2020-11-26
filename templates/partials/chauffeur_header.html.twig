@@ -1,0 +1,53 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ path('chauffeur_dashboard') }}"><li class="fas fa-chart-line"></li> {% trans %}Dashboard{% endtrans %}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> 
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">           
+                    <a href="{{ path('chauffeur_dayat') }}" class="nav-link"><i class="fas fa-mobile-alt"></i> {% trans %}Dayat{% endtrans %}</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="requeteDropdownLink"><i class="fas fa-hands-helping"></i> {% trans %}Request{% endtrans %}</a>    
+                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="requeteDropdownLink" >
+                        <a href="{{ path('chauffeur_requete' , {'service': 'secretariat'} ) }}" class="dropdown-item ">{% trans %}Secretariat{% endtrans %}</a>    
+                        <a href="{{ path('chauffeur_requete' , {'service': 'logistique'} ) }}" class="dropdown-item">{% trans %}Logistics{% endtrans %}</a>
+                        {% if  app.user.requetes | length  > 0  %}
+                        <a href="{{ path('chauffeur_requete_liste') }}" class="dropdown-item">{% trans %}Request history{% endtrans %}</a> 
+                        {% endif %} 
+                    </div>
+                </li>
+                <li class="nav-item">           
+                    <a href="{{ path('chauffeur_planning') }}" class="nav-link"><i class="fas fa-calendar-check"></i> {% trans %}Planning{% endtrans %}</a>
+                </li>
+                <li class="nav-item">           
+                    <a href="{{ path('chauffeur_amende') }}" class="nav-link"><i class="fas fa-file-invoice-dollar"></i> {% trans %}Fines{% endtrans %}</a>
+                </li>
+                <li class="nav-item">           
+                    <a href="{{ path('chauffeur_help') }}" class="nav-link"><i class="fas fa-question-circle"></i> {% trans %}Help{% endtrans %}</a>
+                </li>       
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {% include 'partials/translate.html.twig' %}
+                {% if app.user %}
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="chauffeurDropdownLink">{{ app.user.nomChauffeur }} {{ app.user.prenomChauffeur }}</a>     
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="secretariatDropdownLink" >
+                            <a href="{{ path('chauffeur_dashboard') }}" class="dropdown-item"><i class="fas fa-chart-line"></i> {% trans %}Dashboard{% endtrans %}</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ path('chauffeur_profile') }}" class="dropdown-item"><i class="fas fa-user"></i> {% trans %}My profil{% endtrans %}</a>                 
+                            
+                            <a href="{{ path('chauffeur_password') }}" class="dropdown-item"><i class="fas fa-key"></i> {% trans %}Password change{% endtrans %}</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ path('account_logout') }}" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> {% trans %}Logout{% endtrans %}</a>
+                        </div>
+                    </li>
+                {% endif %}         
+            </ul>
+        </div>
+    </nav>
+    {% include 'partials/info.html.twig' %}
+</header>

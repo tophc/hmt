@@ -1,0 +1,89 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ path('logistique_dashboard') }}"><li class="fas fa-chart-line"></li> {% trans %}Dashboard{% endtrans %}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01"> 
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="{{ path('logistique_chauffeur_liste')}}" class="nav-link"><i class="fas fa-users-cog"></i> {% trans %}Driver{% endtrans %}</a>        
+                </li>
+                <li class="nav-item">
+                    <a href="{{ path('logistique_vehicule_liste')}}" class="nav-link"><i class="fas fa-truck"></i> {% trans %}Vehicle{% endtrans %}</a>        
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="affectationDropdownLink"><i class="fas fa-calendar-check"></i> {% trans %}Assignment{% endtrans %}</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="affectationDropdownLink" >
+                        <a href="{{ path('logistique_affectation_liste') }}" class="dropdown-item">{% trans %}Assignments list{% endtrans %}</a>    
+                        <a href="{{ path('logistique_affectation_ajouter') }}" class="dropdown-item">{% trans %}Assignment add{% endtrans %}</a>                                              
+                        <div class="dropdown-divider"></div> 
+                        <a href="{{ path('logistique_affectation_archive') }}" class="dropdown-item">{% trans %}Assignment archives{% endtrans %}</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="tourneeDropdownLink"><i class="fas fa-shipping-fast"></i> {% trans %}Round{% endtrans %}</a>    
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tourneeDropdownLink" >
+                        <a href="{{ path('logistique_tournee_liste') }}" class="dropdown-item">{% trans %}Rounds list{% endtrans %}</a>    
+                        <a href="{{ path('logistique_tournee_ajouter') }}" class="dropdown-item">{% trans %}Round add {% endtrans %}</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ path('logistique_code-postal_liste') }}" class="dropdown-item">{% trans %}Postal codes list{% endtrans %}</a>
+                        <a href="{{ path('logistique_code-postal_ajouter') }}" class="dropdown-item">{% trans %}Postal code add{% endtrans %}</a>
+                    </div>
+                </li>  
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="expeditionDropdownLink"><i class="fas fa-sign-out-alt"></i> {% trans %}Delivery{% endtrans %}</a>    
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="expeditionDropdownLink" >
+                        <a href="{{ path('logistique_expedition_liste', {'typeColis': 1 }) }}" class="dropdown-item">{% trans %}All deliveries{% endtrans %}</a>
+                        <a href="{{ path('logistique_expedition_nouvelle', {'typeColis': 1 }) }}" class="dropdown-item">{% trans %}Today{% endtrans %}</a> 
+                        <a href="{{ path('logistique_express') }}" class="dropdown-item">{% trans %}Express{% endtrans %}</a>
+                        <a href="{{ path('logistique_expedition_en-cours', {'typeColis': 1 }) }}" class="dropdown-item">{% trans %}Open{% endtrans %}</a>                       
+                        <a href="{{ path('logistique_expedition_livre', {'typeColis': 1 }) }}" class="dropdown-item">{% trans %}Closed{% endtrans %}</a>
+                        <a href="{{ path('logistique_expedition_ajouter', {'typeColis': 1 }) }}" class="dropdown-item">{% trans %}Add{% endtrans %}</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="enlevementDropdownLink"><i class="fas fa-sign-in-alt"></i> {% trans %}Pickup{% endtrans %}</a>    
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="enlevementDropdownLink" >
+                        <a href="{{ path('logistique_enlevement_liste', {'typeColis': 0 }) }}" class="dropdown-item">{% trans %}All pickup{% endtrans %}</a>    
+                        <a href="{{ path('logistique_enlevement_nouvelle', {'typeColis': 0 }) }}" class="dropdown-item">{% trans %}Today{% endtrans %}</a> 
+                        <a href="{{ path('logistique_enlevement_en-cours', {'typeColis': 0 }) }}" class="dropdown-item">{% trans %}Open{% endtrans %}</a>                       
+                        <a href="{{ path('logistique_enlevement_livre', {'typeColis': 0 }) }}" class="dropdown-item">{% trans %}Closed{% endtrans %}</a>
+                        <a href="{{ path('logistique_enlevement_ajouter', {'typeColis': 0 }) }}" class="dropdown-item">{% trans %}Add{% endtrans %}</a>
+                    </div>
+                </li>  
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="requeteDropdownLink"><i class="fas fa-hands-helping"></i> {% trans %}Request{% endtrans %}</a>    
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="requeteDropdownLink" >
+                        <a href="{{ path('logistique_requete', {'service' : 'secretariat' })}}" class="dropdown-item">{% trans %}Secretariat{% endtrans %}</a>
+                        <a href="{{ path('logistique_requete', {'service' : 'administration' })}}" class="dropdown-item">{% trans %}Administration{% endtrans %}</a>
+                        <a href="{{ path('logistique_requete_liste')}}" class="dropdown-item">{% trans %}Request history{% endtrans %}</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ path('logistique_requete_ouvert')}}" class="dropdown-item">{% trans %}Pending request{% endtrans %}</a>
+                        <a href="{{ path('logistique_requete_ferme')}}" class="dropdown-item">{% trans %}Closed request{% endtrans %}</a>
+                    </div>
+                </li>                 
+                <li class="nav-item">           
+                    <a href="#" class="nav-link"><i class="fas fa-question-circle"></i> {% trans %}Help{% endtrans %}</a> 
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">           
+                {% include 'partials/translate.html.twig' %}
+                {% if app.user %}
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="logistiqueDropdownLink"> {{ app.user.nomLogistique }} {{ app.user.prenomLogistique }} </a>     
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="logistiqueDropdownLink" >
+                            <a href="{{ path('logistique_dashboard') }}" class="dropdown-item"><i class="fas fa-chart-line"></i> {% trans %}Dashboard{% endtrans %}</a>
+                            <div class="dropdown-divider"></div>                         
+                            <a href="{{ path('logistique_password') }}" class="dropdown-item"><i class="fas fa-key"></i> {% trans %}Password change{% endtrans %}</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ path('account_logout') }}" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> {% trans %}Logout{% endtrans %}</a>
+                        </div>
+                    </li>
+                {% endif %}       
+            </ul>
+        </div>
+    </nav>
+   {% include 'partials/info.html.twig' %}
+</header>

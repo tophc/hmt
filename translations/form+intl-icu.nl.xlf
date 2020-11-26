@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="nl" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="Z001RoY" resname="8 characters minimum">
+        <source>8 characters minimum</source>
+        <target>Minimaal 8 tekens</target>
+      </trans-unit>
+      <trans-unit id="Z002RoY" resname="A brief description of the category">
+        <source>A brief description of the category</source>
+        <target>Een korte beschrijving van de categorie</target>
+        </trans-unit>
+      <trans-unit id="Z003RoY" resname="Add a civil status">
+        <source>Add a civil status</source>
+        <target>Een burgerlijke stand toevoegen</target>
+        </trans-unit>
+      <trans-unit id="Z004RoY" resname="Add a comment">
+        <source>Add a comment</source>
+        <target>Een commentaar toevoegen</target>
+        </trans-unit>
+      <trans-unit id="Z005RoY" resname="Add a note (optional)">
+        <source>Add a note (optional)</source>
+        <target>Een notitie toevoegen (optioneel)</target>
+      </trans-unit>
+      <trans-unit id="Z006RoY" resname="Add a reason for refusal">
+        <source>Add a reason for refusal</source>
+        <target>Een reden voor weigering toevoegen</target>
+      </trans-unit> 
+      <trans-unit id="Z007RoY" resname="Add a round">
+        <source>Add a round</source>
+        <target>Een rondleiding toevoegen</target>
+      </trans-unit>
+      <trans-unit id="Z008RoY" resname="Add a round number">
+        <source>Add a round number</source>
+        <target>Een rondleiding nummer toevoegen</target>
+        </trans-unit>
+      <trans-unit id="Z009RoY" resname="Add a short description">
+        <source>Add a short description</source>
+        <target>Een korte beschrijving toevoegen</target>
+        </trans-unit>
+      <trans-unit id="Z010RoY" resname="Add reply note to request">
+        <source>Add reply note to request</source>
+        <target>Antwoordnota toevoegen aan verzoek</target>
+      </trans-unit>
+      <trans-unit id="Z011RoY" resname="Add vehicle mileage">
+        <source>Add vehicle mileage</source>
+        <target>Voertuigkilometers toevoegen</target>
+      </trans-unit> 
+      <trans-unit id="Z012RoY" resname="Address">
+        <source>Address</source>
+        <target>Adres</target>
+      </trans-unit>
+      <trans-unit id="Z013RoY" resname="Amount">
+        <source>Amount</source>
+        <target>Bedrag</target>
+      </trans-unit>
+      <trans-unit id="Z014RoY" resname="Amount of the fine">
+        <source>Amount of the fine</source>
+        <target>Bedrag van de boete</target>
+      </trans-unit>
+      <trans-unit id="Z015RoY" resname="Amount of the maintenance">
+        <source>Amount of the maintenance</source>
+        <target>Bedrag van het onderhoud</target>
+      </trans-unit>
+      <trans-unit id="Z016RoY" resname="Brand">
+        <source>Brand</source>
+        <target>Merk</target>
+      </trans-unit>
+      <trans-unit id="Z017RoY" resname="Capacity">
+        <source>Capacity</source>
+        <target>Capaciteit</target>
+      </trans-unit>
+      <trans-unit id="Z018RoY" resname="Category">
+        <source>Category</source>
+        <target>Categorie</target>
+      </trans-unit>
+      <trans-unit id="Z019RoY" resname="Category name">
+        <source>Category name</source>
+        <target>Categorienaam</target>
+      </trans-unit>
+      <trans-unit id="Z020RoY" resname="Change the password">
+        <source>Change the password</source>
+        <target>Verander wachtwoord</target>
+      </trans-unit>
+      <trans-unit id="Z021RoY" resname="Choose an option">
+        <source>Choose an option</source>
+        <target>Kies een optie</target>
+      </trans-unit>
+      <trans-unit id="Z022RoY" resname="Civil status">
+        <source>Civil status</source>
+        <target>Burgerlijke staat</target>
+      </trans-unit>
+      <trans-unit id="Z023RoY" resname="Close the request">
+        <source>Close the request</source>
+        <target>De aanvraag afsluiten</target>
+      </trans-unit>
+      <trans-unit id="Z024RoY" resname="Comment">
+        <source>Comment</source>
+        <target>Commentaar</target>
+      </trans-unit>
+      <trans-unit id="Z025RoY" resname="Confirm your new password">
+        <source>Confirm your new password</source>
+        <target>Bevestig uw nieuwe wachtwoord</target>
+      </trans-unit>
+      <trans-unit id="Z026RoY" resname="Current password">
+        <source>Current password</source>
+        <target>Huidig wachtwoord</target>
+      </trans-unit>
+      <trans-unit id="Z027RoY" resname="Date">
+        <source>Date</source>
+        <target>Datum</target>
+      </trans-unit>
+      <trans-unit id="Z028RoY" resname="Date of birth">
+        <source>Date of birth</source>
+        <target>Geboortedatum</target>
+      </trans-unit>
+      <trans-unit id="Z029RoY" resname="Date of offense">
+        <source>Date of offense</source>
+        <target>Datum van de overtreding</target>
+      </trans-unit>
+      <trans-unit id="Z030RoY" resname="Date of validity">
+        <source>Date of validity</source>
+        <target>Datum van geldigheid</target>
+      </trans-unit>
+      <trans-unit id="Z031RoY" resname="Description">
+        <source>Description</source>
+        <target>Beschrijving</target>
+      </trans-unit>
+      <trans-unit id="Z032RoY" resname="Driver licence number">
+        <source>Driver licence number</source>
+        <target>Rijbewijsnummer</target>
+      </trans-unit>
+      <trans-unit id="Z033RoY" resname="Driver's address">
+        <source>Driver's address</source>
+        <target>Bestuurder adres</target>
+      </trans-unit>
+      <trans-unit id="Z034RoY" resname="Driver's email">
+        <source>Driver's email</source>
+        <target>E-mail van de bestuurder</target>
+      </trans-unit>
+      <trans-unit id="Z035RoY" resname="Driver's first name">
+        <source>Driver's first name</source>
+        <target>Voornaam van de bestuurder</target>
+      </trans-unit>
+      <trans-unit id="Z036RoY" resname="Driver's last name">
+        <source>Driver's last name</source>
+        <target>Naam van de bestuurder</target>
+      </trans-unit>
+      <trans-unit id="Z037RoY" resname="Driver's national registry">
+        <source>Driver's national registry</source>
+        <target>Nationaal register van de bestuurder</target>
+      </trans-unit>
+      <trans-unit id="Z038RoY" resname="End date for multiple assignment (optionnal)">
+        <source>End date for multiple assignment (optionnal)</source>
+        <target>Einddatum voor meerdere opdrachten (optioneel)</target>
+      </trans-unit>
+      <trans-unit id="Z039RoY" resname="Enter a valid postal code number">
+        <source>Enter a valid postal code number</source>
+        <target>Voer een geldig postcodenummer in</target>
+      </trans-unit>
+      <trans-unit id="Z040RoY" resname="Enter the postal code number locality">
+        <source>Enter the postal code number locality</source>
+        <target>Voer het postcodenummer van de plaats in</target>
+      </trans-unit>
+      <trans-unit id="Z041RoY" resname="Female">
+        <source>Female</source>
+        <target>Vrouwelijk</target>
+      </trans-unit>
+      <trans-unit id="Z042RoY" resname="File">
+        <source>File</source>
+        <target>Bestand</target>
+      </trans-unit>
+      <trans-unit id="Z043RoY" resname="Gender">
+        <source>Gender</source>
+        <target>Geslacht</target>
+      </trans-unit>
+      <trans-unit id="Z044RoY" resname="Genderless">
+        <source>Genderless</source>
+        <target>Geslachtsloze</target>
+      </trans-unit>
+      <trans-unit id="Z045RoY" resname="Informations">
+        <source>Informations</source>
+        <target>Informatie</target>
+      </trans-unit>
+      <trans-unit id="Z046RoY" resname="License number">
+        <source>License number</source>
+        <target>Licentienummer</target>
+      </trans-unit>
+      <trans-unit id="Z047RoY" resname="Locality">
+        <source>Locality</source>
+        <target>Plaats</target>
+      </trans-unit>
+      <trans-unit id="Z048RoY" resname="Log in">
+        <source>Log in</source>
+        <target>Aanmelden</target>
+      </trans-unit>
+      <trans-unit id="Z049RoY" resname="Logistics email">
+        <source>Logistics email</source>
+        <target>Logistiek e-mail</target>
+      </trans-unit>
+      <trans-unit id="Z050RoY" resname="Logistics first name">
+        <source>Logistics first name</source>
+        <target>Logistiek voornaam</target>
+      </trans-unit>
+      <trans-unit id="Z051RoY" resname="Logistics last name">
+        <source>Logistics last name</source>
+        <target>Logistieke naam</target>
+      </trans-unit>
+      <trans-unit id="Z052RoY" resname="Maintenance interval">
+        <source>Maintenance interval</source>
+        <target>Onderhoudsinterval</target>
+      </trans-unit>
+      <trans-unit id="Z053RoY" resname="Male">
+        <source>Male</source>
+        <target>Mannelijk</target>
+      </trans-unit>
+      <trans-unit id="Z054RoY" resname="Maximum mass allowed">
+        <source>Maximum mass allowed</source>
+        <target>Maximaal toegestane massa</target>
+      </trans-unit>
+      <trans-unit id="Z055RoY" resname="Message">
+        <source>Message</source>
+        <target>Bericht</target>
+      </trans-unit>
+      <trans-unit id="Z056RoY" resname="Mileage">
+        <source>Mileage</source>
+        <target>Kilometerstand</target>
+      </trans-unit>
+      <trans-unit id="Z057RoY" resname="Mileage between each maintenances">
+        <source>Mileage between each maintenances</source>
+        <target>Kilometerstand tussen de verschillende onderhoudsbeurten</target>
+      </trans-unit>
+      <trans-unit id="Z058RoY" resname="Mobile number">
+        <source>Mobile number</source>
+        <target>Mobiel nummer</target>
+      </trans-unit>
+      <trans-unit id="Z059RoY" resname="Model name">
+        <source>Model name</source>
+        <target>Modelnaam</target>
+      </trans-unit>
+      <trans-unit id="Z060RoY" resname="National registry">
+        <source>National registry</source>
+        <target>Nationaal register</target>
+      </trans-unit>
+      <trans-unit id="Z061RoY" resname="New password">
+        <source>New password</source>
+        <target>Nieuw wachtwoord</target>
+      </trans-unit>
+      <trans-unit id="Z062RoY" resname="No Vehicule found with numberplate">
+        <source>No Vehicule found with numberplate</source>
+        <target>Geen voertuig gevonden met nummerplaat</target>
+      </trans-unit>
+      <trans-unit id="Z063RoY" resname="Note">
+        <source>Note</source>
+        <target>Nota</target>
+      </trans-unit>
+      <trans-unit id="Z064RoY" resname="Numberplate not found !">
+        <source>Numberplate not found !</source>
+        <target>Nummerplaat niet gevonden !</target>
+      </trans-unit>
+      <trans-unit id="Z065RoY" resname="Numberplate search">
+        <source>Numberplate search</source>
+        <target>Nummerplaat zoeken</target>
+      </trans-unit>
+      <trans-unit id="Z066RoY" resname="Object">
+        <source>Object</source>
+        <target>Object</target>
+      </trans-unit>
+      <trans-unit id="Z067RoY" resname="Oficial category name">
+        <source>Oficial category name</source>
+        <target>Officiële categorienaam</target>
+      </trans-unit>
+      <trans-unit id="Z068RoY" resname="Old password">
+        <source>Old password</source>
+        <target>Oud wachtwoord</target>
+      </trans-unit>
+      <trans-unit id="Z069RoY" resname="Passed">
+        <source>Passed</source>
+        <target>Gepasseerd</target>
+      </trans-unit>
+      <trans-unit id="Z070RoY" resname="Password confirmation">
+        <source>Password confirmation</source>
+        <target>Wachtwoordbevestiging</target>
+      </trans-unit>
+      <trans-unit id="Z071RoY" resname="Postal code">
+        <source>Postal code</source>
+        <target>Postcode</target>
+      </trans-unit>
+      <trans-unit id="Z072RoY" resname="Professional mobile phone number">
+        <source>Professional mobile phone number</source>
+        <target>Professioneel mobiel telefoonnummer</target>
+      </trans-unit>
+      <trans-unit id="Z073RoY" resname="Reference number of the fine">
+        <source>Reference number of the fine</source>
+        <target>Referentienummer van de boete</target>
+      </trans-unit>
+      <trans-unit id="Z074RoY" resname="Refused">
+        <source>Refused</source>
+        <target>Geweigerd</target>
+      </trans-unit>
+      <trans-unit id="Z075RoY" resname="Reply">
+        <source>Reply</source>
+        <target>Antwoord op</target>
+      </trans-unit>
+      <trans-unit id="Z076RoY" resname="Request object">
+        <source>Request object</source>
+        <target>Verzoekobject</target>
+      </trans-unit>
+      <trans-unit id="Z077RoY" resname="Round number">
+        <source>Round number</source>
+        <target>Rondleidig nummer</target>
+      </trans-unit>
+      <trans-unit id="Z078RoY" resname="Search">
+        <source>Search</source>
+        <target>Zoeken op</target>
+      </trans-unit>
+      <trans-unit id="Z079RoY" resname="Secretariat email">
+        <source>Secretariat email</source>
+        <target>E-mail van het secretariaat</target>
+      </trans-unit>
+      <trans-unit id="Z080RoY" resname="Secretariat first name">
+        <source>Secretariat first name</source>
+        <target>Voornaam van het secretariaat</target>
+      </trans-unit>
+      <trans-unit id="Z081RoY" resname="Secretariat last name">
+        <source>Secretariat last name</source>
+        <target>Naam van het secretariaat</target>
+      </trans-unit>
+      <trans-unit id="Z082RoY" resname="Select a file">
+        <source>Select a file</source>
+        <target>Selecteer een bestand</target>
+      </trans-unit>
+      <trans-unit id="Z083RoY" resname="Start date">
+        <source>Start date</source>
+        <target>Startdatum</target>
+      </trans-unit>
+      <trans-unit id="Z084RoY" resname="The model brand">
+        <source>The model brand</source>
+        <target>Het modelmerk</target>
+      </trans-unit>
+      <trans-unit id="Z085RoY" resname="The name of the model">
+        <source>The name of the model</source>
+        <target>De naam van het model</target>
+      </trans-unit>
+      <trans-unit id="Z086RoY" resname="The vehicle frame number">
+        <source>The vehicle frame number</source>
+        <target>het voertuigframenummer</target>
+      </trans-unit>
+      <trans-unit id="Z087RoY" resname="The vehicle numberplate">
+        <source>The vehicle numberplate</source>
+        <target>Het voertuignummerplaat</target>
+      </trans-unit>
+      <trans-unit id="Z088RoY" resname="Vehicle frame number">
+        <source>Vehicle frame number</source>
+        <target>Voertuigframenummer</target>
+      </trans-unit>
+      <trans-unit id="Z089RoY" resname="Vehicle model">
+        <source>Vehicle model</source>
+        <target>De naam van het model</target>
+      </trans-unit>
+      <trans-unit id="Z090RoY" resname="Vehicle numberplate">
+        <source>Vehicle numberplate</source>
+        <target>Voertuignummerplaat</target>
+      </trans-unit>
+      <trans-unit id="Z091RoY" resname="Your message">
+        <source>Your message</source>
+        <target>Uw bericht</target>
+      </trans-unit>
+      <trans-unit id="Z092RoY" resname="Driver">
+        <source>Driver</source>
+        <target>Bestuurder</target>
+      </trans-unit>
+      <trans-unit id="Z093RoY" resname="Vehicle">
+        <source>Vehicle</source>
+        <target>Voertuig</target>
+      </trans-unit>
+      <trans-unit id="Z094RoY" resname="Round">
+        <source>Round</source>
+        <target>Rondleiding</target>
+      </trans-unit>
+      <trans-unit id="Z095RoY" resname="Scan track-number parcel">
+        <source>Scan track-number parcel</source>
+        <target>Scan het pakketnummer</target>
+      </trans-unit>
+      <trans-unit id="Z096RoY" resname="Last name">
+        <source>Last name</source>
+        <target>Naam</target>
+      </trans-unit>
+      <trans-unit id="Z097RoY" resname="First name">
+        <source>First name</source>
+        <target>Voorname</target>
+      </trans-unit>
+      <trans-unit id="Z098RoY" resname="Validate">
+        <source>Validate</source>
+        <target>Bevestigen</target>
+      </trans-unit>
+      <trans-unit id="Z099RoY" resname="Number">
+        <source>Number</source>
+        <target>Nummer</target>
+      </trans-unit>
+      <trans-unit id="Z100RoY" resname="Browse">
+        <source>Browse</source>
+        <target>Kijk op</target>
+      </trans-unit>
+      <trans-unit id="Z101RoY" resname="Email">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="Z102RoY" resname="Search a vehicle by platenumber">
+        <source>Search a vehicle by platenumber</source>
+        <target>Zoek een voertuig met het kenteken</target>
+      </trans-unit>
+      <trans-unit id="D402RoY" resname="Code">
+        <source>Code</source>
+        <target>Code</target>
+      </trans-unit>
+      <trans-unit id="D502RoY" resname="Status code">
+        <source>Status code</source>
+        <target>statuscode</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

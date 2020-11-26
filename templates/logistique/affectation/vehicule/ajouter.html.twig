@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %} 
+    <div class="container">
+        {# Flash message vehicule #}
+        {% for message in app.flashes('vehicule') %}
+            <div class="alert alert-danger text-center">
+                {{message | raw}}
+            </div>
+        {% endfor %}  
+        {{ form_start(form) }}    
+        <div class="form-group">
+            {{ form_label(form.dateAffectation) }}
+                {% for message in app.flashes('dateAffectation') %}
+                    <span class="invalid-feedback d-block mb-2">
+                        <span class="d-block">
+                            <span class="form-error-icon badge badge-danger text-uppercase">{% trans %}Error{% endtrans %}</span> <span class="form-error-message">{{ message }}</span>
+                        </span>  
+                    </span>
+                {% endfor %}               
+            {{ form_widget(form.dateAffectation) }}
+            {{ form_help(form.dateAffectation) }} 
+        </div>
+        <div class="form-group">
+            {{ form_label(form.dateFin) }}
+                {% for message in app.flashes('dateFin') %}
+                    <span class="invalid-feedback d-block mb-2">
+                        <span class="d-block">
+                            <span class="form-error-icon badge badge-danger text-uppercase">{% trans %}Error{% endtrans %}</span> <span class="form-error-message">{{ message }}</span>
+                        </span>  
+                    </span>
+                {% endfor %}               
+            {{ form_widget(form.dateFin) }}   
+            {{ form_help(form.dateFin) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.chauffeur) }}
+                {% for message in app.flashes('chauffeur') %}
+                    <span class="invalid-feedback d-block mb-2">
+                        <span class="d-block">
+                            <span class="form-error-icon badge badge-danger text-uppercase">{% trans %}Error{% endtrans %}</span> <span class="form-error-message">{{ message }}</span>
+                        </span>  
+                    </span>
+                {% endfor %}               
+            {{ form_widget(form.chauffeur) }}           
+            {{ form_help(form.chauffeur) }} 
+        </div>             
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+      

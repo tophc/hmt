@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hayam : Contact {{ contact.service}}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h3>Forulaire de contacte Hayam</h3>
+            <div class="row">
+                <div class="col" >
+                    <p><strong>Service :</strong> {{ contact.service }}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <p><strong>Nom :</strong> {{ contact.nom }}</p>
+                </div>
+                <div class="col">
+                    <p><strong>Prénom :</strong> {{ contact.prenom }}</p>
+                </div>
+                <div class="col">
+                <p><strong>Email :</strong>  {{ contact.email }}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <p><strong>Sujet :</strong></p> <br><p>{{ contact.sujet }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p><strong>Message :</strong></p> <br><p>{{ contact.message | nl2br}}</p>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </body>
+</html>

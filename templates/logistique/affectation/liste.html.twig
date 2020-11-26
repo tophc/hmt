@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %} 
+
+{% block stylesheets %} 
+    <link rel="stylesheet" type="text/css" href="/css/dataTables/dataTables.bootstrap4.min.css">
+{% endblock %}
+{% set route =  app.request.attributes.get('_route') %}
+{% block body %}
+    <div class="container-fluid">
+       <div class="row"> 
+            <div class="col">
+                <table class = "table display responsive table-striped" width = "100%" id = "liste-affectation">    
+                    <thead>
+                        <tr>
+                            <th>{% trans %}Date{% endtrans %}</th>
+                            <th>{% trans %}Driver{% endtrans %}</th>
+                            <th>{% trans %}Vehicle{% endtrans %}</th>
+                            <th>{% trans %}Brand{% endtrans %} - {% trans %}Model{% endtrans %}</th>
+                            <th>{% trans %}Round{% endtrans %}</th>
+                            <th class = "text-right">{% trans %}Action{% endtrans %}</th>                         
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>   
+            </div> 
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" language="javascript" src="/js/dataTables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="/js/dataTables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/moment.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/date-eu.js"></script>
+
+    {# pagination/recherche/tri dans un tableau #}
+    <script type="text/javascript" class="init">
+        $(document).ready(function()
+        {    
+            locale = '{{app.request.locale}}';      
+            $('#liste-affectation').DataTable( 
+            {
+                // These are the column name variables that will be sent to the server
+                columnDefs: 
+                [
+                    { "name": "Date",       "targets": 0, type: 'date-eu' },
+                    { "name": "Driver",     "targets": 1 },
+                    { "name": "Vehicle",    "targets": 2 },
+                    { "name": "Brand",      "targets": 3 },
+                    { "name": "Round",      "targets": 4 },    
+                    { "name": "Action",     "targets": 5, "className": "text-right", bSortable:false},
+                ], 
+
+                serverSide: true,
+                ajax:   {   url: "{{path('logistique_affectation_liste_api', {'route' : route })}}",
+                            type: 'POST'
+                        },
+                order: [ 0, 'asc' ],
+                paging : true,        
+                language: { "url": "/js/dataTables/"+locale+".lang" },
+                lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
+                searching: true, 
+            });
+        });
+    </script>
+
+    {# affichage d'une infobule au passage de la souris sur un élément après l'apel Ajax #}
+    <script>
+        $( document ).ajaxComplete(function() {
+            // Required for Bootstrap tooltips in DataTables
+            $('[data-toggle="tooltip"]').tooltip({
+                "html": true,
+                "delay": {"show": 100, "hide": 0},
+            });
+        });  
+    </script>
+{% endblock %}
+   

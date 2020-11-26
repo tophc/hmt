@@ -1,0 +1,196 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <div class="container">
+      <form name="dayat">
+         <div class="form-group">
+            <div class="row">
+               <div class="col-2">&nbsp;</div>
+               <div class="col-8"><input type="text" id="track" class="form-control" value = '' placeholder="{% trans from 'form' %}Scan track-number parcel{% endtrans %}" autofocus></div>
+               <div class="col-2">&nbsp;</div>
+            </div>
+         </div>   
+      </form> 
+   </div>
+   <div class="container">
+      <div class="row">
+         <div class="col-2">&nbsp;</div>
+         <div class="col-8">
+            <div class="alert text-center" id ="info"></div>
+            <div class="card-group">
+               <div class="card border-0" style="max-width: 20rem;">
+                  <div class="card-body">
+                     <span class="card-title" id ="info"></span>
+                     <ul id="details"></ul>
+                  </div>
+               </div>
+               <div class="card border-0" style="max-width: 20rem;">
+                  <div class="card-body">
+                     <table width = "100%">        
+                        <thead></thead>
+                        <tbody id = "suivi"></tbody>
+                     </table>                                  
+                  </div>
+               </div>
+            </div>
+         <div class="row justify-content-center">
+            <div><a href= '#' data-toggle="tooltip" data-placement="top" title = "{% trans %}Eraze data{% endtrans %}" class = "btn btn-outline-dark btn-lg m-1" onClick="document.forms.dayat.reset();document.getElementById('track').focus();"><i class = "fas fa-times"></i></a></div>
+            <div><a href= '#' data-toggle="tooltip" data-placement="top" title = "{% trans %}Reload screen{% endtrans %}" class = "btn btn-outline-dark btn-lg m-1" onClick="document.location.reload(true);"><i class = "fas fa-redo-alt"></i></a></div>
+            <div><a href= '#' data-toggle="tooltip" data-placement="top" title = "{% trans %}Ready to scan{% endtrans %}" class = "btn btn-outline-dark btn-lg m-1" onClick="document.getElementById('track').focus();"><i class = "fas fa-barcode"></i></a></div>
+         </div>
+         <div class="row justify-content-center" id = "etat"></div>
+         <div class="row justify-content-center" id = "descriptif-etat"></div>
+      </div>   
+      <div class="col-2">&nbsp;</div>
+   </div>
+{% endblock %}
+
+{% block javascripts %}
+   <script language = "javascript"> 
+      $(document).ready(function()
+      {   
+         $("#track").on("change", function(event)
+         { 
+            var numColis = document.getElementById("track").value
+            if (numColis.length === 16 )
+            {
+               $.ajax(
+               {  
+                  url      : '{{ path("chauffeur_dayat_ajax_track") }}',  
+                  type     : 'POST',   
+                  dataType : 'json', 
+                  data     : {"numColis": numColis}, 
+                  async    : true,
+                  
+                  success: function(data, status) {  
+                     if (data.info)
+                     {
+                        // Vide tous les champs avant toutes actions
+                        $('#details').html('');
+                        $('#info').html(''); 
+                        $('#note').html(''); 
+                        $('#etat').html('');
+                        $('#suivi').html('');
+                        // Rajoute le logo type colis
+                        if (data.typeColis)
+                        {
+                           $('#info').append(" <i class='fas fa-sign-out-alt'></i>");
+                        }
+                        else
+                        {
+                           $('#info').append(" <i class='fas fa-sign-in-alt'></i>");
+                        }
+                        $('#info').append(' '+data.info); 
+                        
+                        // Rajoute le logo express colis
+                        if (data.expressColis)
+                        {
+                           $('#info').append(" <i class='fas fa-tachometer-alt'></i>");
+                        } 
+                        $('#note').html(data.note);
+                        
+                        // Génération de la liste des infos destinataire
+                        for(i = 0; i < data.donnee.length; i++)
+                        {
+                           $('#details').append('<li>'+data.donnee[i]+'</li>');  
+                        } 
+                     
+                        // Génération des suiviColis
+                        if (data.suiviColis.length > 0 )
+                        {
+                           for(j = 0; j < data.suiviColis.length; j++)
+                           {
+                              $('#suivi').append('<tr>')
+                              for(k = 0; k < data.suiviColis[j].length; k++)
+                              {
+                                 $('#suivi').append('<td>'+data.suiviColis[j][k]+'</td>');
+                              }
+                              $('#suivi').append('</tr>')
+                           }     
+                        }
+
+                        // Génère les boutons etat
+                        for(l = 0; l < data.codeEtat.length; l++)
+                        {
+                           $('#etat').append('<div><button class = "btn btn-outline-dark btn-lg m-1 bouton-etat" value = "" id = "'+l+'" >'+data.codeEtat[l][0]+'</button></div>');  
+                        }
+         
+                        // Affiche le descriptifEtat au passage de la souris
+                        $('.bouton-etat').mouseover(function(event)
+                        { 
+                           var id = +this.id;
+                           //console.log(id);
+                           $('#descriptif-etat').html(data.codeEtat[id][1])
+                        }); 
+
+                        // Efface le descriptifEtat
+                        $('.bouton-etat').mouseout(function(event)
+                        { 
+                           $('#descriptif-etat').html('')
+                        });
+
+                        $('#track').html('');
+
+                        /***********Debut: Gestion du changement d'etat en Ajax **********/
+
+                        // Gestion du changement d'etat en Ajax
+                        $(".bouton-etat").click(function(event)
+                        {
+                           var codeEtat = document.getElementById(this.id).textContent; 
+                           console.log(codeEtat); 
+                           $.ajax(
+                           { 
+                              url      : '{{ path("chauffeur_dayat_ajax_etat") }}',  
+                              type     : 'POST',   
+                              dataType : 'json', 
+                              data     : {"numColis": numColis, "codeEtat" : codeEtat}, 
+                              async    : true,
+                  
+                              success: function(data, status) 
+                              {  
+                                 $("#track").val(numColis).trigger("change");
+                                 //$("#track")
+                                 //$('#track').val('');
+                              },   
+                              error : function(xhr, textStatus, errorThrown) 
+                              {  
+                                 alert('Ajax request failed.');  
+                              }  
+                           });   
+                              
+                        }); 
+                        /***********Fin: Gestion du changement d'etat en Ajax **********/
+                     }
+                     else 
+                     {
+                        $('#info').html(data.message);
+                        $('#track').html('');
+                        $('#details').html(''); 
+                        $('#note').html(''); 
+                        $('#etat').html('');
+                        $('#suivi').html('');
+                        $('track').focus();
+                     }
+
+                     // Vide le champ #track et remet le focus dessus
+                     $('#track').val('');
+                     $('track').focus();
+                  }, 
+                  error : function(xhr, textStatus, errorThrown) {  
+                     alert('Ajax request failed.');  
+                  }  
+               }); 
+            }    
+         });   
+      });
+   </script>
+
+   {# affichage d'une infobule au passage de la souris sur un élément #}
+   <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+{% endblock %}

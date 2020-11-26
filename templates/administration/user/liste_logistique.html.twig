@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="/css/dataTables/dataTables.bootstrap4.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid"> 
+        <div class="row">
+            <div class="col">
+                <table class = "table display responsive table-striped" width = "100%" id = "liste-chauffeur">    
+                    <thead>
+                        <tr>
+                            <th>{% trans %}ID{% endtrans %} </th>
+                            <th>{% trans %}Last name{% endtrans %}</th>
+                            <th>{% trans %}First name{% endtrans %}</th>
+                            <th>{% trans %}Email{% endtrans %}</th>
+                            <th>{% trans %}Enabled{% endtrans %}</th>
+                            <th>{% trans %}Initialized{% endtrans %}</th>
+                            <th class = "text-right">{% trans %}Action{% endtrans %}</th>                         
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                            <tr>                            
+                                <td>{{user.id}}</td>
+                                <td>{{user.nomLogistique}}</td>
+                                <td>{{user.prenomLogistique}}</td>
+                                <td><a href="mailto:{{user.emailLogistique}}">{{user.emailLogistique}}</a></td>
+                                <td>{% if "ROLE_DISABLED" in user.roles %}<i class="fas fa-times text-danger"></i>{% else %}<i class="fas fa-check text-success"></i>{% endif %}</td>
+                                <td>{% if "ROLE_NEW_USER" in user.roles %}<i class="fas fa-check text-success"></i>{% else %} <i class="fas fa-times text-danger"></i>{% endif %}</td>
+                                <td class = "float-right">
+                                    <a href="{{ path('administration_user_desactiver', {'service' : 'logistique', 'id': user.id}) }}" class="btn btn-outline-dark">{% if "ROLE_DISABLED" not in user.roles %}<i class="fas fa-lock" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Disable user{% endtrans %}"></i>{% else %}<i class="fas fa-lock-open" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Enable user{% endtrans %}"></i>{% endif %}</a>
+                                    {% if "ROLE_DISABLED" not in user.roles %}<a href="{{ path('administration_user_reinitialiser', {'service' : 'logistique', 'id': user.id}) }}"  class="btn btn-outline-dark"><i class="fas fa-key" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Reset Password{% endtrans %}"></i></a>{% endif %}  
+                                </td>
+                            </tr>
+                        {% endfor %}   
+                    </tbody>
+                </table>  
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+	<script type="text/javascript" language="javascript" src="/js/dataTables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="/js/dataTables/dataTables.bootstrap4.min.js"></script> 
+    <script type="text/javascript" language="javascript" src="/js/dataTables/moment.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/date-eu.js"></script>
+
+    {# pagination/recherche/tri dans un tableau #}
+    <script type="text/javascript" class="init">
+        $(document).ready(function()
+        {    
+            locale = '{{app.request.locale}}';     
+            $('#liste-chauffeur').DataTable( 
+            {
+                language: { "url": "/js/dataTables/"+locale+".lang" },
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Tous"]],
+                order: [[1, 'asc'],[2, 'asc']],
+                columnDefs: 
+                [
+                    {
+                        targets: [4],     
+                        searchable: false,
+                        bSortable: false
+                    }, 
+                ]         
+            });
+        });
+    </script>
+    
+    {# affichage d'une infobule au passage de la souris sur un élément #}
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+{% endblock %}

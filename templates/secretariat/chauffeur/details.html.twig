@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="card-deck">
+			{# Card: Chauffeur détails #}
+			<div class="card mb-3">
+                <h3 class="card-header {% if not chauffeur.statutChauffeur %} bg-warning {% endif %}"><i class="fas fa-{{chauffeur.genreChauffeur}}"></i> {% trans %}Driver informations{% endtrans %} </h3>
+				<div class="card-body">
+                    <dl class="row">
+                        <dt class="col-md-4">{% trans %}Last name{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{chauffeur.nomChauffeur}}</dd>
+                        <dt class="col-md-4">{% trans %}First name{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{chauffeur.prenomChauffeur}}</dd>
+                        <dt class="col-md-4">{% trans %}Email{% endtrans %} : </dt>
+                        <dd class="col-md-8">{{chauffeur.emailChauffeur}}</dd>
+                        <dt class="col-md-4">{% trans %}Mobile number{% endtrans %} : </dt>
+                        <dd class="col-md-8">{{chauffeur.mobileChauffeur}}</dd>                   
+                        <dt class="col-md-4">{% trans %}Date of birth{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{chauffeur.dateNaissanceChauffeur | date('d.m.Y')}}</dd>
+                        <dt class="col-md-4">{% trans %}Address{% endtrans %} : </dt>
+                        <dd class="col-md-8">{{chauffeur.adressePostaleChauffeur}}</dd>
+                        <dt class="col-md-4">{% trans %}Civil status{% endtrans %} : </dt>
+                        <dd class="col-md-8">{{chauffeur.etatCivilChauffeur.nomEtatCivil}}</dd>
+                        <dt class="col-md-4">{% trans %}National registry{% endtrans %} : </dt>
+                        <dd class="col-md-8">{{chauffeur.numeroNationalChauffeur}}</dd>
+                    </dl>
+                </div> 
+                <div class="card-footer">   		
+                    {% if chauffeur.statutChauffeur %}
+                    <a href="{{ path('secretariat_chauffeur_liste', {'statut': 1 }) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Drivers list{% endtrans %}" class="btn btn-outline-dark card-link center"><i class="fas fa-list"></i></a>
+                    <a href="{{ path('secretariat_chauffeur_modifier', {'id': chauffeur.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Edit driver{% endtrans %}" class="btn btn-outline-warning card-link center"><i class="fas fa-edit"></i></a>
+                    <a href="{{ path('secretariat_chauffeur_statut', {'id': chauffeur.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Disable driver{% endtrans %}" class="btn btn-outline-danger card-link float-center" onclick="return confirm(
+                        `{% trans %}Are you sure you want to disable this driver{% endtrans %} : {{chauffeur.nomChauffeur}} {{chauffeur.prenomChauffeur}} ?\n{% trans %}This action is reversible{% endtrans %} !`)"><i class="fas fa-trash"></i></a>
+                    {% else %}
+                        <a href="{{ path('secretariat_chauffeur_statut', {'id': chauffeur.id}) }}" class="btn btn-success"><i class="fas fa-trash-restore-alt"></i></a>
+                        <a href="{{ path('secretariat_chauffeur_liste', {'statut': 0 }) }}" class="btn btn-outline-dark card-link center"><i class="fas fa-list"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+            {% if chauffeur.permisConduire %}
+                {# Card: permisConduire détail #}
+                {% set permis = chauffeur.permisConduire  %}
+                <div class="card mb-3">
+                    <h3 class="card-header">{% trans %}Driver's license{% endtrans %}</h3>
+                    <div class="card-body">
+                        {% if permis.dateValPermisConduire < date() %}
+                        <h5 class="card-title">	
+                            <h5 class="card-title text-danger"><i class="fas fa-exclamation-triangle fa-2x"></i> {% trans %}Driver's license has expired{% endtrans %} ! </h5>                            
+                        {% elseif permis.dateValPermisConduire <= date('+30 days') %}
+						    {% set joursRestant =  date(permis.dateValPermisConduire).diff(date('today')) %}
+                            <h5 {{  joursRestant.days > 15 ? "class= 'card-title text-warning'" : "class= 'card-title text-danger'" }} >		
+                                <i class="fas fa-exclamation-circle fa-2x" style ="text-align: center; vertical-align: middle;" ></i> {% trans %}Driver's license expires in{% endtrans %} {{ joursRestant.days}} {% trans %}days{% endtrans %}
+                            </h5>
+					    {% endif %}	
+                        <dl class="row">
+                            <dt class="col-md-4">{% trans %}License number{% endtrans %} :</dt>
+                            <dd class="col-md-8">{{permis.numPermisConduire}}</dd>
+                            <dt class="col-md-4">{% trans %}Valid until{% endtrans %} :</dt>
+                            <dd class="col-md-8">{{permis.dateValPermisConduire | date('d.m.Y')}}</dd>
+                            <dt class="col-md-4">{% trans %}Category{% endtrans %} :</dt>
+                            <dd class="col-md-8">
+                                {% if permis.categoriePermisConduires is empty %}
+                                <a href="{{ path('secretariat_chauffeur_modifier', {'id': permis.titulairePermisConduire.id}) }}" class="btn btn-outline-light text-danger">{% trans %}Edit driver to add category{% endtrans %}</a>        
+                                {% else %}
+                                    {% for categorie in permis.categoriePermisConduires %}
+                                        <a class="badge badge-dark"  href="#" title="{% trans %}Category{% endtrans %} : {{categorie.nomCategoriePermisConduire}}" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="{{categorie.infoCategoriePermisConduire}}">
+                                            {{categorie.nomCategoriePermisConduire}}
+                                        </a> 
+                                    {% endfor %}
+                                {% endif %}
+                            </dd>
+                        </dl>
+                    </div>    
+                    <div class="card-footer ">  
+                        <a href="{{ path('secretariat_permis-conduire_liste') }}" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Driver's licenses list{% endtrans %}" class="btn btn-outline-dark card-link center"><i class="fas fa-list"></i></a>	
+                    </div>	
+                </div>
+            {% endif %}   				
+		</div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+
+{# affichage popup au passage de la souris sur une categorie de permis #}
+<script>
+	$(document).ready(function(){
+  		$('[data-toggle="popover"]').popover();
+	});
+</script>
+
+{# affichage d'une infobule au passage de la souris sur une cellule du tableau #}
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+{% endblock %}

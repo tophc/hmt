@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="card-deck">
+			{# Card: Tournee détails #}
+			<div class="card mb-3">
+                <h3 class="card-header">{% trans %}Reference{% endtrans %} n° : {{tournee.id}}</h3>
+				<div class="card-body">                   
+                    <dl class="row">
+                        <dt class="col-md-4">{% trans %}Number{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{tournee.numTournee}}</dt>
+                        <dt class="col-md-4">{% trans %}Info{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{tournee.infoTournee}}</dd>
+                    </dl>		                 
+                </div>
+                <div class="card-footer">
+                    <a href="{{ path('logistique_tournee_liste') }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Rounds list{% endtrans %}" class="btn btn-outline-dark card-link center" ><i class="fas fa-list"></i></a>
+                    {% if not tournee.codePostals is empty %}
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Postal codes list{% endtrans %}" class="btn btn-outline-dark card-link float-center" onclick="afficher_code_postal()"><i class="fas fa-globe-europe" ></i></a>
+                    {% else %}
+                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="{% trans %}No postal codes{% endtrans %}" class="btn btn-outline-danger card-link float-center"><i class="fas fa-globe-europe" ></i></a>    
+                    {% endif %}
+
+                    <a href="{{ path('logistique_tournee_colis', {'id': tournee.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Parcels list{% endtrans %}" class="btn btn-outline-dark card-link float-center"><i class="fas fa-boxes"></i></a>
+                    <a href="{{ path('logistique_tournee_modifier', {'id': tournee.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Edit round{% endtrans %}" class="btn btn-outline-warning card-link center"><i class="fas fa-edit"></i></a>
+                    {% if tournee.affectations is empty %}
+                        <a href="{{ path('logistique_tournee_supprimer', {'id': tournee.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Delete round{% endtrans %}" class="btn btn-outline-danger card-link float-center"  onclick="return confirm( `{% trans %}Are you sure you want to remove this round{% endtrans %} ?\n{% trans %}This action is irreversible{% endtrans %} !`)"><i class="fas fa-trash"></i></a>   
+                    {% endif %} 
+                </div>
+            </div>    
+            {# Card: affectation détail #}
+            <div class="card mb-3">
+                <h3 class="card-header">{% if currentAffectations %}{% trans %}Current assignments{% endtrans %} :  {{ 'now' | date('d.m.Y') }} {% else %}{% trans %}No assignments for today{% endtrans %} {% if tournee.affectations is empty %}and the future{% endif %}{% endif %} </h3>
+                <div class="card-body text-center">
+                   
+                        {% if currentAffectations %}
+                         <div class="row ">
+                            {% for affectation in currentAffectations %}
+                                <a href= "{{ path('logistique_affectation_details', {'id': affectation.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Details of the assignment{% endtrans %}">
+                                    <div class="alert alert-secondary mr-2">                                      
+                                        {{ affectation.vehicule.immatriculationVehicule}}
+                                        <br>
+                                        {{affectation.Chauffeur.nomChauffeur }} {{affectation.Chauffeur.prenomChauffeur }}                                
+                                    </div>
+                                </a>              
+                            {% endfor %}
+                        </div> 
+                        {% else %}
+                            {% for message in app.flashes('affectationVide') %}
+                                <p class="alert alert-warning text-center">
+                                    {{ message | raw}} 
+                                </p>    
+                            {% endfor %}
+                        {% endif %}        
+                </div>
+                <div class="card-footer">  
+                    {% if tournee.affectations is not empty %}
+                        <a href="{{ path('logistique_tournee_affectation', {'id': tournee.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Round assignments{% endtrans %}" class="btn btn-outline-dark card-link center"><i class="fas fa-list"></i></a>  
+                    {% endif %}  
+                    <a href="{{ path('logistique_affectation_tournee_ajouter', {'entite' : tournee.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Add an assignment{% endtrans %}" class="btn btn-outline-dark card-link center"><i class="fas fa-plus"></i></a>
+                </div>
+            </div>   
+        </div>   
+        {# code postal #}
+        <div class="alert alert-warning " id="code_postal" style = "display: none;" onclick="masquer_code_postal()">
+            <button type="button" class="close"  onclick="masquer_code_postal()">&times;</button>
+            <h5 class="alert-heading">{% trans %}Postal codes{% endtrans %} :</h5>                   
+            {% for codePostal in tournee.codePostals  %}                          
+                <p class="badge badge-dark"  data-toggle="tooltip" data-placement="bottom" title="{{codePostal.localiteCodePostal}}">{{codePostal.numCodePostal}}</p>       
+            {% endfor %}
+        </div> 
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {# affichage d'une infobule au passage de la souris sur un élément #}
+    <script>
+        $(function () {
+                $('[data-toggle="tooltip"]').tooltip()
+            })
+    </script>
+
+    {# Affichage ou masquage des codes postaux #}
+    <script>
+        function afficher_code_postal(){
+            var code_postal = document.getElementById("code_postal");
+            code_postal.style.display='block';   
+        }
+        function masquer_code_postal(){
+            var code_postal = document.getElementById("code_postal");
+            code_postal.style.display='none';   
+        }  
+    </script>
+{% endblock %}

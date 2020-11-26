@@ -1,0 +1,18 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ path('home') }}"><li class="fas fa-home"></li> {% trans %}Home{% endtrans %}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> 
+    </nav>
+    <div id="messageBox">
+        {# Affiche les message labelisé warning, danger ou succès #}    
+        {% for label,messages in app.flashes(['success', 'warning', 'danger']) %}          
+            {% for message in messages %}
+            <div class="alert alert-{{ label }} text-center">
+                {{message | raw}}</div>
+            {% endfor %}          
+        {% endfor %} 
+    </div>    
+</header>

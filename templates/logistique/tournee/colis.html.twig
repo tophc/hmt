@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="/css/dataTables/dataTables.bootstrap4.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid"> 
+        <div class="row">
+            <div class="col">
+                <table class = "table display responsive table-striped" width = "100%" id = "liste-colis">    
+                    <thead> 
+                        <tr>   
+                            <th>{% trans %}Parcel number{% endtrans %}</th>
+                            <th>{% trans %}Last name{% endtrans %} </th>
+                            <th>{% trans %}First name{% endtrans %}</th>
+                            <th>{% trans %}Address (number){% endtrans %}</th>
+                            <th>{% trans %}Postal code{% endtrans %}</th>
+                            <th>{% trans %}Locality{% endtrans %}</th>
+                            <th>{% trans %}Type{% endtrans %}</th>
+                            <th class = "text-right">{% trans %}Action{% endtrans %}</th>                         
+                        </tr>
+                    </thead>
+                    <tbody>        
+                        {% for colis in colis %}
+                            <tr>
+                                <td>{{colis.numeroColis}}</td>
+                                <td>{{colis.nomDestinataire}}</td>
+                                <td>{{colis.prenomDestinataire}}</td>
+                                <td>{{colis.adresseDestinataire}} ({{colis.numeroAdresseDestinataire}})</td> 
+                                <td>{{colis.codePostal.numCodePostal}}</td>
+                                <td>{{colis.codePostal.localiteCodePostal}}</td>
+                                <td>
+                                    {% if colis.typeColis %} 
+                                        <p data-toggle="tooltip" data-placement="bottom" title="{% trans %}Delivery{% endtrans %}"><i class="fas fa-sign-out-alt"></i></p> 
+                                    {% else %}
+                                        <p data-toggle="tooltip" data-placement="bottom" title="{% trans %}Pickup{% endtrans %}"><i class="fas fa-sign-in-alt"></i></p> 
+                                    {% endif %}            
+                                </td>
+                                <td class = "text-right">
+                                    {% if colis.typeColis %}
+                                        <a href="{{ path('logistique_tournee_expedition_details', {'id': colis.id, 'idTournee' : idTournee }) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}See details{% endtrans %}" class="btn btn-outline-dark"><i class="fas fa-eye"></i></a>
+                                        <a href="{{ path('logistique_expedition_modifier', {'id': colis.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Edit delivery{% endtrans %}" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a> 
+                                    {% else %}
+                                        <a href="{{ path('logistique_tournee_enlevement_details', {'id': colis.id, 'idTournee' : idTournee }) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}See details{% endtrans %}" class="btn btn-outline-dark"><i class="fas fa-eye"></i></a>
+                                        <a href="{{ path('logistique_enlevement_modifier', {'id': colis.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Edit pickup{% endtrans %}" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}   
+                    </tbody>
+                </table>  
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+	<script type="text/javascript" language="javascript" src="/js/dataTables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="/js/dataTables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/moment.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/datetime-moment.js"></script>
+    
+    {# pagination/recherche/tri dans un tableau #}
+    <script type="text/javascript" class="init">
+        $(document).ready(function()
+        {    
+            locale = '{{app.request.locale}}';     
+            $('#liste-colis').DataTable( 
+            {
+                language: { "url": "/js/dataTables/"+locale+".lang" },
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Tous"]],
+                order: [ 4, 'asc' ],
+                columnDefs: 
+                [
+                    {
+                        targets: [ 6, 7 ],
+                        bSortable:false
+                    },    
+                ]         
+            });
+        });
+    </script>
+    
+    {# affichage d'une infobule au passage de la souris sur un élément #}
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+{% endblock %}

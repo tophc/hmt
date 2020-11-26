@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {{ form_label(form.fichier) }} 
+                    <span class="invalid-feedback d-block mb-2" >
+                        <span class="d-block" >
+                            <span class="form-error-icon badge badge-danger text-uppercase" id="error1"  style="display:none;">Error</span><span class="form-error-message" id="message1" style="display:none;" > {% trans %}Invalid file format! File format must be only "csv"{% endtrans %}.</span>
+                        </span>  
+                    </span>
+                    <span class="invalid-feedback d-block mb-2" >
+                        <span class="d-block" style="display:none;" >
+                            <span class="form-error-icon badge badge-danger text-uppercase" id="error2"  style="display:none;">Error</span><span class="form-error-message" id="message2" style="display:none;" > {% trans %}Maximum file size limit is 6 MB{% endtrans %}.</span>
+                        </span>  
+                    </span>          
+                    {{ form_widget(form.fichier) }}
+                    {{ form_help(form.fichier) }}
+                </div> 
+                <div class="form-group">
+                     <button class="btn btn-outline-dark" type="button" id = "loader" disabled style="display:none;">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Loading...
+                    </button>      
+                    {{ form_widget(form.save) }}
+                </div> 
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div> 
+
+    {% if tableauErreurs  %}      
+        <div class="container">
+            <div class="row" >
+                <div class="col">
+                    <div class="alert danger-dismissible alert-danger">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <h4 class="alert-heading">Warning!</h4>
+                        <p class="mb-0">{{ tableauErreurs | length }} parcel(s) aren't stored. Maybe a postal code error or it yet exist.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col">
+                    <table class = "table table-hover display responsive nowrap" width = "100%"  id = "liste-code-postal">    
+                        <thead>
+                            <tr>
+                                <th>{% trans %}Parcel number{% endtrans %}</th>
+                                <th>{% trans %}Last name{% endtrans %}</th>                               
+                                <th>{% trans %}First name{% endtrans %}</th>
+                                <th>{% trans %}Address{% endtrans %}</th>
+                                <th>{% trans %}Number{% endtrans %}</th>
+                                <th>{% trans %}Postal code{% endtrans %}</th>                                                          
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for coli in tableauErreurs %}                   
+                                <tr>
+                                    <td>{{ coli[ 'numero' ] }}</td>
+                                    <td>{{ coli[ 'nom' ] }}</td>
+                                    <td>{{ coli[ 'prenom' ] }}</td>
+                                    <td>{{ coli[ 'adresse' ] }}</td>
+                                    <td>{{ coli[ 'num' ] }}</td>
+                                    <td>{{ coli[ 'codePostal' ] }}</td>       
+                                </tr>                                   
+                            {% endfor %}   
+                        </tbody>
+                    </table>  
+                </div>
+            </div> 
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+{# Permet de controler la taille et l'extension du fichier coté client avant l'upload du fichier pour prevenir "au mieux" la limite su serveur PHP (php.ini) #}
+    <script type="application/javascript">   
+        $('#fichier_fichier').bind('change', function(e) 
+        {
+            var ext = $('#fichier_fichier').val().split('.').pop().toLowerCase();
+            // si ce n'est pas un csv => erreur1 + message1
+            if (ext !='csv')
+            {
+                document.getElementById("error1").style.display = "inline";
+                document.getElementById('message1').style.display = "inline";
+                document.getElementById('error2').style.display = "none";
+                document.getElementById('message2').style.display = "none";
+                $('#fichier_fichier').val(null);
+                $('.custom-file-label').html('{% trans %}Select a file{% endtrans %}');
+                a=0;
+            }
+            else
+            {
+                var filesize = (this.files[0].size);
+                //si > 6M => erreur2 + message2
+                if (filesize > 6000000)
+                {
+                    document.getElementById('error2').style.display = "inline";
+                    document.getElementById('message2').style.display = "inline";
+                    $('#fichier_fichier').val(null);
+                    $('.custom-file-label').html('{% trans %}Select a file{% endtrans %}');
+                    a=0;
+                }
+                else
+                { 
+                    a=1;
+                    document.getElementById('error2').style.display = "none";
+                    document.getElementById('message2').style.display = "none";
+                }
+
+                document.getElementById('error1').style.display = "none";
+                document.getElementById('message1').style.display = "none";
+                
+                if (a==1)
+                { 
+                    $('#fichier_save').attr('disabled',false);
+                    var fileName = e.target.files[0].name;
+                    $('.custom-file-label').html(fileName); 
+                }
+            }
+        });
+    </script>
+
+    {# Permet d'afficher le bouton "loader" lors de la soumission du formulaire #}
+    <script>
+        $('#fichier_save').click(function () { 
+            document.getElementById('fichier_save').style.display = "none";
+            document.getElementById('loader').style.display = "inline";
+        });
+    </script>
+
+    {# Permet d'afficher le nom du fichier sélectionné dans le champ 'File'  #}
+    <script type="application/javascript">
+        $('input[type="file"]').change(function(e){
+            var fileName = e.target.files[0].name;
+            $('.custom-file-label').html(fileName);
+        });
+    </script>
+{% endblock %}

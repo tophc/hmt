@@ -1,0 +1,146 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="card-deck">
+        {# card statistique "requeteOuverteChauffeur" #}
+        <div class="card bg-light mb-3 {% if statistiques.requeteOuverteChauffeur > 0 %} clickable-card {% endif %}" data-href="{{ path('secretariat_requete_ouvert', {'requerant' : 'chauffeur'}) }}">
+            <div class="card-body">
+                <div class="row {% if statistiques.requeteOuverteChauffeur == 0 %} text-success {% elseif statistiques.requeteOuverteChauffeur <= 2 %} text-warning {% else %} text-danger {% endif %}">
+                    <div class="col-5">
+                        <i class="fas fa-hands-helping fa-3x"></i>
+                    </div>
+                    <div class="col-7">
+                        <div class="row"><h4 class="card-title">{% trans %}Driver{% endtrans %}</h4></div>
+                        <div class="row"><h5>{% if statistiques.requeteOuverteChauffeur == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.requeteOuverteChauffeur}}{% endif %}</h5></div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# card statistique "requeteOuverteLogistique" #}
+        <div class="card bg-light mb-3 {% if statistiques.requeteOuverteLogistique > 0 %} clickable-card {% endif %}" data-href="{{ path('secretariat_requete_ouvert', {'requerant' : 'logistique'}) }}">
+            <div class="card-body">
+                <div class="row {% if statistiques.requeteOuverteLogistique == 0 %} text-success {% elseif statistiques.requeteOuverteLogistique <= 2 %} text-warning {% else %} text-danger {% endif %}">
+                    <div class="col-5">
+                        <i class="fas fa-hands-helping fa-3x"></i>
+                    </div>
+                    <div class="col-7">
+                        <div class="row"><h4 class="card-title">{% trans %}Logistics{% endtrans %}</h4></div>
+                        <div class="row"> <h5>{% if statistiques.requeteOuverteLogistique == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.requeteOuverteLogistique}}{% endif %}</h5></div>      
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# card statistique "requeteOuverteSecretariat" #}
+        <div class="card bg-light mb-3 {% if statistiques.requeteOuverteSecretariat > 0 %} clickable-card {% endif %}" data-href="{{ path('secretariat_requete_liste', {'statut' : 'ouvert'}) }}">
+            <div class="card-body">
+                <div class="row {% if statistiques.requeteOuverteSecretariat == 0 %} text-success {% elseif statistiques.requeteOuverteSecretariat <= 2 %} text-warning {% else %} text-danger {% endif %}">
+                    <div class="col-5">
+                        <i class="fas fa-hands-helping fa-3x"></i>
+                    </div>
+                    <div class="col-7">
+                        <div class="row"><h4 class="card-title">{% trans %}Secretariat{% endtrans %}</h4></div>
+                        <div class="row"><h5>{% if statistiques.requeteOuverteSecretariat == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.requeteOuverteSecretariat}}{% endif %}</h5></div>                          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div class="card-deck">
+        {# card statistique "amende" new #}
+        <div class="card bg-light mb-3 {% if statistiques.amendeMoisPrecedant2.count > 0 or statistiques.amendeMoisPrecedant1.count > 0 or statistiques.amendeMois.count > 0  %} clickable-card {% endif %}" data-href="#">
+            <div class="card-body">
+                <div class="row {% if statistiques.amendeMoisPrecedant2.count == 0 and statistiques.amendeMoisPrecedant1.count == 0 and statistiques.amendeMois.count == 0 %} text-success {% elseif statistiques.amendeMoisPrecedant2.count <= 2  and statistiques.amendeMoisPrecedant1.count <= 2 and statistiques.amendeMois.count <= 2 %} text-warning {% else %} text-danger {% endif %}">
+                    <div class="col-3"><i class="fas fa-file-invoice-dollar fa-3x"></i></div>
+                    <div class="col-9">
+                        {#<div class="row justify-content-center"><h4 class="card-title">{% trans %}Fines{% endtrans %}</h4></div>#}
+                        <div class="row text-center">
+                            {# amendes mois -2 #}
+                            <div class="col {% if statistiques.amendeMoisPrecedant2.count == 0 %} text-success {% elseif statistiques.amendeMoisPrecedant2.count <= 2 %} clickable-element text-warning {% else %} clickable-element text-danger {% endif %}" data-href="{{ path('secretariat_amende_liste', {'month' : statistiques.amendeMoisPrecedant2.month, 'year' : statistiques.amendeMoisPrecedant2.year} )}}">{% if statistiques.amendeMoisPrecedant2.count == 0 %}<h5><i class="fas fa-check"></i></h5>{% else %}<h5>{{statistiques.amendeMoisPrecedant2.count}}</h5>{% endif %}{{statistiques.amendeMoisPrecedant2.mois}}</div>
+                            {# amendes mois -1 #}
+                            <div class="col {% if statistiques.amendeMoisPrecedant1.count == 0 %} text-success {% elseif statistiques.amendeMoisPrecedant1.count <= 2 %} clickable-element text-warning {% else %} clickable-element text-danger {% endif %}" data-href="{{ path('secretariat_amende_liste', {'month' : statistiques.amendeMoisPrecedant1.month, 'year' : statistiques.amendeMoisPrecedant1.year})}}" >{% if statistiques.amendeMoisPrecedant1.count == 0 %}<h5><i class="fas fa-check"></i></h5>{% else %}<h5>{{statistiques.amendeMoisPrecedant1.count}}</h5>{% endif %}{{statistiques.amendeMoisPrecedant1.mois}}</div> 
+                            {# amendes mois #}
+                            <div class="col {% if statistiques.amendeMois.count == 0 %} text-success {% elseif statistiques.amendeMois.count <= 2 %} clickable-element text-warning {% else %} clickable-element text-danger {% endif %}" data-href="{{ path('secretariat_amende_liste', {'month' : statistiques.amendeMois.month, 'year' : statistiques.amendeMois.year})}}">{% if statistiques.amendeMois.count == 0 %}<h5><i class="fas fa-check"></i></h5>{% else %}<h5>{{statistiques.amendeMois.count}}</h5>{% endif %}{{statistiques.amendeMois.mois}}</div>             
+                        </div>             
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# card statistique "PermisConduire" #}
+        <div class="card bg-light mb-3 {% if statistiques.permisConduireBientot > 0 or statistiques.permisConduireExpire > 0 %} clickable-card {% endif %}" data-href="#">
+            <div class="card-body">
+                <div class="row {% if statistiques.permisConduireBientot == 0 and statistiques.permisConduireExpire == 0 %} text-success {% elseif statistiques.permisConduireBientot <= 2  and statistiques.permisConduireExpire <= 2 %} text-warning {% else %} text-danger {% endif %}">
+                    <div class="col-3"><i class="fas fa-id-badge fa-3x"></i></div>
+                    <div class="col-9">
+                       
+                        <div class="row text-center">
+                            {# echéance dépassée #}
+                            <div class="col {% if statistiques.permisConduireExpire == 0 %} text-success {% elseif statistiques.permisConduireExpire <= 2 %} clickable-element text-warning {% else %} clickable-element text-danger {% endif %}" data-href="{{ path('secretariat_permis-conduire_liste_expire')}}">{% if statistiques.permisConduireExpire == 0 %}<h5><i class="fas fa-check"></i></h5>{% else %}<h5 >{{statistiques.permisConduireExpire}}</h5>{% endif %}{% trans %}Expired{% endtrans %}</div>
+                            {# arrive à échéance #}
+                            <div class="col {% if statistiques.permisConduireBientot == 0 %} text-success {% elseif statistiques.permisConduireBientot <= 2 %} clickable-element text-warning {% else %} clickable-element text-danger {% endif %}" data-href="{{ path('secretariat_permis-conduire_liste_bientot')}}">{% if statistiques.permisConduireBientot == 0 %}<h5><i class="fas fa-check"></i></h5>{% else %}<h5 >{{statistiques.permisConduireBientot}}</h5>{% endif %}{% trans %}Expires soon{% endtrans %}</div>                     
+                        </div>       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-deck">
+        {# card statistique "controleTechnique" #}
+        <div class="card bg-light mb-3 {% if statistiques.controleTechniqueRefuse > 0 or statistiques.controleTechniqueExpire > 0 or statistiques.controleTechniqueBientot > 0  %} clickable-card {% endif %}" data-href="#">
+            <div class="card-body">
+                <div class="row {% if statistiques.controleTechniqueRefuse == 0 and statistiques.controleTechniqueExpire == 0 and statistiques.controleTechniqueBientot == 0 %} text-success {% elseif statistiques.controleTechniqueRefuse <= 2  and statistiques.controleTechniqueExpire <= 2 and statistiques.controleTechniqueBientot <= 2 %} text-warning {% else %} text-danger {% endif %}">
+                    <div class="col-3"><i class="fas fa-tools fa-3x"></i></div>
+                    <div class="col-9">
+                        <div class="row text-center">
+                            {# refusé #}
+                            <div class="col {% if statistiques.controleTechniqueRefuse == 0 %} text-success {% elseif statistiques.controleTechniqueRefuse <= 2 %} clickable-element text-warning {% else %} clickable-element text-danger {% endif %}" data-href="{{ path('secretariat_vehicule_liste_refuse')}}">{% if statistiques.controleTechniqueRefuse == 0 %}<h5><i class="fas fa-check"></i></h5>{% else %}<h5>{{statistiques.controleTechniqueRefuse}}</h5>{% endif %}{% trans %}Refused{% endtrans %}</div>
+                            {# echéance dépassée #}
+                            <div class="col {% if statistiques.controleTechniqueExpire == 0 %} text-success {% elseif statistiques.controleTechniqueExpire <= 2 %} clickable-element text-warning {% else %} clickable-element text-danger {% endif %}" data-href="{{ path('secretariat_vehicule_liste_expire')}}" >{% if statistiques.controleTechniqueExpire == 0 %}<h5><i class="fas fa-check"></i></h5>{% else %}<h5>{{statistiques.controleTechniqueExpire}}</h5>{% endif %}{% trans %}Expired{% endtrans %}</div> 
+                            {# arrive à échéance #}
+                            <div class="col {% if statistiques.controleTechniqueBientot == 0 %} text-success {% elseif statistiques.controleTechniqueBientot <= 2 %} clickable-element text-warning {% else %} clickable-element text-danger {% endif %}" data-href="{{ path('secretariat_vehicule_liste_bientot')}}">{% if statistiques.controleTechniqueBientot == 0 %}<h5><i class="fas fa-check"></i></h5>{% else %}<h5>{{statistiques.controleTechniqueBientot}}</h5>{% endif %}{% trans %}Expires soon{% endtrans %}</div>             
+                        </div>             
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# card statistique "maintenance" #}
+        <div class="card bg-light mb-3 {% if statistiques.entretien > 0 %} clickable-card {% endif %}" data-href="{{ path('secretariat_vehicule_liste_entretien')}}">
+            <div class="card-body">
+                <div class="row {% if statistiques.entretien == 0 %} text-success {% elseif statistiques.entretien <= 2 %} text-warning {% else %} text-danger {% endif %}">
+                    <div class="col-5"><i class="fas fa-oil-can fa-3x"></i></div>
+                    <div class="col-7">
+                        <div class="row"><h4 class="card-title">{% trans %}Maintenance{% endtrans %}</h4></div>
+                        <div class="row"><h5>{% if statistiques.entretien == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.entretien}}{% endif %}</h5></div>          
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %} 
+    {# permet rendre cliquable une card #}
+    <script>  
+        jQuery(document).ready(function($) {
+            $(".clickable-card").mouseover(function() {
+                $(this).removeClass("bg-light").addClass("bg-secondary text-white");
+            });
+            $(".clickable-card").mouseout(function() {
+                $(this).removeClass("bg-secondary text-white").addClass("bg-light");
+            });
+            $(".clickable-card").click(function() {
+                window.location = $(this).data("href");
+            });
+            $(".clickable-element").mouseover(function() {
+                $(this).addClass("text-light");
+            });
+            $(".clickable-element").mouseout(function() {
+                $(this).removeClass("text-light");
+            });
+            $(".clickable-element").click(function() {
+                window.location = $(this).data("href");
+            });
+        });
+    </script> 
+{% endblock %}
+  

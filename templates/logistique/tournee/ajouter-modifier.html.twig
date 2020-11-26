@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">     
+        {{ form_start(form) }}    
+        {{ form_row(form.numTournee) }}
+        {{ form_row(form.infoTournee) }}
+        <div class="form-group">
+            {{ form_label(form.codePostals) }}
+            <div class="row text-center">
+                {% for codepostal in form.codePostals %}
+                    <div class="col-4 col-sm-1 ">
+                        <div class="form-check">
+                            <input type="checkbox" id="{{ codepostal.vars.id }}" {% if codepostal.vars.checked %} checked="checked" {% endif %} name="{{ codepostal.vars.full_name }}" class="form-check-input"  value="{{ codepostal.vars.value }}"/> 
+                            <label for="{{ codepostal.vars.id }}" class="form-check-label">{{ codepostal.vars.label }}</label>
+                        </div>
+                    </div>
+                {% endfor %} 
+            </div>
+        </div>
+        {{ form_row(form.save) }}
+        {{ form_row(form._token) }}
+        {{ form_end(form, {'render_rest': false}) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        {{ form_start(form) }}
+        
+        <div class="row">
+            <div class="col">     
+                <h4>{% trans %}Personal informations{% endtrans %} :</h4>
+                <hr>
+                {{ form_row(form.nomChauffeur)}}
+                {{ form_row(form.prenomChauffeur) }}
+                {{ form_row(form.dateNaissanceChauffeur) }}
+                {{ form_row(form.numeroNationalChauffeur) }}
+                {{ form_row(form.etatCivilChauffeur) }}
+                {{ form_row(form.genreChauffeur) }}                 
+            </div>    
+            <div class="col">    
+                <h4>{% trans %}Contact informations{% endtrans %} :</h4>
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        {{ form_row(form.emailChauffeur) }}
+                    </div>
+                    <div class="col">
+                        {{ form_row(form.mobileChauffeur) }}
+                    </div>
+                </div>
+                {{ form_row(form.adressePostaleChauffeur) }}   
+                <h4>{% trans %}Driver's license{% endtrans %} :</h4>
+                <hr>
+                {{ form_widget(form.permisConduire) }}
+                {{ form_errors(form.permisConduire) }}        
+            </div>           
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

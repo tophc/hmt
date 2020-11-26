@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container-fluid">
+		<div class="card-deck">
+			{# Card: chauffeur profile #}
+			<div class="card mb-3">
+				<h3 class="card-header"><i class="fas fa-{{chauffeur.genreChauffeur}}"></i> {% trans %}My profil{% endtrans %}</h3>	
+				<div class="card-body">
+					<h5 class="card-title">
+						{#<img class="avatar avatar-mini" src="http://placehold.it/400x400" alt="{% trans %}Driver avatar{% endtrans %}">#} 
+						{{chauffeur.nomChauffeur}} {{chauffeur.prenomChauffeur}}
+					</h5>
+					<dl class= "row">
+						<dt class="col-md-4">{% trans %}Email{% endtrans %} :</dt>
+						<dd class="col-md-8">{{chauffeur.emailChauffeur}}</dd>
+						<dt class="col-md-4">{% trans %}Mobile number{% endtrans %} :</dt>
+						<dd class="col-md-8">{{chauffeur.mobileChauffeur}}</dd>
+						<dt class="col-md-4">{% trans %}National registry{% endtrans %} :</dt>
+						<dd class="col-md-8">{{chauffeur.numeroNationalChauffeur}}</dd>
+						<dt class="col-md-4">{% trans %}Date of birth{% endtrans %} :</dt>
+						<dd class="col-md-8">{{chauffeur.dateNaissanceChauffeur | date('d.m.Y')}}</dd>
+						<dt class="col-md-4">{% trans %}Civil status{% endtrans %} :</dt>
+						<dd class="col-md-8">{{chauffeur.etatCivilChauffeur.nomEtatCivil}}</dd>
+						<dt class="col-md-4">{% trans %}Address{% endtrans %} :</dt>
+						<dd class="col-md-8">{{chauffeur.adressePostaleChauffeur}}</dd>
+						<dt class="col-md-4 ">{% trans %}Fines{% endtrans %} :</dt>
+						{% if amendes is not empty %}
+							{% set amount = 0 %}
+							{% set cpt = 0 %}					 
+							{% for amende in amendes %}																								
+								{% if amende.dateAmende | date('m') == date() | date('m') %}
+									{% set amount = amount +  amende.montantAmende %}
+									{% set cpt = cpt +1 %}
+								{% endif %}										
+							{% endfor %}
+							{% if cpt > 0 %}
+								<dd class="col-md-8 text-danger"><strong>{{cpt}} {% trans %}fine(s) this month{% endtrans %}</strong> {% if amount > 0  %}({{amount}} &euro;){% endif %}</dd>
+							{% endif %}		
+						{% else %}
+							<dd class="col-md-8 text-success">{% trans %}Congratulations{% endtrans %}</dd>
+						{% endif %}	
+					</dl>
+				</div>
+			</div>
+			{% if chauffeur.permisConduire %}
+				{# Card: permis de conduire #}
+				<div class="card mb-3">
+					<h3 class="card-header"><i class="fas fa-id-card"></i> {% trans %}Driver's license{% endtrans %}</h3>
+					<div class="card-body">
+						<dl class= "row">					
+							<dt class="col-md-4">{% trans %}License number{% endtrans %} :</dt>
+							<dd class="col-md-8">{{chauffeur.permisConduire.numPermisConduire}}</dd>
+							{# Alerte validitée #}
+							{% set dateVal =  chauffeur.permisConduire.dateValPermisConduire %}
+							{% if dateVal  == date('today')  %}
+								<dt class="col-md-4">{% trans %}Validity{% endtrans %} :</dt>
+								<dd class="col-md-8 text-danger"><strong><i class="fas fa-exclamation-triangle"></i> {% trans %}Expires today{% endtrans %}</strong> ({{dateVal | date('d.m.Y')}})</dd>
+							{% elseif dateVal < date('today') %}
+								<dt class="col-md-4">{% trans %}Validity{% endtrans %} :</dt>
+								<dd class="col-md-8 text-danger"><strong><i class="fas fa-exclamation-triangle"></i> {% trans %}Expired{% endtrans %}</strong> ({{dateVal | date('d.m.Y')}})</dd>
+							{% elseif dateVal <= date('+60days') %}
+								<dt class="col-md-4">{% trans %}Expires in{% endtrans %} :</dt>
+								<dd class="col-md-8 {{  (date(dateVal).diff(date('today'))).days > 30 ?  'text-warning' : 'text-danger' }} "><strong>{{ (date(dateVal).diff(date('today'))).days }} {% trans %}days{% endtrans %}</strong> ({{dateVal | date('d.m.Y')}})</dd>
+							{% else %}
+							<dt class="col-md-4">{% trans %}Valid until{% endtrans %} :</dt>
+							<dd class="col-md-8">{{chauffeur.permisConduire.dateValPermisConduire | date('d-m-Y')}}</dd>
+							{% endif %}
+							<dt class="col-md-4">{% trans %}Category{% endtrans %} :</dt>
+							<dd class="col-md-8">
+								{% for categorie in chauffeur.permisConduire.categoriePermisConduires %}						
+									<a class="badge badge-dark"  href="#" title="{% trans %}Category{% endtrans %} : {{categorie.nomCategoriePermisConduire}}" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="{{categorie.infoCategoriePermisConduire}}">
+										{{categorie.nomCategoriePermisConduire}}
+									</a>
+								{% endfor %}
+							</dd>
+						</dl>				
+					</div>	
+				</div>
+			{% endif %}
+		</div>			
+	</div>
+{% endblock %}
+{% block javascripts %} 
+	{# affichage popup au passage de la souris sur une categorie de permis #}
+	<script>
+		$(document).ready(function(){
+			$('[data-toggle="popover"]').popover();
+		});
+	</script>
+
+	{# affichage d'une infobule au passage de la souris sur un élément #}
+	<script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+{% endblock %}

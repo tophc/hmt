@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %} 
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="/css/dataTables/dataTables.bootstrap4.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+       <div class="row"> 
+            <div class="col">
+                <table class = "table display responsive table-striped" width = "100%" id = "liste-chauffeur-affectation">    
+                    <thead>
+                        <tr>
+                            <th>{% trans %}Date{% endtrans %}</th>
+                            <th>{% trans %}Driver{% endtrans %}</th>
+                            <th>{% trans %}Vehicle{% endtrans %}</th>
+                            <th>{% trans %}Brand{% endtrans %} - {% trans %}Model{% endtrans %}</th>
+                            <th class = "text-right">{% trans %}Action{% endtrans %}</th>                         
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for affectation in affectations %}
+                            <tr>
+                                <td>{{affectation.dateAffectation | date('d.m.Y') }}</td>
+                                <td>{{affectation.chauffeur.nomChauffeur}}</td> 
+                                <td>{{affectation.vehicule.immatriculationVehicule}}</td>
+                                <td>{{affectation.vehicule.modeleVehicule.marqueModeleVehicule}} - {{affectation.vehicule.modeleVehicule.nomModeleVehicule}}</td>
+                                <td class = "text-right">
+                                    <a href="{{ path('logistique_affectation_details', {'id': affectation.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}See details{% endtrans %}" class="btn btn-outline-dark"><i class="fas fa-eye"></i></a>
+                                    <a href="{{ path('logistique_affectation_modifier', {'id': affectation.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Edit assignment{% endtrans %}" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ path('logistique_affectation_supprimer', {'id': affectation.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Delete assignment{% endtrans %}" class="btn btn-outline-danger" onclick="return confirm( `{% trans %}Are you sure you want to delete this assignment{% endtrans %} ?\n{% trans %}This action is irreversible{% endtrans %} !`)"><i class="fas fa-trash fa-lg"></i></a>        
+                                </td>
+                            </tr>
+                        {% endfor %}   
+                    </tbody>
+                </table>  
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+	<script type="text/javascript" language="javascript" src="/js/dataTables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="/js/dataTables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/moment.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/datetime-moment.js"></script>
+
+    {# pagination/recherche/tri dans un tableau #}
+    <script type="text/javascript" class="init">
+        $(document).ready(function()
+        {    
+            locale = '{{app.request.locale}}';     
+            $('#liste-chauffeur-affectation').DataTable( 
+            {
+                language: { "url": "/js/dataTables/"+locale+".lang" },
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "Tous"]],
+                order: [ 0, 'asc' ],
+                columnDefs: 
+                [
+                    {
+                        targets: [ 0 ],
+                        type: 'date-eu',
+                        searchable: true,
+                        bSortable: true
+                    },
+                    { 
+                        targets: [ 4 ],
+                        bSortable:false 
+                    },
+                ]         
+            });
+        });
+    </script>
+    
+    {# affichage d'une infobule au passage de la souris sur un élément #}
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+{% endblock %}
+   

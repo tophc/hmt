@@ -1,0 +1,46 @@
+{% set title = titre | split(':') %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta Content-Type: "text/plain"; charset="UTF-8">
+        
+        <title>{% trans %}H.G.M.T.{% endtrans %} - {% block title %}{{ title[0] }} {% endblock %}</title>
+        
+        {# meta viewport : responsive sur petit écran #}
+        <meta name="viewport" content="width=device-width, user-scalable=no" >
+        
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/fontawesome/all.css">
+        <link rel="stylesheet" type="text/css" href="/css/app/app.css">
+
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% if not app.user or app.user.getRoles() == "ROLE_GUEST" %}
+            {% include 'partials/home_header.html.twig' %}  
+        {% elseif "ROLE_NEW_USER" in app.user.getRoles() %}    
+            {% include '/partials/new-user_header.html.twig' %}
+        {% else %}
+            {% for role in app.user.getRoles() %}
+                {% if role == "ROLE_CHAUFFEUR" %}
+                    {% include '/partials/chauffeur_header.html.twig' %}
+                {% elseif role == "ROLE_LOGISTIQUE" %} 
+                    {% include '/partials/logistique_header.html.twig' %} 
+                {% elseif role == "ROLE_SECRETARIAT" %} 
+                    {% include '/partials/secretariat_header.html.twig' %}
+                {% elseif role == "ROLE_ADMINISTRATION" %} 
+                    {% include '/partials/administration_header.html.twig' %}
+                {% else  %}  
+                    {% include 'partials/home_header.html.twig' %}     
+                {% endif %}   
+            {% endfor %} 
+        {% endif %}                               
+        {% block body %}{% endblock %}
+            <script src="/js/jquery-3.3.1.js"></script>
+            <script src="/js/popper.min.js"></script>
+            <script src="/js/bootstrap.min.js"></script> 
+        {% block javascripts %}{% endblock %}   
+        {% include 'partials/footer.html.twig' %}
+    </body>
+</html>

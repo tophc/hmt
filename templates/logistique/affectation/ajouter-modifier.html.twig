@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        {{ form_start(form) }}    
+        {% if app.request.attributes.get('_route') != "logistique_affectation_modifier" %}
+            {# widget dateAffection #}
+            <div class="form-group">
+                {{ form_label(form.dateAffectation) }}
+                    {% for message in app.flashes('dateAffectation') %}
+                        <span class="invalid-feedback d-block mt-1">
+                            <span class="d-block">
+                                <span class="form-error-icon badge badge-danger text-uppercase">{% trans %}Error{% endtrans %}</span> <span class="form-error-message">{{ message }}</span>
+                            </span>  
+                        </span>
+                    {% endfor %}               
+                {{ form_widget(form.dateAffectation) }}
+                {{ form_help(form.dateAffectation) }} 
+            </div> 
+            {# widget dateFin #}
+            <div class="form-group">
+                {{ form_label(form.dateFin) }}
+                    {% for message in app.flashes('dateFin') %}
+                        <span class="invalid-feedback d-block" 'mt-1'>
+                            <span class="d-block">
+                                <span class="form-error-icon badge badge-danger text-uppercase">{% trans %}Error{% endtrans %}</span> <span class="form-error-message">{{ message }}</span>
+                            </span>  
+                        </span>
+                    {% endfor %}               
+                {{ form_widget(form.dateFin) }}   
+                {{ form_help(form.dateFin) }}
+            </div> 
+        {% endif %}
+        {# widget Vehicule #} 
+            <div class="form-group">
+                {{ form_label(form.vehicule) }}
+                {% for message in app.flashes('vehicule') %}
+                    <span class="invalid-feedback d-block">
+                        <span class="d-block">
+                            <span class="form-error-icon badge badge-danger text-uppercase">{% trans %}Error{% endtrans %}</span> <span class="form-error-message">{{ message }}</span>
+                        </span>  
+                    </span>
+                {% endfor %}               
+                {{ form_widget(form.vehicule) }} 
+                {{ form_help(form.vehicule) }}
+            </div>    
+        {# widget Chauffeur #}
+        <div class="form-group" id="chauffeurid">
+            {{ form_label(form.chauffeur) }}
+            {% for message in app.flashes('chauffeur') %}
+                <span class="invalid-feedback d-block">
+                    <span class="d-block">
+                        <span class="form-error-icon badge badge-danger text-uppercase">{% trans %}Error{% endtrans %}</span> <span class="form-error-message">{{ message }}</span>
+                    </span>  
+                </span>
+            {% endfor %} 
+            {{ form_widget(form.chauffeur) }}                           
+            {{ form_help(form.chauffeur) }}
+        </div>
+        {# widget Tournee #}
+        <div class="form-group">
+            {{ form_label(form.tournee) }}
+            {% for message in app.flashes('tournee') %}
+                <span class="invalid-feedback d-block">
+                    <span class="d-block">
+                        <span class="form-error-icon badge badge-danger text-uppercase">{% trans %}Error{% endtrans %}</span> <span class="form-error-message">{{ message }}</span>
+                    </span>  
+                </span>
+            {% endfor %}               
+            {{ form_widget(form.tournee) }} 
+            {{ form_help(form.tournee) }}
+        </div>   
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(document).ready(function(){
+            // Détermine s'il s'agit d'un ajout ou d'une modification d'affectation (les id sont differents)
+            let ajouter = document.getElementById('affectation_vehicule')
+            let editer = document.getElementById('affectation_edit_vehicule')
+
+            let valeur = '';
+            let idVehicule = '';
+            let idChauffeur = '';
+            let selectChauffeur;
+            let selectVehicule;
+
+            if (ajouter) {
+                valeur = $("#affectation_vehicule").val();
+                selectChauffeur = $("#affectation_chauffeur");
+                idVehicule =  "affectation_vehicule";
+                idChauffeur = "affectation_chauffeur";
+            }
+            else if (editer) {
+                valeur = $("#affectation_edit_vehicule").val();
+                selectChauffeur = $("#affectation_edit_chauffeur");
+                idVehicule =  "affectation_edit_vehicule";
+                idChauffeur = "affectation_edit_chauffeur";
+            }
+            else {
+                console.log('No route')
+            }
+
+            ajaxFonction(valeur, idChauffeur, selectChauffeur);
+            
+            // Mofifie le "placeholder"
+            ResetFormulaire("Choose a vehicule", idChauffeur)
+
+            $(`#${idVehicule}`).change(function(){
+                //valeur = $("#affectation_vehicule").val();
+                valeur = $(this).val();
+                ajaxFonction(valeur, idChauffeur, selectChauffeur);
+            });
+        });
+
+        // Permet de modifier le "placeholder"
+        function ResetFormulaire($message, $idChauffeur) { // affectation_chauffeur | affectation_edit_vehicule
+            $(`#${$idChauffeur}`).html('')
+            $(`#${$idChauffeur}`).append(`<option value="" selected="selected">${$message}</option>`); 
+        }
+
+         // Appel Ajax : selection des chauffeur en fonction du véhicule
+        function ajaxFonction($valeur, $idChauffeur, $selectChauffeur) {
+            if ($valeur !== '') {
+                $.ajax({
+                    type: "POST",
+                    url: '{{ path("logistique_affectation_ajouter-modifier_api") }}',
+                    data: 'idVehicule=' + $valeur,
+                    async: true,
+                    
+                    success: function (data) {
+                        ResetFormulaire('Choose a driver', $idChauffeur)
+                        for (i = 0; i < data.chauffeurs.length; i++) {
+                            let chauffeurid = data.chauffeurs[i]['id']
+                            let chauffeurnom = data.chauffeurs[i]['nom']
+                            let chauffeurprenom = data.chauffeurs[i]['prenom']
+                            let categories = data.chauffeurs[i]['categories']
+                            $selectChauffeur.append(`<option value='${chauffeurid}'>${chauffeurnom} ${chauffeurprenom} | (${categories})</option>`);
+                        }
+                    }
+                });
+            } 
+            else {
+                ResetFormulaire('Choose a vehicule', $idChauffeur)
+            }
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %} 
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="card-deck">
+            {# Card: Colis détails #} 
+			<div class="card mb-3">
+                <h3 class="card-header">{% trans %}Parcel{% endtrans %} {% if colis.expressColis %}<i class = "fas fa-tachometer-alt"></i>{% endif %}</h3>
+				<div class="card-body">
+                   <dl class="row"> 
+                        <dt class="col-md-4">{% trans %}Parcel number{% endtrans %} : </dt>
+                        <dd class="col-md-8">{{colis.numeroColis}}</dd> 
+                        <dt class="col-md-4">{% trans %}Last name{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{colis.nomDestinataire}}</dd>
+                        <dt class="col-md-4">{% trans %}First name{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{colis.prenomDestinataire}}</dd>                            
+                        <dt class="col-md-4">{% trans %}Address{% endtrans %} :</dt>
+                        <dd class="col-md-8">{{colis.adresseDestinataire}} {{colis.numeroAdresseDestinataire}}, {{colis.codePostal.numCodePostal}}</dd>
+                        <dt class="col-md-4">{% trans %}Locality{% endtrans %} : </dt>
+                        <dd class="col-md-8">{{colis.codePostal.localiteCodePostal}}</dd>
+                        <dt class="col-md-4">{% trans %}Round{% endtrans %} : </dt>
+                        <dd class="col-md-8">{{colis.codePostal.tournee.numTournee}}</dd>
+                        <dt class="col-md-4">{% trans %}Comments{% endtrans %} : </dt>
+                        <dd class="col-md-8">{% if not colis.noteColis %} "{% trans %}No comments{% endtrans %}"{% endif %}</dd>           
+                    </dl>
+                    <p >{% if colis.noteColis %}{{colis.noteColis | raw}}{% endif %}</p>	                                
+                </div>
+                <div class="card-footer">     
+                    {% if colis.typeColis %}  
+                        <a href="{{ path('logistique_expedition_liste', {'typeColis': 1 }) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Deliveries list{% endtrans %}" class="btn btn-outline-dark card-link center"><i class="fas fa-list"></i></a>
+                        <a href="{{ path('logistique_expedition_modifier', {'id': colis.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Edit delivery{% endtrans %}" class="btn btn-outline-warning card-link center"><i class="fas fa-edit"></i></a> 
+                    {% else %}
+                        <a href="{{ path('logistique_enlevement_liste', {'typeColis': 0 })}}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}See details{% endtrans %}" class="btn btn-outline-dark card-link center"><i class="fas fa-eye"></i></a>
+                        <a href="{{ path('logistique_enlevement_modifier', {'id': colis.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Edit pickup{% endtrans %}" class="btn btn-outline-warning card-link center"><i class="fas fa-edit"></i></a>
+                    {% endif %}
+                    <a href="{{ path('logistique_tournee_details', {'id': colis.codePostal.tournee.id })}}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}See details{% endtrans %}" class="btn btn-outline-dark card-link center"><i class="fas fa-shipping-fast"></i></a>
+                </div>
+            </div> 
+            {# Card: suiviColis détail #}       
+			<div class="card mb-3">
+                {% set cloturer = 0 %}
+                {% set enquete = 0 %}
+                <h3 class="card-header">{% trans %}Tracking History{% endtrans %}</h3>  
+                <div class="card-body">
+                    <table class = "table display responsive table-striped" width = "100%">    
+                        <thead>
+                            <tr>
+                                <th>{% trans %}Date{% endtrans %}</th>
+                                <th>{% trans %}Statut code{% endtrans %}</th>
+                                <th>{% trans %}Statut info{% endtrans %}</th>                         
+                            </tr>
+                        </thead>    
+                        <tbody>
+                            {% for suiviColis in suiviColis %}
+                                {# success = avant 12h / danger = après 12h #}
+                                <tr class = {% if suiviColis.colis.expressColis and suiviColis.etat.codeEtat == 999 and suiviColis.dateSuiviColis | date('H') < 12 %} "text-success" {% elseif suiviColis.etat.codeEtat == 999 and suiviColis.dateSuiviColis | date('H') > 12 %} "text-danger" {% endif %} >
+                                    <td>{{suiviColis.dateSuiviColis | date('d.m.Y - H:i ')}}</td>
+                                    <td>{{suiviColis.etat.codeEtat}}</td>
+                                    <td>{{suiviColis.etat.DescriptifEtat}}</td>
+                                </tr>
+                                {% if suiviColis.etat.codeEtat == 999 %} {% set cloturer = 1 %} {% endif %}
+                                {% if suiviColis.etat.codeEtat == 008 %} {% set enquete = 1 %} {% endif %}
+                            {% endfor %} 
+                        </tbody>
+                    </table>                                  
+                </div>
+                <div class="card-footer">
+                    {% if not cloturer %}
+                    <a href="{{ path('logistique_colis_cloturer', {'id': colis.id})  }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Tag as delivered{% endtrans %}" class="btn btn-success card-link center"><i class="fas fa-file-signature"></i></a>
+                    {% endif %}
+                    {% if not enquete %}
+                    <a href="{{ path('logistique_colis_litige', {'id': colis.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Tag as issue{% endtrans %}" class="btn btn-outline-danger card-link center"><i class="fas fa-file"></i></a>  
+                    {% endif %}
+                </div>
+            </div>
+		</div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+{# affichage d'une infobule au passage de la souris sur un élément #}
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+{% endblock %}    

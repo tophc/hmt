@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %} 
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/css/dataTables/dataTables.bootstrap4.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid"> 
+        <div class="row">
+            <div class="col">
+                <table class = "table display responsive table-striped" width = "100%"  id = "liste-requete">    
+                    <thead>
+                        <tr> 
+                            <th>{% trans %}Dated{% endtrans %}</th>
+                            <th>{% trans %}Service{% endtrans %}</th>
+                            <th>{% trans %}Author{% endtrans %}</th>
+                            <th>{% trans %}Subject{% endtrans %}</th>
+                            <th>{% trans %}Message{% endtrans %}</th>
+                            <th>{% trans %}File{% endtrans %}</th>                                              
+                            <th class = "text-right">{% trans %}Action{% endtrans %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for requete in requetesEnCours %}
+                            {% if not requete.logistique %}
+                                <tr>                              
+                                    <td>{{requete.dateRequete | date('d.m.Y H:i s') }}</td>
+                                    <td>{{requete.requerantRequete}}</td>
+                                    <td>
+                                        {% if requete.chauffeur %}
+                                            {{requete.chauffeur.nomChauffeur }} {{requete.chauffeur.prenomChauffeur }}
+                                        {% elseif requete.secretariat %}  
+                                            {{requete.secretariat.nomSecretariat }} {{requete.secretariat.prenomSecretariat }} 
+                                        {% endif %}
+                                    </td>
+                                    <td>{{requete.objetRequete}}</td>
+                                    <td>{{requete.messageRequete}}</td>
+                                    <td>
+                                        {% if requete.fichierUrlRequete is null %}
+                                            <i data-toggle="tooltip" data-placement="bottom" title="{% trans %}No file{% endtrans %}" class="fas fa-times-circle"></i>
+                                        {% else %} 
+                                            <a href="{{ path('logistique_requete_fichier', {'id': requete.id}) }}"  data-toggle="tooltip" data-placement="bottom" title="{% trans %}Get file{% endtrans %}" class="btn btn-outline-dark"><i class="fas fa-file-pdf"></i></a>
+                                        {% endif %}
+                                    </td>                                              
+                                    <td class = "float-right">
+                                        <a href="{{ path('logistique_requete_traiter' , {'id': requete.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Reply request{% endtrans %}" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                            {% endif %}                                 
+                        {% endfor %}   
+                    </tbody>
+                </table>  
+             </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+	<script type="text/javascript" language="javascript" src="/js/dataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/moment.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/datetime-moment.js"></script>
+    
+    {# pagination/recherche/tri dans un tableau #}
+    <script type="text/javascript" class="init">
+        $(document).ready(function()
+        {    
+            locale = '{{app.request.locale}}'; 
+            $.fn.dataTable.moment( 'DD/MM/YYYY H:m s' ); 
+            $('#liste-requete').DataTable( 
+            {
+                language: { "url":"/js/dataTables/"+locale+".lang" },
+                lengthMenu: [[10, 15, 25, -1], [10, 15, 25, "Tous"]],
+                order: [ 0, 'desc'],
+                columnDefs: 
+                [
+                    {
+                        targets: [4, 5, 6],
+                        bSortable: false
+                    },  
+                ]         
+            });
+        });
+    </script>
+    
+    {# affichage d'une infobule au passage de la souris sur une cellule du tableau #}
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>   
+{% endblock %}    

@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="/css/dataTables/dataTables.bootstrap4.min.css">
+{% endblock %}
+{% set route =  app.request.attributes.get('_route') %}
+{% block body %}
+    <div class="container-fluid"> 
+        <div class="row">
+            <div class="col">
+                <table class = "table display responsive" width = "100%" id = "liste-colis">    
+                    <thead>
+                        <tr>
+                            <th>{% trans %}Parcel number{% endtrans %}</th>
+                            <th>{% trans %}Last name{% endtrans %} </th>
+                            <th>{% trans %}First name{% endtrans %}</th>
+                            <th>{% trans %}Address{% endtrans %}</th>
+                            <th>{% trans %}Number{% endtrans %}</th>
+                            <th>{% trans %}Postal code{% endtrans %}</th> 
+                            <th class = "text-right">{% trans %}Action{% endtrans %}</th>                       
+                        </tr>
+                    </thead>
+                    <tbody></tbody> 
+                </table>  
+            </div>
+        </div>
+    </div> 
+{% endblock %}
+
+{% block javascripts %}
+	<script type="text/javascript" language="javascript" src="/js/dataTables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="/js/dataTables/dataTables.bootstrap4.min.js"></script> 
+    <script type="text/javascript" language="javascript" src="/js/dataTables/moment.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/dataTables/date-eu.js"></script>
+
+    {# pagination/recherche/tri dans un tableau #}
+    <script type="text/javascript" class="init">
+        $(document).ready(function()
+        {    
+            locale = '{{app.request.locale}}';     
+            $('#liste-colis').DataTable( 
+            {    
+                // These are the column name variables that will be sent to the server
+                columnDefs: 
+                [
+                    { "name": 'Parcel number',  "targets": 0 },
+                    { "name": "Last name",      "targets": 1 },
+                    { "name": "First name",     "targets": 2 },
+                    { "name": "Address",        "targets": 3 },
+                    { "name": "Number",         "targets": 4 },
+                    { "name": "Postal code",    "targets": 5 },
+                    { "name": "Action",         "targets": 6 , "className": "text-right", bSortable:false},
+                ], 
+
+                serverSide: true,
+                ajax:   {   url: "{{path('logistique_colis_api', {'typeColis' : typeColis, 'route' : route })}}",
+                            type: 'POST'
+                        },
+                order: [ 1, 'asc' ],
+                paging : true, 
+                language: { "url": "/js/dataTables/"+locale+".lang" },
+                lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
+                searching: true, 
+            });
+        });
+    </script>
+    
+    {# affichage d'une infobule au passage de la souris sur un élément après l'apel Ajax #}
+    <script>
+        $( document ).ajaxComplete(function() {
+            // Required for Bootstrap tooltips in DataTables
+            $('[data-toggle="tooltip"]').tooltip({
+                "html": true,
+                "delay": {"show": 100, "hide": 0},
+            });
+        });
+    </script>
+{% endblock %}

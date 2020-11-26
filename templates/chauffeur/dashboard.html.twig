@@ -1,0 +1,165 @@
+{% extends 'base.html.twig' %}
+ 
+{% block body %}
+	<div class="container-fluid">
+		<div class="card-deck">
+			{# card statistique "requeteOuverteLogistique" #}
+			<div class="card bg-light mb-3 {% if statistiques.requeteOuverteLogistique > 0 %} clickable-card {% endif %}" data-href="{{ path('chauffeur_requete_liste',{'statut' : 'ouvert', 'service' : 'logistique'}) }}">
+				<div class="card-body">
+					<div class="row {% if statistiques.requeteOuverteLogistique == 0 %} text-success {% elseif statistiques.requeteOuverteLogistique <= 2 %} text-warning {% else %} text-danger {% endif %}">
+						<div class="col-4">
+							<i class="fas fa-hands-helping fa-3x"></i>
+						</div>
+						<div class="col-8">
+							<div class="row"><h4 class="card-title">{% trans %}Logistics{% endtrans %}</h4></div>
+							<div class="row"> <h5>{% if statistiques.requeteOuverteLogistique == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.requeteOuverteLogistique}}{% endif %}</h5></div>      
+						</div>
+					</div>
+				</div>
+			</div>
+			{# card statistique "requeteOuverteSecretariat" #}
+			<div class="card bg-light mb-3 {% if statistiques.requeteOuverteSecretariat > 0 %} clickable-card {% endif %}" data-href="{{ path('chauffeur_requete_liste', {'statut' : 'ouvert', 'service' : 'secretariat'}) }}">
+				<div class="card-body">
+					<div class="row {% if statistiques.requeteOuverteSecretariat == 0 %} text-success {% elseif statistiques.requeteOuverteSecretariat <= 2 %} text-warning {% else %} text-danger {% endif %}">
+						<div class="col-4">
+							<i class="fas fa-hands-helping fa-3x"></i>
+						</div>
+						<div class="col-8">
+							<div class="row"><h4 class="card-title">{% trans %}Secretariat{% endtrans %}</h4></div>
+							<div class="row"><h5>{% if statistiques.requeteOuverteSecretariat == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.requeteOuverteSecretariat}}{% endif %}</h5></div>                          
+						</div>
+					</div>
+				</div>
+			</div> 
+			{% if chauffeur.permisConduire %}
+				{% set dateVal =  chauffeur.permisConduire.dateValPermisConduire %}
+				{# Card: permisConduire #}
+				<div class="card  bg-light mb-3 {% if dateVal <= date('+60days') %} clickable-card {% endif %} " data-href="{{ path('chauffeur_profile') }}">
+					<div class="card-body">
+						<div class="row {% if dateVal <= date('+30days') %} text-danger {% elseif dateVal <= date('+60days') %} text-warning {% else %} text-success {% endif %}">
+							<div class="col-4">
+								<i class="fas fa-id-badge fa-3x"></i>
+							</div>
+							<div class="col-8">
+								<div class="row">
+									<h4 class="card-title">{% trans %}Driver's license{% endtrans %}</h4>
+								</div>
+								<div class="row">
+									{% if dateVal == date('today')%}
+										<h5 class= "blink"><strong><i class="fas fa-exclamation-triangle"></i> {% trans %}Expires today{% endtrans %}</strong></h5>
+									{% elseif dateVal  < date('today')  %}
+										<h5 class= "blink"><strong><i class="fas fa-exclamation-triangle"></i> {% trans %}Expired{% endtrans %}</strong></h5>
+									{% elseif dateVal  <= date('+60days') %}		
+										<h5>{% trans %}Expires in{% endtrans %} {{ (date(dateVal).diff(date('today'))).days }} {% trans %}days{% endtrans %} ({{dateVal | date('d.m.Y')}})</h5>
+									{% else %}	
+										<i class="fas fa-check"></i>
+									{% endif %}
+								</div>       
+							</div>
+						</div>
+					</div>
+				</div>	
+			{% endif %}	
+			{# card statistique "amende" new #}
+			<div class="card bg-light mb-3 {% if statistiques.amendeMoisPrecedant2.count > 0 or statistiques.amendeMoisPrecedant1.count > 0 or statistiques.amendeMois.count > 0  %} clickable-card {% endif %}" data-href="#">
+				<div class="card-body">
+					<div class="row {% if statistiques.amendeMoisPrecedant2.count == 0 and statistiques.amendeMoisPrecedant1.count == 0 and statistiques.amendeMois.count == 0 %} text-success {% elseif statistiques.amendeMoisPrecedant2.count <= 2  and statistiques.amendeMoisPrecedant1.count <= 2 and statistiques.amendeMois.count <= 2 %} text-warning {% else %} text-danger {% endif %}">
+						<div class="col-3"><i class="fas fa-file-invoice-dollar fa-3x"></i></div>
+						<div class="col-9">
+							{#<div class="row justify-content-center"><h4 class="card-title">{% trans %}Fines{% endtrans %}</h4></div>#}
+							<div class="row text-center">
+								{# amendes mois -2 #}
+								<div class="col {% if statistiques.amendeMoisPrecedant2.count == 0 %} text-success {% elseif statistiques.amendeMoisPrecedant2.count <= 2 %} clickable-element text-warning {% else %} clickable-element text-danger {% endif %}" data-href="{{ path('chauffeur_amende', {'month' : statistiques.amendeMoisPrecedant2.month, 'year' : statistiques.amendeMoisPrecedant2.year} )}}">{% if statistiques.amendeMoisPrecedant2.count == 0 %}<h5><i class="fas fa-check"></i></h5>{% else %}<h5>{{statistiques.amendeMoisPrecedant2.count}}</h5>{% endif %}{{statistiques.amendeMoisPrecedant2.mois}}</div>
+								{# amendes mois -1 #}
+								<div class="col {% if statistiques.amendeMoisPrecedant1.count == 0 %} text-success {% elseif statistiques.amendeMoisPrecedant1.count <= 2 %} clickable-element text-warning {% else %} clickable-element text-danger {% endif %}" data-href="{{ path('chauffeur_amende', {'month' : statistiques.amendeMoisPrecedant1.month, 'year' : statistiques.amendeMoisPrecedant1.year})}}" >{% if statistiques.amendeMoisPrecedant1.count == 0 %}<h5><i class="fas fa-check"></i></h5>{% else %}<h5>{{statistiques.amendeMoisPrecedant1.count}}</h5>{% endif %}{{statistiques.amendeMoisPrecedant1.mois}}</div> 
+								{# amendes mois #}
+								<div class="col {% if statistiques.amendeMois.count == 0 %} text-success {% elseif statistiques.amendeMois.count <= 2 %} clickable-element text-warning {% else %} clickable-element text-danger {% endif %}" data-href="{{ path('chauffeur_amende', {'month' : statistiques.amendeMois.month, 'year' : statistiques.amendeMois.year})}}">{% if statistiques.amendeMois.count == 0 %}<h5><i class="fas fa-check"></i></h5>{% else %}<h5>{{statistiques.amendeMois.count}}</h5>{% endif %}{{statistiques.amendeMois.mois}}</div>             
+							</div>             
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card-deck">	
+			{% if statistiques.affectations is not empty %}
+				{# Card: affectation du jour#}
+				<div class="card mb-3">
+					<h3 class="card-header"><i class="fas fa-calendar-check"></i> {% trans %}Next assignments{% endtrans %}</h3>
+					<div class="card-body">
+						<table class ="table">
+							<thead>
+								<tr>
+									<th>{% trans %}Date{% endtrans %}</th>
+									<th>{% trans %}Round{% endtrans %}</th>
+									<th>{% trans %}vehicle{% endtrans %}</th>																
+								</tr>
+							</thead>
+							<tbody>		
+								{% for affectation in statistiques.affectations  %}																
+									<tr>
+										<td {% if affectation.dateAffectation | date('Y-m-d') == "now" | date("Y-m-d") %} class="text-success" {% endif %}>{{ affectation.dateAffectation | date("d.m.Y") }}</td>
+										<td>{{affectation.tournee.numTournee}}</td>
+										<td>{{affectation.vehicule.immatriculationVehicule  }}</td>
+									</tr>										
+								{% endfor %} 							   
+							</tbody>	
+						</table>	
+					</div>	
+				</div> 
+			{% endif %}	
+			{% if  statistiques.requetesEnCours | length  > 0  %}
+				{# Card: requêtes en cours #}
+				<div class="card mb-3">
+					<h3 class="card-header"><i class="fas fa-hands-helping"></i> {% trans %}Last requests{% endtrans %}</h3>
+					<div class="card-body">	
+						<table class ="table">
+							<thead>
+								<tr>
+									<th>{% trans %}Number{% endtrans %}</th>
+									<th>{% trans %}Subject{% endtrans %}</th>
+									<th>{% trans %}Date{% endtrans %}</th>
+									<th>{% trans %}File{% endtrans %}</th>								
+								</tr>
+							</thead>
+							<tbody>						
+								{% for requete in statistiques.requetesEnCours  %}																
+									<tr>
+										<td>{{requete.id}}</td>
+										<td>{{requete.ObjetRequete}}</td>
+										<td>{{requete.dateRequete | date('d.m.Y H:i') }}</td>
+										<td>{{ requete.fichierUrlRequete is null ?'<i class="fas fa-times-circle"></i>'  : '<i class="fas fa-file-pdf"></i>' }}</td>
+									</tr>										
+								{% endfor %} 							   
+							</tbody>	
+						</table>			
+					</div>
+				</div>		
+			{% endif %}
+		</div>							
+	</div>
+{% endblock %}
+{% block javascripts %} 
+    {# permet rendre cliquable une card #}
+    <script>  
+        jQuery(document).ready(function($) {
+            $(".clickable-card").mouseover(function() {
+                $(this).removeClass("bg-light").addClass("bg-secondary text-white");
+            });
+            $(".clickable-card").mouseout(function() {
+                $(this).removeClass("bg-secondary text-white").addClass("bg-light");
+            });
+            $(".clickable-card").click(function() {
+                window.location = $(this).data("href");
+            });
+            $(".clickable-element").mouseover(function() {
+                $(this).addClass("text-light");
+            });
+            $(".clickable-element").mouseout(function() {
+                $(this).removeClass("text-light");
+            });
+            $(".clickable-element").click(function() {
+                window.location = $(this).data("href");
+            });
+        });
+    </script> 
+{% endblock %}

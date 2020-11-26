@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/jquery-ui/jquery-ui.min.css"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {{ form_start(form) }}
+        {{ form_row(form.dateAmende) }}
+        {{ form_row(form.numAmende) }}
+        {{ form_row(form.montantAmende) }}
+        {{ form_row(form.remarqueAmende) }}
+        {{ form_row(form.vehicule) }}         
+        {{ form_row(form.save) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {# Permet l'autocomplétion du champ 'Vehicule' #}
+    <script src="/js/jquery-ui/jquery-ui.min.js"></script>
+    <script>
+        $( function() {
+            $("#amende_vehicule").autocomplete({
+                source: function( request, response ) {
+                    // Récupère les données via une requête 'ajax'
+                    $.ajax({
+                        url: '{{ path("secretariat_vehicule_filtrer") }}',
+                        type: 'post',
+                        dataType: "json",
+                        data: {
+                            keyword: request.term
+                        },
+                        success: function( data ) {   
+                                response( data.vehicules ); 
+                        }
+                    });
+                },
+            });
+        });
+    </script> 
+{% endblock %}
