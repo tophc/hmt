@@ -24,4 +24,9 @@ Travail de fin d’études en vue de l’obtention du Diplôme de bachelier en I
 - Bootswatch Theme (https://bootswatch.com/) 
 - fontAwsome 5.15.1 (https://fontawesome.com/)
 
+
+## Schéma UML
+
+![alt text](https://github.com/crysis90war/TFE-Lemka/blob/main/diagram.png?raw=true)
+
 (*) Environnement de développement
