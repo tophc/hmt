@@ -27,6 +27,6 @@ Travail de fin d’études en vue de l’obtention du Diplôme de bachelier en I
 
 ## Schéma UML
 
-![alt text](https://github.com/tophc/hmt/blob/master/analyse/mcd.png)
+![alt text](https://github.com/tophc/hmt/blob/master/analyse/mcd.png?raw=true)
 
 (*) Environnement de développement
