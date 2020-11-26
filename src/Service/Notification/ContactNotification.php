@@ -2,30 +2,21 @@
 
 namespace App\Service\Notification;
 
-use Twig\Environment;
 use App\Service\Notification\Contact;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
 class ContactNotification
 { 
-
-    /**
-     * @var \Swift_Mailer
-     */
     private $mailer;
 
     /**
-     * @var Environment
+     * @param MailerInterface $mailer
      */
-    private $renderer;
-
-    /**
-     * @param \Swift_Mailer $mailer
-     * @param Environment $renderer
-     */
-    public function __construct(\Swift_Mailer $mailer, Environment $renderer)
+    public function __construct(MailerInterface $mailer)
     { 
         $this->mailer = $mailer;
-        $this->renderer = $renderer;
     }
 
     /**
@@ -34,17 +25,20 @@ class ContactNotification
      */
     public function sendEmail(Contact $contact, $idChauffeur)
     {  
-        $message = (new \Swift_Message('Object : '.$contact->getSujet()) )        
-            ->setFrom($contact->getEmail())
-            ->setTo($contact->getService().'@hayam.be')
-            ->setReplyTo($contact->getEmail())
-            ->setBody($this->renderer->render('chauffeur/mail.html.twig', ['contact' => $contact]), 'text/html' );
+        $email = (new TemplatedEmail())        
+            ->from($contact->getEmail())
+            ->to($contact->getService().'@devstation.be')
+            ->subject($contact->getSujet())
+            ->replyTo($contact->getEmail())
+            ->htmlTemplate('chauffeur/mail.html.twig')
+            ->context(['contact' => $contact]);
             
-            if ($contact->getFichier()){
- 
-                $message->attach(\Swift_Attachment::fromPath('../uploads/chauffeur/'.$idChauffeur.'/'. $contact->getNomFichier()));
+            
+            if ($contact->getFichier())
+            {
+                $email->attachFromPath('../uploads/chauffeur/'.$idChauffeur.'/'. $contact->getNomFichier());
             }
             
-        $this->mailer->send($message);    
+        $this->mailer->send($email);    
     }
 }
