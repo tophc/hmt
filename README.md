@@ -25,7 +25,7 @@ Travail de fin d’études en vue de l’obtention du Diplôme de bachelier en I
 - fontAwsome 5.15.1 (https://fontawesome.com/)
 
 
-## Modèle conceptuel des données
+## Modèle Conceptuel des Données
 
 ![MCD](https://github.com/tophc/hmt/blob/master/analyse/mcd.png?raw=true)
 
