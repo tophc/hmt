@@ -15,6 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\HasLifecycleCallbacks
  * 
  * @UniqueEntity("immatriculationVehicule")
+ * @UniqueEntity("numChassisVehicule")
  */
 class Vehicule
 {
@@ -28,23 +29,25 @@ class Vehicule
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Assert\Type(type={"alpha", "digit"})
+     * @Assert\Type(type={"alnum"})
      * @Assert\NotNull
      * @Assert\NotBlank
+     * 
      */
     private $immatriculationVehicule;
 
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Assert\Type(type={"alpha", "digit"})
+     * @Assert\Type(type={"alnum"})
      * @Assert\NotNull
      * @Assert\NotBlank
+     * 
      */
     private $numChassisVehicule;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean")
      * 
      * @Assert\Type("bool")
      */
@@ -98,7 +101,7 @@ class Vehicule
 
     public function setImmatriculationVehicule(string $immatriculationVehicule): self
     {
-        $this->immatriculationVehicule = $immatriculationVehicule;
+        $this->immatriculationVehicule = strtoupper($immatriculationVehicule);
 
         return $this;
     }
@@ -110,7 +113,7 @@ class Vehicule
 
     public function setNumChassisVehicule(string $numChassisVehicule): self
     {
-        $this->numChassisVehicule = $numChassisVehicule;
+        $this->numChassisVehicule = strtoupper($numChassisVehicule);
 
         return $this;
     }
