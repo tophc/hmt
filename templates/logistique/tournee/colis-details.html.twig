@@ -65,7 +65,7 @@
                 </div>
                 <div class="card-footer">
                     {% if not cloturer %}
-                        <a href="{{ path('logistique_colis_cloturer', {'id': colis.id})  }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Tag as delivered{% endtrans %}" class="btn btn-success card-link center"><i class="fas fa-file-signature"></i></a>
+                        <a href="{{ path('logistique_colis_cloturer', {'id': colis.id})  }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Tag as delivered{% endtrans %}" class="btn btn-outline-success card-link center"><i class="fas fa-file-signature"></i></a>
                     {% endif %}
                     {% if not enquete %}
                         <a href="{{ path('logistique_colis_litige', {'id': colis.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Tag as issue{% endtrans %}"class="btn btn-outline-danger card-link center"><i class="fas fa-file"></i></a>  

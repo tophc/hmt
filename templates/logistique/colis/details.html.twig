@@ -19,7 +19,14 @@
                         <dt class="col-md-4">{% trans %}Locality{% endtrans %} : </dt>
                         <dd class="col-md-8">{{colis.codePostal.localiteCodePostal}}</dd>
                         <dt class="col-md-4">{% trans %}Round{% endtrans %} : </dt>
-                        <dd class="col-md-8">{{colis.codePostal.tournee.numTournee}}</dd>
+                        
+                        <dd class="col-md-8">
+                            {% if colis.codePostal.tournee %}
+                                {{colis.codePostal.tournee.numTournee}}
+                            {% else %}
+                                "{% trans %}No round{% endtrans %}"
+                            {% endif %}
+                        </dd>
                         <dt class="col-md-4">{% trans %}Comments{% endtrans %} : </dt>
                         <dd class="col-md-8">{% if not colis.noteColis %} "{% trans %}No comments{% endtrans %}"{% endif %}</dd>           
                     </dl>
@@ -33,7 +40,11 @@
                         <a href="{{ path('logistique_enlevement_liste', {'typeColis': 0 })}}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}See details{% endtrans %}" class="btn btn-outline-dark card-link center"><i class="fas fa-eye"></i></a>
                         <a href="{{ path('logistique_enlevement_modifier', {'id': colis.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Edit pickup{% endtrans %}" class="btn btn-outline-warning card-link center"><i class="fas fa-edit"></i></a>
                     {% endif %}
-                    <a href="{{ path('logistique_tournee_details', {'id': colis.codePostal.tournee.id })}}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}See details{% endtrans %}" class="btn btn-outline-dark card-link center"><i class="fas fa-shipping-fast"></i></a>
+                    {% if colis.codePostal.tournee %}
+                        <a href="{{ path('logistique_tournee_details', {'id': colis.codePostal.tournee.id })}}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}See details{% endtrans %}" class="btn btn-outline-dark card-link center"><i class="fas fa-shipping-fast"></i></a>
+                    {% else %}
+                        <a href="{{ path('logistique_tournee_ajouter')}}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Round add{% endtrans %}" class="btn btn-outline-dark card-link center"><i class="fas fa-plus-square"></i></a>
+                    {% endif %}
                 </div>
             </div> 
             {# Card: suiviColis détail #}       
@@ -66,7 +77,7 @@
                 </div>
                 <div class="card-footer">
                     {% if not cloturer %}
-                    <a href="{{ path('logistique_colis_cloturer', {'id': colis.id})  }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Tag as delivered{% endtrans %}" class="btn btn-success card-link center"><i class="fas fa-file-signature"></i></a>
+                    <a href="{{ path('logistique_colis_cloturer', {'id': colis.id})  }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Tag as delivered{% endtrans %}" class="btn btn-outline-success card-link center"><i class="fas fa-file-signature"></i></a>
                     {% endif %}
                     {% if not enquete %}
                     <a href="{{ path('logistique_colis_litige', {'id': colis.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Tag as issue{% endtrans %}" class="btn btn-outline-danger card-link center"><i class="fas fa-file"></i></a>  

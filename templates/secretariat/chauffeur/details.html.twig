@@ -33,7 +33,7 @@
                     <a href="{{ path('secretariat_chauffeur_statut', {'id': chauffeur.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Disable driver{% endtrans %}" class="btn btn-outline-danger card-link float-center" onclick="return confirm(
                         `{% trans %}Are you sure you want to disable this driver{% endtrans %} : {{chauffeur.nomChauffeur}} {{chauffeur.prenomChauffeur}} ?\n{% trans %}This action is reversible{% endtrans %} !`)"><i class="fas fa-trash"></i></a>
                     {% else %}
-                        <a href="{{ path('secretariat_chauffeur_statut', {'id': chauffeur.id}) }}" class="btn btn-success"><i class="fas fa-trash-restore-alt"></i></a>
+                        <a href="{{ path('secretariat_chauffeur_statut', {'id': chauffeur.id}) }}" class="btn btn-outline-success"><i class="fas fa-trash-restore-alt"></i></a>
                         <a href="{{ path('secretariat_chauffeur_liste', {'statut': 0 }) }}" class="btn btn-outline-dark card-link center"><i class="fas fa-list"></i></a>
                     {% endif %}
                 </div>
