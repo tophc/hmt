@@ -7,34 +7,35 @@
     </head>
     <body>
         <div class="container">
-            <h3>Formulaire de contact Hayam</h3>
+            <h3>Hayam : {% trans %}contact form{% endtrans %} </h3>
             <div class="row">
-                <div class="col" >
-                    <p><strong>Service :</strong> {{ contact.service }}</p>
+                <div class="col" >{% trans %}{% endtrans %}
+                    <p><strong>{% trans %}{% endtrans %} :</strong> {{ contact.service }}</p>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col">
-                    <p><strong>Nom :</strong> {{ contact.nom }}</p>
+                    <p><strong>{% trans %}Sender{% endtrans %} :</strong></p>
+                    <p><strong>{% trans %}Last name{% endtrans %} :</strong> {{ contact.nom }}</p>
                 </div>
                 <div class="col">
-                    <p><strong>Prénom :</strong> {{ contact.prenom }}</p>
+                    <p><strong>{% trans %}First name{% endtrans %} :</strong> {{ contact.prenom }}</p>
                 </div>
                 <div class="col">
-                <p><strong>Email :</strong>  {{ contact.email }}</p>
+                <p><strong>{% trans %}Email{% endtrans %} :</strong>  {{ contact.email }}</p>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col">
-                    <p><strong>Sujet :</strong></p>
+                    <p><strong>{% trans %}Subject{% endtrans %} :</strong></p>
                     <p>{{ contact.sujet }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <p><strong>Message :</strong></p>
+                    <p><strong>{% trans %}Message{% endtrans %} :</strong></p>
                     <p>{{ contact.message | nl2br}}</p>
                 </div>
             </div>
