@@ -14,7 +14,7 @@ class FichierType extends ApplicationType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('fichier', FileType::class, $this->getConfiguration('File', 'Select a file', ['required' => true] )) 
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 

@@ -14,7 +14,7 @@ class RequeteType extends ApplicationType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('noteRequete', TextareaType::class, $this->getConfiguration("Reply", "Add reply note to request"))
-                ->add('save', SubmitType::class,['label' => 'Close the request', 'attr' => ['class' => 'btn btn-dark']])
+                ->add('save', SubmitType::class,['label' => 'Close the request', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 

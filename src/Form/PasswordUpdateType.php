@@ -15,7 +15,7 @@ class PasswordUpdateType extends ApplicationType
         $builder->add('oldPassword', PasswordType::class, $this->getConfiguration('Old password', 'Current password'))
                 ->add('newPassword', PasswordType::class, $this->getConfiguration('New password', '8 characters minimum'))
                 ->add('confirmPassword', PasswordType::class, $this->getConfiguration('Password confirmation', 'Confirm your new password'))
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 

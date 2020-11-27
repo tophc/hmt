@@ -17,7 +17,7 @@ class SecretariatType extends ApplicationType
         $builder->add('nomSecretariat', TextType::class, $this->getConfiguration("Last name", "Secretariat last name"))
                 ->add('prenomSecretariat', TextType::class, $this->getConfiguration("First name", "Secretariat first name"))
                 ->add('emailSecretariat', EmailType::class, $this->getConfiguration("Email", "Secretariat email"))
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 

@@ -17,7 +17,7 @@ class EtatType extends ApplicationType
         $builder
             ->add('codeEtat', TextType::class, $this->getConfiguration("Code", "Status code"))
             ->add('descriptifEtat', TextareaType::class, $this->getConfiguration("Description", "Add a short description")) 
-            ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])
+            ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 

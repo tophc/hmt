@@ -16,7 +16,7 @@ class CategoriePermisConduireType extends ApplicationType
     {
         $builder->add('nomCategoriePermisConduire', TextType::class, $this->getConfiguration("Category name", "Oficial category name",  ['required' => true] ))
                 ->add('infoCategoriePermisConduire', TextareaType::class, $this->getConfiguration("Description", "A brief description of the category"))
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 

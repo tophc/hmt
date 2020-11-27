@@ -20,7 +20,7 @@ class EntretienType extends ApplicationType
                 ->add('kmEntretien', NumberType::class, $this->getConfiguration("Mileage", "Add vehicle mileage"))
                 ->add('montantEntretien', MoneyType::class, $this->getConfiguration("Amount", "Amount of the maintenance"))
                 ->add('remarqueEntretien', TextareaType::class, $this->getConfiguration("Note", "Add a note (optional)", ['required' => false])) 
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 

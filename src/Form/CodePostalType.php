@@ -32,7 +32,7 @@ class CodePostalType extends ApplicationType
                     'required' => false,
                     'placeholder' => 'Add a round'             
                 ])
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])  
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])  
         ;
     }
 

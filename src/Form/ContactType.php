@@ -19,7 +19,7 @@ class ContactType extends ApplicationType
             ->add('sujet', TextType::class, $this->getConfiguration("Object", "Request object"))
             ->add('message', TextareaType::class, $this->getConfiguration("Message", "Your message"))
             ->add('fichier', FileType::class, $this->getConfiguration('File', 'Select a file', ['required' => false] )) 
-            ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])   
+            ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])   
         ; 
     }
 

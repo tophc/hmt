@@ -46,7 +46,7 @@ class ChauffeurType extends ApplicationType
                     'placeholder' => 'Add a civil status'
                 ])
                 ->add('permisConduire', PermisConduireType::class, ['required' => true] )
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 

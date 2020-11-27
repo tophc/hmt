@@ -47,7 +47,7 @@ class AffectationEditType extends ApplicationType
                         return $tournee->getnumTournee().' - '.$tournee->getInfoTournee();
                     }
                 ]) 
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 

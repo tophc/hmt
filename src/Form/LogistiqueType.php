@@ -17,7 +17,7 @@ class LogistiqueType extends ApplicationType
         $builder->add('nomLogistique', TextType::class, $this->getConfiguration("Last name", "Logistics last name"))
                 ->add('prenomLogistique', TextType::class, $this->getConfiguration("First name", "Logistics first name"))
                 ->add('emailLogistique', EmailType::class, $this->getConfiguration("Email", "Logistics email"))
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 

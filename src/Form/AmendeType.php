@@ -30,7 +30,7 @@ class AmendeType extends ApplicationType
                 ->add('montantAmende', MoneyType::class, $this->getConfiguration('Amount', 'Amount of the fine'))
                 ->add('remarqueAmende', TextareaType::class, $this->getConfiguration('Note', 'Add a note (optional)', ['required' => false])) 
                 ->add('vehicule', TextType::class, $this->getConfiguration('Vehicle', 'Search a vehicle by platenumber'))
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])          
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])          
         ;
 
         $builder->get('vehicule')->addModelTransformer($this->transformer);

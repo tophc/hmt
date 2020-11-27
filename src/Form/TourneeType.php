@@ -28,7 +28,7 @@ class TourneeType extends ApplicationType
                     'expanded' => true,
                     'required' => true,  
                 ])
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])   
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])   
         ;
     }
 

@@ -18,7 +18,7 @@ class ModeleVehiculeType extends ApplicationType
                 ->add('marqueModeleVehicule', TextType::class, $this->getConfiguration("Brand", "The model brand"))
                 ->add('capaciteModeleVehicule', NumberType::class, $this->getConfiguration("Capacity", "Maximum mass allowed"))
                 ->add('intervalleEntretienModeleVehicule', NumberType::class, $this->getConfiguration("Maintenance interval", "Mileage between each maintenances"))
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 

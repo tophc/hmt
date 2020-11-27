@@ -33,7 +33,7 @@ class ControleTechniqueType extends ApplicationType
                     'allow_add'     => true,
                     'allow_delete'  => true,
                 ])
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 

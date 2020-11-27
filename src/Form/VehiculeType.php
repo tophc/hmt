@@ -18,7 +18,7 @@ class VehiculeType extends ApplicationType
         $builder->add('immatriculationVehicule', TextType::class, $this->getConfiguration("Vehicle numberplate", 'The vehicle numberplate'))
                 ->add('numChassisVehicule', TextType::class, $this->getConfiguration("Vehicle frame number", "The vehicle frame number"))
                 ->add('modeleVehicule', EntityType::class, ['class'=>ModeleVehicule::class, 'choice_label' => 'nomModeleVehicule', 'label' => "Vehicle model"])    
-                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-dark']])
+                ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
 
