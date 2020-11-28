@@ -29,7 +29,7 @@ class Amende
     /**
      * @ORM\Column(type="string", length=255)
      * 
-     * @Assert\Type(type={"digit"})
+     * @Assert\Type(type={"alnum"})
      * @Assert\NotNull
      * @Assert\NotBlank
      */

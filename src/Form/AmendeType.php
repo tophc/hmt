@@ -25,7 +25,7 @@ class AmendeType extends ApplicationType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('dateAmende', DateTimeType::class, [ 'label' => "Date of offense", 'years' => range(date('Y'), date('Y')-10), 'placeholder' => ['year' => date('Y'), 'month' => date('m'), 'day' => date('d')]] )
+        $builder->add('dateAmende', DateTimeType::class, [ 'label' => "Date of offense", 'years' => range(date('Y'), date('Y')-10)] )
                 ->add('numAmende', TextType::class, $this->getConfiguration('Number', 'Reference number of the fine'))
                 ->add('montantAmende', MoneyType::class, $this->getConfiguration('Amount', 'Amount of the fine'))
                 ->add('remarqueAmende', TextareaType::class, $this->getConfiguration('Note', 'Add a note (optional)', ['required' => false])) 
