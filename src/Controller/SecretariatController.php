@@ -1481,15 +1481,12 @@ class SecretariatController extends AbstractController
         $ancienneDate = clone $controleTechnique->getDateControleTechnique();
         $controleTechnique->eraseDateControleTechnique();
         $anciensMessage = $controleTechnique->getRemarqueControleTechnique();
-        //$controleTechnique->setRemarqueControleTechnique(null);
         $controleTechnique->setStatutControleTechnique(false);
         
         $form = $this->createForm(ControleTechniqueType::class, $controleTechnique);
         
         $form->handleRequest($request);
-        dump($controleTechnique);
-
-
+       
         if($form->isSubmitted() && $form->isValid())
         { 
             $dateRepassage = $form->get('dateControleTechnique')->getData() ;

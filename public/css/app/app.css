@@ -56,3 +56,7 @@ div.container, div.container-fluid {
     max-width: 20px;
     max-height: 20px;   
 }
+
+.clickable-element{
+    cursor: pointer;
+}
