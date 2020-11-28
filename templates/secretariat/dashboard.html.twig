@@ -124,6 +124,7 @@
         jQuery(document).ready(function($) {
             $(".clickable-card").mouseover(function() {
                 $(this).removeClass("bg-light").addClass("bg-secondary text-white");
+                $(this).css('cursor', 'pointer');
             });
             $(".clickable-card").mouseout(function() {
                 $(this).removeClass("bg-secondary text-white").addClass("bg-light");

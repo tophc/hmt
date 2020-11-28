@@ -106,6 +106,7 @@
         jQuery(document).ready(function($) {
            $(".clickable-card").mouseover(function() {
                 $(this).removeClass("bg-light").addClass("bg-secondary text-white");
+                $(this).css('cursor', 'pointer');
             });
             $(".clickable-card").mouseout(function() {
                 $(this).removeClass("bg-secondary text-white").addClass("bg-light");
@@ -115,6 +116,7 @@
             });
             $(".clickable-element").mouseover(function() {
                 $(this).addClass("text-secondary");
+                $(this).css('cursor', 'pointer');
             });
             $(".clickable-element").mouseout(function() {
                 $(this).removeClass("text-secondary");
