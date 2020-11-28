@@ -83,7 +83,7 @@ class Amende
 
     public function setNumAmende(string $numAmende): self
     {
-        $this->numAmende = $numAmende;
+        $this->numAmende = strtoupper($numAmende);
 
         return $this;
     }
