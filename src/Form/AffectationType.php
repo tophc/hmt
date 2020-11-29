@@ -39,7 +39,7 @@ class AffectationType extends ApplicationType
                     'widget' => 'single_text'  
                 ])
                 ->add('dateFin', DateType::class, [
-                    'mapped' => false, 
+                    'mapped' => false,
                     'required' => false, 
                     'label' => "End date for multiple assignment (optionnal)", 
                     'widget' => 'single_text' 

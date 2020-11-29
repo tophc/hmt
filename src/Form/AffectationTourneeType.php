@@ -28,18 +28,6 @@ class AffectationTourneeType extends ApplicationType
                     'label' => "End date for multiple assignment (optionnal)", 
                     'widget' => 'single_text' 
                 ])
-                ->add('chauffeur', EntityType::class, [
-                    'class' => Chauffeur::class,
-                    'query_builder' => function (EntityRepository $repo) {
-                        return $repo->createQueryBuilder('c')
-                            ->andWhere('c.statutChauffeur = 1')
-                            ->orderBy('c.nomChauffeur', 'ASC');
-                    },
-                    'label' => 'Driver',
-                    'choice_label' => function ($chauffeur) {
-                        return $chauffeur->getNomChauffeur().' '.$chauffeur->getPrenomChauffeur() ;
-                    }
-                ])
                 ->add('vehicule', EntityType::class, [
                     'class' => Vehicule::class,
                     'query_builder' => function (EntityRepository $repo) {
@@ -48,8 +36,17 @@ class AffectationTourneeType extends ApplicationType
                             ->orderBy('v.immatriculationVehicule', 'ASC');
                     },   
                     'label' => 'Vehicle',
-                    'choice_label' => 'immatriculationVehicule'
+                    'placeholder' => false,
+                    'placeholder' => 'Choose a vehicle',
+                    'choice_label' => function (Vehicule $vehicule){
+                       return $vehicule->getImmatriculationVehicule().' (MMA: '. $vehicule->getModeleVehicule()->getCapaciteModeleVehicule().')';
+                    }
                 ])
+                ->add('chauffeur', EntityType::class, [
+                    'class' => Chauffeur::class,
+                    'label' => 'Driver',
+                    'choice_label' => 'nomChauffeur' 
+                ])   
                 ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
     }
