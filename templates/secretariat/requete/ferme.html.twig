@@ -42,7 +42,7 @@
                                         <a href="{{ path('secretariat_requete_fichier', {'id': requete.id}) }}" data-toggle="tooltip" data-placement="bottom" title="{% trans %}Get file{% endtrans %}" class="btn btn-outline-dark"><i class="fas fa-file-pdf"></i></a> 
                                     {% endif %}
                                 </td>                               
-                                <td>{{ requete.statutRequete === true  ? '<i class="fas fa-ellipsis-h"></i>' : '' ~ requete.dateStatutRequete | date('d/m/Y H:i s')  }}</td>
+                                <td>{{ requete.statutRequete is same as(true)  ? '<i class="fas fa-ellipsis-h"></i>' : '' ~ requete.dateStatutRequete | date('d/m/Y H:i s')  }}</td>
                                 <td>{{requete.noteRequete | raw}}</td>
                             </tr>                       
                         {% endfor %}   

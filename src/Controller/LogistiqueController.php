@@ -123,9 +123,11 @@ class LogistiqueController extends AbstractController
      */
     public function listeTournee(TourneeRepository $repoTournee, EntityManagerInterface $manager): Response
     {
-        //Nombre de colis ouverts pour la tournee
+        // Récupère tous les objets "Tournee"
         $tournees = $repoTournee->findAll();
-    
+        $resultat = array();
+
+        // Pour chaques objets "Tournee"
         foreach ($tournees as $tournee )
         {
             $colisFiltre =  array();
@@ -138,12 +140,13 @@ class LogistiqueController extends AbstractController
             {
                 $codePostal [] = $cp->getId();
             }
-            
+            // Si l'objet "Tournee" est lié à des objets "CodePostal"
             if(! empty($codePostal))
             {
+                // Convertit le tableau  d'objets "CodePostal" en string
                 $cpTournee =  implode(',', $codePostal);
 
-                //colis avec codes postaux de la tournée
+                // Recherche les objets "Colis" avec les codes postaux de la tournée
                 $colisTournee = $manager->createQuery(
                     "SELECT c
                     FROM App\Entity\Colis c
@@ -155,23 +158,23 @@ class LogistiqueController extends AbstractController
                 )   
                 ->getResult();
     
-                //Pour chaque Colis du Tableau "colisTournee" on récuper le colis
+                // Pour chaque Colis du Tableau "colisTournee" on récuper le colis
                 foreach ($colisTournee as $colis)
                 {
-                    //Pour chaque suiviColis du tableau $colis->getSuiviColis() on récupere le suiviColis
+                    // Pour chaque suiviColis du tableau $colis->getSuiviColis() on récupere le suiviColis
                     $tableauEtatParColis = [];
                     foreach ($colis->getSuiviColis() as $suivis)
                     {
-                        //On ajoute le codeEtat dans un tableau 
+                        // On ajoute le codeEtat dans un tableau 
                         $tableauEtatParColis[] = $suivis->getEtat()->getCodeEtat();
                     } 
-                    //On verifie si l'obet "Colis" a été livré (999)
+                    // On verifie si l'obet "Colis" a été livré (999)
                     if (! (in_array("999", $tableauEtatParColis)))
                     {
                         $colisFiltre [] = $colis;       
                     } 
                 }
-                // on stock l'id de la tournee et le nombre de colis  
+                // On stock l'id de la tournee et le nombre de colis  
                 $resultat [$tournee->getId()] = count($colisFiltre);
             }
             else

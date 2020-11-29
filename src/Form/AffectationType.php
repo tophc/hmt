@@ -60,11 +60,9 @@ class AffectationType extends ApplicationType
                 ])
                 ->add('chauffeur', EntityType::class, [
                     'class' => Chauffeur::class,
-                    'choices' => null,
-                    'by_reference' => true,   
                     'label' => 'Driver',
-                    'choice_label' => 'nomChauffeur'   
-                ])             
+                    'choice_label' => 'nomChauffeur' 
+                ])       
                 ->add('tournee', EntityType::class, [
                     'class' => Tournee::class,
                     'query_builder' => function (EntityRepository $repo) {
@@ -78,8 +76,9 @@ class AffectationType extends ApplicationType
                 ]) 
                 ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
-  
-        $builder->get('chauffeur')->addModelTransformer($this->transformer); 
+                   
+        // Plus nécessaire dans la version 5.1
+        //$builder->get('chauffeur')->addModelTransformer($this->transformer); 
     }
 
     public function configureOptions(OptionsResolver $resolver)
