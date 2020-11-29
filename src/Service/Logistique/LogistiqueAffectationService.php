@@ -191,6 +191,7 @@ class LogistiqueAffectationService extends AbstractController
             );                  
         }
 
+/*****************************************************************************************************************************
         // On vérifie si la dateAffectation est antérieur à la date du jour : si oui, message + $erreurAffectation = true
         if ($affectation->getDateAffectation() <  new DateTime('today'))
         {                  
@@ -201,7 +202,7 @@ class LogistiqueAffectationService extends AbstractController
                 $this->translator->trans('No assignment before').' : '.  Date('d-m-Y')
             );                                         
         }
-
+***************************************************************************************************************************/
         // On vérifie si le chauffeur est actif : si non, message + $erreurAffectation = true
         if (! $affectation->getChauffeur()->getStatutChauffeur())
         {

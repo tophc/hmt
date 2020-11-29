@@ -22,7 +22,7 @@
                         {% for affectation in affectations %}
                             <tr>
                                 <td>{{affectation.dateAffectation | date('d.m.Y') }}</td>
-                                <td>{{affectation.chauffeur.nomChauffeur}}</td>
+                                <td>{{affectation.chauffeur.nomChauffeur}} {{affectation.chauffeur.prenomChauffeur}}</td>
                                 <td>{{affectation.vehicule.immatriculationVehicule}}</td>
                                 <td>{{affectation.tournee.numTournee}}</td>
                                 <td class = "text-right">

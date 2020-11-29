@@ -67,7 +67,7 @@ class AffectationType extends ApplicationType
                     'class' => Tournee::class,
                     'query_builder' => function (EntityRepository $repo) {
                         return $repo->createQueryBuilder('t')                      
-                            ->orderBy('t.infoTournee', 'ASC');
+                            ->orderBy('t.numTournee', 'ASC');
                     },   
                     'label' => 'Round',
                     'choice_label' => function (Tournee $tournee){
