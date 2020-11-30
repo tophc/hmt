@@ -1669,7 +1669,7 @@
         <source>Secretariat help</source>
         <target>Hulp aan de secretariaat</target>
       </trans-unit>
-      <trans-unit id="B2O2a3Y" resname="Vehicle model">
+      <trans-unit id="Qdigc7b" resname="Vehicle model">
         <source>Vehicle model</source>
         <target>Voertuigmodel</target>
       </trans-unit>
@@ -1745,45 +1745,69 @@
         <source>expired</source>
         <target>is verlopen</target>
       </trans-unit>
-      <trans-unit id="xRLTH6h" resname="The driver's license has been deleted">
+      <trans-unit id="kL_OdIe" resname="The driver's license has been deleted">
         <source>The driver's license has been deleted</source>
         <target>het rijbewijs is verwijderd</target>
       </trans-unit>
-      <trans-unit id="eRDsH7h" resname="Error">
+      <trans-unit id="VKDowX6" resname="Error">
         <source>Error</source>
         <target>Fout</target>
       </trans-unit>
-      <trans-unit id="ekPsH8V" resname="No weekend assignments">
+      <trans-unit id="zEKII30" resname="No weekend assignments">
         <source>No weekend assignments</source>
         <target>Geen weekendopdrachten</target>
       </trans-unit>
-      <trans-unit id="D678WoY" resname="Status code">
+      <trans-unit id="3_0NKCS" resname="Status code">
         <source>Status code</source>
         <target>Statuscode</target>
       </trans-unit>
-      <trans-unit id="D688WoY" resname="Description">
+      <trans-unit id="Um4Ah8w" resname="Description">
         <source>Description</source>
         <target>Beschrijving</target>
       </trans-unit>
-      <trans-unit id="D689WoY" resname="Add status">
+      <trans-unit id="bQS6AIK" resname="Add status">
         <source>Add status</source>
         <target>Een status toevoegen</target>
       </trans-unit>
-      <trans-unit id="D690WoY" resname="Edit status">
+      <trans-unit id="IKbQlOQ" resname="Edit status">
         <source>Edit status</source>
         <target>Een status gewijzigen</target>
       </trans-unit>
-      <trans-unit id="D691WoY" resname="Status">
+      <trans-unit id="kg5BPH1" resname="Status">
         <source>Status</source>
         <target>Status</target>
       </trans-unit>
-      <trans-unit id="D692WoY" resname="The status has been edited">
+      <trans-unit id="xfGZKRN" resname="The status has been edited">
         <source>The status has been edited</source>
         <target>Het status is gewijzigd</target>
       </trans-unit>
-      <trans-unit id="D693WoY" resname="The state has been added">
+      <trans-unit id="._h9_3r" resname="The state has been added">
         <source>The state has been added</source>
         <target>Het status is toegevoegd</target>
+      </trans-unit>
+      <trans-unit id="oj_hqTy" resname="Processed by">
+        <source>Processed by</source>
+        <target>Behandeld door</target>
+      </trans-unit>
+      <trans-unit id="u3aqJhG" resname="Free drivers list">
+        <source>Free drivers list</source>
+        <target>Vrije bestuurders lijst</target>
+      </trans-unit>
+      <trans-unit id="DiL1ERJ" resname="Edit state">
+        <source>Edit state</source>
+        <target>Wijzigingsstatus</target>
+      </trans-unit>
+      <trans-unit id="ZgabAqG" resname="contact form">
+        <source>contact form</source>
+        <target>Postvorm</target>
+      </trans-unit>
+      <trans-unit id="wpn5uFy" resname="Sender">
+        <source>Sender</source>
+        <target>Verzender</target>
+      </trans-unit>
+      <trans-unit id="h85s7Kl" resname="No round">
+        <source>No round</source>
+        <target>Geen rond</target>
       </trans-unit>
     </body>
   </file>

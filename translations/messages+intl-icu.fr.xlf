@@ -1669,7 +1669,7 @@
         <source>Secretariat help</source>
         <target>Aide du secrétariat</target>
       </trans-unit>
-      <trans-unit id="B2O2a3Y" resname="Vehicle model">
+      <trans-unit id="Qdigc7b" resname="Vehicle model">
         <source>Vehicle model</source>
         <target>Modèle de véhicule</target>
       </trans-unit>
@@ -1745,45 +1745,69 @@
         <source>expired</source>
         <target>expiré</target>
       </trans-unit>
-      <trans-unit id="xRLTH6h" resname="The driver's license has been deleted">
+      <trans-unit id="kL_OdIe" resname="The driver's license has been deleted">
         <source>The driver's license has been deleted</source>
         <target>Le permis de conduire a été supprimé</target>
       </trans-unit>
-      <trans-unit id="eRDsH7h" resname="Error">
+      <trans-unit id="VKDowX6" resname="Error">
         <source>Error</source>
         <target>Erreur</target>
       </trans-unit>
-      <trans-unit id="ekPsH8V" resname="No weekend assignments">
+      <trans-unit id="zEKII30" resname="No weekend assignments">
         <source>No weekend assignments</source>
         <target>Pas d'affectations le weekend</target>
       </trans-unit>
-      <trans-unit id="D678WoY" resname="Status code">
+      <trans-unit id="3_0NKCS" resname="Status code">
         <source>Status code</source>
         <target>Code état</target>
       </trans-unit>
-      <trans-unit id="D688WoY" resname="Description">
+      <trans-unit id="Um4Ah8w" resname="Description">
         <source>Description</source>
         <target>Description</target>
       </trans-unit>
-      <trans-unit id="D689WoY" resname="Add status">
+      <trans-unit id="bQS6AIK" resname="Add status">
         <source>Add status</source>
         <target>Ajouter un état</target>
       </trans-unit>
-      <trans-unit id="D690WoY" resname="Edit status">
+      <trans-unit id="IKbQlOQ" resname="Edit status">
         <source>Edit status</source>
         <target>Modifié un état</target>
       </trans-unit>
-      <trans-unit id="D691WoY" resname="Status">
+      <trans-unit id="kg5BPH1" resname="Status">
         <source>Status</source>
         <target>État</target>
       </trans-unit>
-      <trans-unit id="D692WoY" resname="The status has been edited">
+      <trans-unit id="xfGZKRN" resname="The status has been edited">
         <source>The status has been edited</source>
         <target>L'état a été modifié</target>
       </trans-unit>
-      <trans-unit id="D693WoY" resname="The state has been added">
+      <trans-unit id="._h9_3r" resname="The state has been added">
         <source>The state has been added</source>
         <target>L'état a été ajouté</target>
+      </trans-unit>
+      <trans-unit id="oj_hqTy" resname="Processed by">
+        <source>Processed by</source>
+        <target>Traité par</target>
+      </trans-unit>
+      <trans-unit id="u3aqJhG" resname="Free drivers list">
+        <source>Free drivers list</source>
+        <target>Liste des chauffeurs libres</target>
+      </trans-unit>
+      <trans-unit id="DiL1ERJ" resname="Edit state">
+        <source>Edit state</source>
+        <target>Modifier l'état</target>
+      </trans-unit>
+      <trans-unit id="ZgabAqG" resname="contact form">
+        <source>contact form</source>
+        <target>Formulaire de contact</target>
+      </trans-unit>
+      <trans-unit id="wpn5uFy" resname="Sender">
+        <source>Sender</source>
+        <target>Expéditeur</target>
+      </trans-unit>
+      <trans-unit id="h85s7Kl" resname="No round">
+        <source>No round</source>
+        <target>Pas de tournee</target>
       </trans-unit>
     </body>
   </file>

@@ -5,419 +5,419 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="Z001RoY" resname="8 characters minimum">
+      <trans-unit id="08N3fqb" resname="8 characters minimum">
         <source>8 characters minimum</source>
         <target>Une brève description de la catégorie</target>
       </trans-unit>
-      <trans-unit id="Z002RoY" resname="A brief description of the category">
+      <trans-unit id="FHuJ_8N" resname="A brief description of the category">
         <source>A brief description of the category</source>
         <target>Une brève description de la catégorie</target>
-        </trans-unit>
-      <trans-unit id="Z003RoY" resname="Add a civil status">
+      </trans-unit>
+      <trans-unit id="sTGGi8Z" resname="Add a civil status">
         <source>Add a civil status</source>
         <target>Ajouter un état civil</target>
-        </trans-unit>
-      <trans-unit id="Z004RoY" resname="Add a comment">
+      </trans-unit>
+      <trans-unit id="ZqryVx2" resname="Add a comment">
         <source>Add a comment</source>
         <target>Ajouter un commentaire</target>
-        </trans-unit>
-      <trans-unit id="Z005RoY" resname="Add a note (optional)">
+      </trans-unit>
+      <trans-unit id="a7DGs1k" resname="Add a note (optional)">
         <source>Add a note (optional)</source>
         <target>Ajouter une remarque (facultatif)</target>
       </trans-unit>
-      <trans-unit id="Z006RoY" resname="Add a reason for refusal">
+      <trans-unit id="MKfur0m" resname="Add a reason for refusal">
         <source>Add a reason for refusal</source>
         <target>Ajouter une raison de refus</target>
-      </trans-unit> 
-      <trans-unit id="Z007RoY" resname="Add a round">
+      </trans-unit>
+      <trans-unit id="eEuoEJ2" resname="Add a round">
         <source>Add a round</source>
         <target>Ajouter une tournée</target>
       </trans-unit>
-      <trans-unit id="Z008RoY" resname="Add a round number">
+      <trans-unit id="_iFJfNy" resname="Add a round number">
         <source>Add a round number</source>
         <target>Ajouter un numéro de tournée</target>
-        </trans-unit>
-      <trans-unit id="Z009RoY" resname="Add a short description">
+      </trans-unit>
+      <trans-unit id="iPYXfWD" resname="Add a short description">
         <source>Add a short description</source>
         <target>Ajouter une courte description</target>
-        </trans-unit>
-      <trans-unit id="Z010RoY" resname="Add reply note to request">
+      </trans-unit>
+      <trans-unit id="Gr_VBoK" resname="Add reply note to request">
         <source>Add reply note to request</source>
         <target>Ajouter une note à la requête</target>
       </trans-unit>
-      <trans-unit id="Z011RoY" resname="Add vehicle mileage">
+      <trans-unit id="W9P4OuA" resname="Add vehicle mileage">
         <source>Add vehicle mileage</source>
         <target>Ajouter un kilométrage</target>
-      </trans-unit> 
-      <trans-unit id="Z012RoY" resname="Address">
+      </trans-unit>
+      <trans-unit id="Vu_PIJV" resname="Address">
         <source>Address</source>
         <target>Adresse</target>
       </trans-unit>
-      <trans-unit id="Z013RoY" resname="Amount">
+      <trans-unit id="SeltfN9" resname="Amount">
         <source>Amount</source>
         <target>Montant</target>
       </trans-unit>
-      <trans-unit id="Z014RoY" resname="Amount of the fine">
+      <trans-unit id="8eQWsWv" resname="Amount of the fine">
         <source>Amount of the fine</source>
         <target>Montant de l'amende</target>
       </trans-unit>
-      <trans-unit id="Z015RoY" resname="Amount of the maintenance">
+      <trans-unit id="eCRu.tI" resname="Amount of the maintenance">
         <source>Amount of the maintenance</source>
         <target>Montant de l'entretien</target>
       </trans-unit>
-      <trans-unit id="Z016RoY" resname="Brand">
+      <trans-unit id="CQ7UMW8" resname="Brand">
         <source>Brand</source>
         <target>Marque</target>
       </trans-unit>
-      <trans-unit id="Z017RoY" resname="Capacity">
+      <trans-unit id="rmXQllU" resname="Capacity">
         <source>Capacity</source>
         <target>Capacité</target>
       </trans-unit>
-      <trans-unit id="Z018RoY" resname="Category">
+      <trans-unit id="KSwG8AR" resname="Category">
         <source>Category</source>
         <target>Catégorie</target>
       </trans-unit>
-      <trans-unit id="Z019RoY" resname="Category name">
+      <trans-unit id="c93ZN8m" resname="Category name">
         <source>Category name</source>
         <target>Le nom de la catégorie</target>
       </trans-unit>
-      <trans-unit id="Z020RoY" resname="Change the password">
+      <trans-unit id="CHZSHd." resname="Change the password">
         <source>Change the password</source>
         <target>Modifier le mot de passe</target>
       </trans-unit>
-      <trans-unit id="Z021RoY" resname="Choose an option">
+      <trans-unit id="rvQHbxl" resname="Choose an option">
         <source>Choose an option</source>
         <target>Sélectionner une option</target>
       </trans-unit>
-      <trans-unit id="Z022RoY" resname="Civil status">
+      <trans-unit id="qhHCUrl" resname="Civil status">
         <source>Civil status</source>
         <target>Etat civil</target>
       </trans-unit>
-      <trans-unit id="Z023RoY" resname="Close the request">
+      <trans-unit id="pepewQI" resname="Close the request">
         <source>Close the request</source>
         <target>Clôturer la requête</target>
       </trans-unit>
-      <trans-unit id="Z024RoY" resname="Comment">
+      <trans-unit id="RPXj__x" resname="Comment">
         <source>Comment</source>
         <target>Commentaire</target>
       </trans-unit>
-      <trans-unit id="Z025RoY" resname="Confirm your new password">
+      <trans-unit id="bJUZXyP" resname="Confirm your new password">
         <source>Confirm your new password</source>
         <target>Confirmez votre nouveau mot de passe</target>
       </trans-unit>
-      <trans-unit id="Z026RoY" resname="Current password">
+      <trans-unit id="cu0r12f" resname="Current password">
         <source>Current password</source>
         <target>Mot de passe actuel</target>
       </trans-unit>
-      <trans-unit id="Z027RoY" resname="Date">
+      <trans-unit id="mcQKtAW" resname="Date">
         <source>Date</source>
         <target>Date</target>
       </trans-unit>
-      <trans-unit id="Z028RoY" resname="Date of birth">
+      <trans-unit id="60xOI5E" resname="Date of birth">
         <source>Date of birth</source>
         <target>Date de naissance</target>
       </trans-unit>
-      <trans-unit id="Z029RoY" resname="Date of offense">
+      <trans-unit id="VLB4ZJx" resname="Date of offense">
         <source>Date of offense</source>
         <target>Date de l'infraction</target>
       </trans-unit>
-      <trans-unit id="Z030RoY" resname="Date of validity">
+      <trans-unit id="rhfRI8_" resname="Date of validity">
         <source>Date of validity</source>
         <target>Date de validitée</target>
       </trans-unit>
-      <trans-unit id="Z031RoY" resname="Description">
+      <trans-unit id="Um4Ah8w" resname="Description">
         <source>Description</source>
         <target>Description</target>
       </trans-unit>
-      <trans-unit id="Z032RoY" resname="Driver licence number">
+      <trans-unit id="P.975cz" resname="Driver licence number">
         <source>Driver licence number</source>
         <target>Numéro du permis de conduire</target>
       </trans-unit>
-      <trans-unit id="Z033RoY" resname="Driver's address">
+      <trans-unit id="AKyWBKT" resname="Driver's address">
         <source>Driver's address</source>
         <target>Adresse du chauffeur</target>
       </trans-unit>
-      <trans-unit id="Z034RoY" resname="Driver's email">
+      <trans-unit id=".GQm6mF" resname="Driver's email">
         <source>Driver's email</source>
         <target>Courriel du chauffeur</target>
       </trans-unit>
-      <trans-unit id="Z035RoY" resname="Driver's first name">
+      <trans-unit id="TzDoZrz" resname="Driver's first name">
         <source>Driver's first name</source>
         <target>Prénom du chauffeur</target>
       </trans-unit>
-      <trans-unit id="Z036RoY" resname="Driver's last name">
+      <trans-unit id="dQZ0Isb" resname="Driver's last name">
         <source>Driver's last name</source>
         <target>Nom du chauffeur</target>
       </trans-unit>
-      <trans-unit id="Z037RoY" resname="Driver's national registry">
+      <trans-unit id="XLo4GMh" resname="Driver's national registry">
         <source>Driver's national registry</source>
         <target>Registre national du chauffeur</target>
       </trans-unit>
-      <trans-unit id="Z038RoY" resname="End date for multiple assignment (optionnal)">
+      <trans-unit id="fDbbNGA" resname="End date for multiple assignment (optionnal)">
         <source>End date for multiple assignment (optionnal)</source>
         <target>Date de fin d'affectations multiples (facultatif)</target>
       </trans-unit>
-      <trans-unit id="Z039RoY" resname="Enter a valid postal code number">
+      <trans-unit id="fmKDBXl" resname="Enter a valid postal code number">
         <source>Enter a valid postal code number</source>
         <target>Entrez un numéro de code postal valide</target>
       </trans-unit>
-      <trans-unit id="Z040RoY" resname="Enter the postal code number locality">
+      <trans-unit id="LfX4HZN" resname="Enter the postal code number locality">
         <source>Enter the postal code number locality</source>
         <target>Entrez le numéro du code postal de la localité</target>
       </trans-unit>
-      <trans-unit id="Z041RoY" resname="Female">
+      <trans-unit id="6MyoCK5" resname="Female">
         <source>Female</source>
         <target>Femme</target>
       </trans-unit>
-      <trans-unit id="Z042RoY" resname="File">
+      <trans-unit id="UACc4dp" resname="File">
         <source>File</source>
         <target>Fichier</target>
       </trans-unit>
-      <trans-unit id="Z043RoY" resname="Gender">
+      <trans-unit id="oEYw74v" resname="Gender">
         <source>Gender</source>
         <target>Genre</target>
       </trans-unit>
-      <trans-unit id="Z044RoY" resname="Genderless">
+      <trans-unit id="MAsBk0w" resname="Genderless">
         <source>Genderless</source>
         <target>Sans genre</target>
       </trans-unit>
-      <trans-unit id="Z045RoY" resname="Informations">
+      <trans-unit id="QSvguc1" resname="Informations">
         <source>Informations</source>
         <target>Informations</target>
       </trans-unit>
-      <trans-unit id="Z046RoY" resname="License number">
+      <trans-unit id="q2K1j6i" resname="License number">
         <source>License number</source>
         <target>Numéro de licence</target>
       </trans-unit>
-      <trans-unit id="Z047RoY" resname="Locality">
+      <trans-unit id="I2IfwPV" resname="Locality">
         <source>Locality</source>
         <target>Localité</target>
       </trans-unit>
-      <trans-unit id="Z048RoY" resname="Log in">
+      <trans-unit id="wYmEDPf" resname="Log in">
         <source>Log in</source>
         <target>Connexion</target>
       </trans-unit>
-      <trans-unit id="Z049RoY" resname="Logistics email">
+      <trans-unit id="625dswL" resname="Logistics email">
         <source>Logistics email</source>
         <target>Courriel logistique</target>
       </trans-unit>
-      <trans-unit id="Z050RoY" resname="Logistics first name">
+      <trans-unit id="1Y3a2kB" resname="Logistics first name">
         <source>Logistics first name</source>
         <target>Prénom logistique</target>
       </trans-unit>
-      <trans-unit id="Z051RoY" resname="Logistics last name">
+      <trans-unit id="cAesh7X" resname="Logistics last name">
         <source>Logistics last name</source>
         <target>Nom logistique</target>
       </trans-unit>
-      <trans-unit id="Z052RoY" resname="Maintenance interval">
+      <trans-unit id="N4Yxhxk" resname="Maintenance interval">
         <source>Maintenance interval</source>
         <target>Intervalle de maintenance</target>
       </trans-unit>
-      <trans-unit id="Z053RoY" resname="Male">
+      <trans-unit id="A.jBJz4" resname="Male">
         <source>Male</source>
         <target>Homme</target>
       </trans-unit>
-      <trans-unit id="Z054RoY" resname="Maximum mass allowed">
+      <trans-unit id="iZiOo62" resname="Maximum mass allowed">
         <source>Maximum mass allowed</source>
         <target>Masse maximale autorisée</target>
       </trans-unit>
-      <trans-unit id="Z055RoY" resname="Message">
+      <trans-unit id="L3dmip3" resname="Message">
         <source>Message</source>
         <target>Message</target>
       </trans-unit>
-      <trans-unit id="Z056RoY" resname="Mileage">
+      <trans-unit id="._RKAXk" resname="Mileage">
         <source>Mileage</source>
         <target>Kilométrage</target>
       </trans-unit>
-      <trans-unit id="Z057RoY" resname="Mileage between each maintenances">
+      <trans-unit id="3nFzM.e" resname="Mileage between each maintenances">
         <source>Mileage between each maintenances</source>
         <target>Kilométrage entre chaque entretien</target>
       </trans-unit>
-      <trans-unit id="Z058RoY" resname="Mobile number">
+      <trans-unit id="GH6Auk2" resname="Mobile number">
         <source>Mobile number</source>
         <target>Numéro de téléphone portable</target>
       </trans-unit>
-      <trans-unit id="Z059RoY" resname="Model name">
+      <trans-unit id="o8M3DMc" resname="Model name">
         <source>Model name</source>
         <target>Nom du modèle</target>
       </trans-unit>
-      <trans-unit id="Z060RoY" resname="National registry">
+      <trans-unit id="f.NmGX0" resname="National registry">
         <source>National registry</source>
         <target>Registre national</target>
       </trans-unit>
-      <trans-unit id="Z061RoY" resname="New password">
+      <trans-unit id="PdnfREH" resname="New password">
         <source>New password</source>
         <target>Nouveau mot de passe</target>
       </trans-unit>
-      <trans-unit id="Z062RoY" resname="No Vehicule found with numberplate">
+      <trans-unit id="v0S6YW6" resname="No Vehicule found with numberplate">
         <source>No Vehicule found with numberplate</source>
         <target>Aucun véhicule trouvé avec la plaque d'immatriculation</target>
       </trans-unit>
-      <trans-unit id="Z063RoY" resname="Note">
+      <trans-unit id="2NosSd8" resname="Note">
         <source>Note</source>
         <target>Note</target>
       </trans-unit>
-      <trans-unit id="Z064RoY" resname="Numberplate not found !">
+      <trans-unit id="MmvqkTD" resname="Numberplate not found !">
         <source>Numberplate not found !</source>
         <target>Plaque d'immatriculation non trouvée !</target>
       </trans-unit>
-      <trans-unit id="Z065RoY" resname="Numberplate search">
+      <trans-unit id="bucLYIU" resname="Numberplate search">
         <source>Numberplate search</source>
         <target>Recherche de plaque d'immatriculation</target>
       </trans-unit>
-      <trans-unit id="Z066RoY" resname="Object">
+      <trans-unit id="YqbahzX" resname="Object">
         <source>Object</source>
         <target>Objet</target>
       </trans-unit>
-      <trans-unit id="Z067RoY" resname="Oficial category name">
+      <trans-unit id="eRXVVhQ" resname="Oficial category name">
         <source>Oficial category name</source>
         <target>Nom officielle de la catégorie</target>
       </trans-unit>
-      <trans-unit id="Z068RoY" resname="Old password">
+      <trans-unit id="8RhOomP" resname="Old password">
         <source>Old password</source>
         <target>Ancien mot de passe</target>
       </trans-unit>
-      <trans-unit id="Z069RoY" resname="Passed">
+      <trans-unit id="Q2.nG7l" resname="Passed">
         <source>Passed</source>
         <target>Passé</target>
       </trans-unit>
-      <trans-unit id="Z070RoY" resname="Password confirmation">
+      <trans-unit id="8mmBIX4" resname="Password confirmation">
         <source>Password confirmation</source>
         <target>Confirmation du mot de passe</target>
       </trans-unit>
-      <trans-unit id="Z071RoY" resname="Postal code">
+      <trans-unit id="rlPOqCK" resname="Postal code">
         <source>Postal code</source>
         <target>Code postal</target>
       </trans-unit>
-      <trans-unit id="Z072RoY" resname="Professional mobile phone number">
+      <trans-unit id="KbihgfN" resname="Professional mobile phone number">
         <source>Professional mobile phone number</source>
         <target>Numéro de téléphone mobile professionnel</target>
       </trans-unit>
-      <trans-unit id="Z073RoY" resname="Reference number of the fine">
+      <trans-unit id="ei2hkxA" resname="Reference number of the fine">
         <source>Reference number of the fine</source>
         <target>Numéro du procès-verbale</target>
       </trans-unit>
-      <trans-unit id="Z074RoY" resname="Refused">
+      <trans-unit id="ZrhzVDr" resname="Refused">
         <source>Refused</source>
         <target>Refus</target>
       </trans-unit>
-      <trans-unit id="Z075RoY" resname="Reply">
+      <trans-unit id="wlP0Ub3" resname="Reply">
         <source>Reply</source>
         <target>Réponse</target>
       </trans-unit>
-      <trans-unit id="Z076RoY" resname="Request object">
+      <trans-unit id="gj4yKlZ" resname="Request object">
         <source>Request object</source>
         <target>Objet de la demande</target>
       </trans-unit>
-      <trans-unit id="Z077RoY" resname="Round number">
+      <trans-unit id="rrNeM8P" resname="Round number">
         <source>Round number</source>
         <target>Numéro de tournée</target>
       </trans-unit>
-      <trans-unit id="Z078RoY" resname="Search">
+      <trans-unit id="ScJmuqq" resname="Search">
         <source>Search</source>
         <target>Recherchez</target>
       </trans-unit>
-      <trans-unit id="Z079RoY" resname="Secretariat email">
+      <trans-unit id="pqHESkf" resname="Secretariat email">
         <source>Secretariat email</source>
         <target>Courriel du secrétariat</target>
       </trans-unit>
-      <trans-unit id="Z080RoY" resname="Secretariat first name">
+      <trans-unit id="X8wwwwh" resname="Secretariat first name">
         <source>Secretariat first name</source>
         <target>Prénom secrétariat</target>
       </trans-unit>
-      <trans-unit id="Z081RoY" resname="Secretariat last name">
+      <trans-unit id="t0gHeWo" resname="Secretariat last name">
         <source>Secretariat last name</source>
         <target>Nom secrétariat</target>
       </trans-unit>
-      <trans-unit id="Z082RoY" resname="Select a file">
+      <trans-unit id="e3Xb_.q" resname="Select a file">
         <source>Select a file</source>
         <target>Sélectionnez un fichier</target>
       </trans-unit>
-      <trans-unit id="Z083RoY" resname="Start date">
+      <trans-unit id="gWlpMQG" resname="Start date">
         <source>Start date</source>
         <target>Date de début</target>
       </trans-unit>
-      <trans-unit id="Z084RoY" resname="The model brand">
+      <trans-unit id="un_UdBJ" resname="The model brand">
         <source>The model brand</source>
         <target>La marque modèle</target>
       </trans-unit>
-      <trans-unit id="Z085RoY" resname="The name of the model">
+      <trans-unit id="M1MGIMR" resname="The name of the model">
         <source>The name of the model</source>
         <target>Le nom du modèle</target>
       </trans-unit>
-      <trans-unit id="Z086RoY" resname="The vehicle frame number">
+      <trans-unit id="g12W6AX" resname="The vehicle frame number">
         <source>The vehicle frame number</source>
         <target>Le numéro de châssis du véhicule</target>
       </trans-unit>
-      <trans-unit id="Z087RoY" resname="The vehicle numberplate">
-        <source>The vehicle numberplat</source>
+      <trans-unit id="ftKWp5P" resname="The vehicle numberplate">
+        <source>The vehicle numberplate</source>
         <target>Le numéro d'immatriculation du véhicule</target>
       </trans-unit>
-      <trans-unit id="Z088RoY" resname="Vehicle frame number">
+      <trans-unit id="0Gok2bZ" resname="Vehicle frame number">
         <source>Vehicle frame number</source>
         <target>Numéro de chassis du véhicule</target>
       </trans-unit>
-      <trans-unit id="Z089RoY" resname="Vehicle model">
+      <trans-unit id="Qdigc7b" resname="Vehicle model">
         <source>Vehicle model</source>
         <target>Modèle du véhicule</target>
       </trans-unit>
-      <trans-unit id="Z090RoY" resname="Vehicle numberplate">
+      <trans-unit id="GxZjuwn" resname="Vehicle numberplate">
         <source>Vehicle numberplate</source>
         <target>Numéro d'immatriculation du véhicule</target>
       </trans-unit>
-      <trans-unit id="Z091RoY" resname="Your message">
+      <trans-unit id="egV72Za" resname="Your message">
         <source>Your message</source>
         <target>Votre message</target>
       </trans-unit>
-      <trans-unit id="Z092RoY" resname="Driver">
+      <trans-unit id="n_TGjsI" resname="Driver">
         <source>Driver</source>
         <target>Chauffeur</target>
       </trans-unit>
-      <trans-unit id="Z093RoY" resname="Vehicle">
+      <trans-unit id="piOUukr" resname="Vehicle">
         <source>Vehicle</source>
         <target>Véhicule</target>
       </trans-unit>
-      <trans-unit id="Z094RoY" resname="Round">
+      <trans-unit id="zZVYrPw" resname="Round">
         <source>Round</source>
         <target>Tournée</target>
       </trans-unit>
-      <trans-unit id="Z095RoY" resname="Scan track-number parcel">
+      <trans-unit id="ASa2ov_" resname="Scan track-number parcel">
         <source>Scan track-number parcel</source>
         <target>Scanner le numéro de colis</target>
       </trans-unit>
-      <trans-unit id="Z096RoY" resname="Last name">
+      <trans-unit id="e0iIBJR" resname="Last name">
         <source>Last name</source>
         <target>Nom</target>
       </trans-unit>
-      <trans-unit id="Z097RoY" resname="First name">
+      <trans-unit id="cC75Ie0" resname="First name">
         <source>First name</source>
         <target>Prénom</target>
       </trans-unit>
-      <trans-unit id="Z098RoY" resname="Validate">
+      <trans-unit id="QGEau92" resname="Validate">
         <source>Validate</source>
         <target>Valider</target>
       </trans-unit>
-      <trans-unit id="Z099RoY" resname="Number">
+      <trans-unit id="vYLPFmm" resname="Number">
         <source>Number</source>
         <target>Numéro</target>
       </trans-unit>
-      <trans-unit id="Z100RoY" resname="Browse">
+      <trans-unit id="MieqlmY" resname="Browse">
         <source>Browse</source>
         <target>Parcourir</target>
       </trans-unit>
-      <trans-unit id="Z101RoY" resname="Email">
+      <trans-unit id="lpzL089" resname="Email">
         <source>Email</source>
         <target>Courriel</target>
       </trans-unit>
-      <trans-unit id="Z102RoY" resname="Search a vehicle by platenumber">
+      <trans-unit id="sHXQ8fM" resname="Search a vehicle by platenumber">
         <source>Search a vehicle by platenumber</source>
         <target>Rechercher un vehicule par l'immatriculation</target>
       </trans-unit>
-      <trans-unit id="D402RoY" resname="Code">
+      <trans-unit id="NA9GMDP" resname="Code">
         <source>Code</source>
         <target>Code</target>
       </trans-unit>
-      <trans-unit id="D502RoY" resname="Status code">
+      <trans-unit id="3_0NKCS" resname="Status code">
         <source>Status code</source>
         <target>Code état</target>
       </trans-unit>
