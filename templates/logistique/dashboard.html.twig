@@ -78,7 +78,7 @@
             </div>
         </div> 
         {# card statistique "expeditionHorsTournee" #}
-        <div class="card bg-light mb-3 {% if statistiques.expeditionHorsTournee > 0 %} clickable-card {% endif %}" data-href="{{ path('logistique_expedition_litige', {'typeColis' : 1 }) }}">
+        <div class="card bg-light mb-3 {% if statistiques.expeditionHorsTournee > 0 %} clickable-card {% endif %}" data-href="#">
             <div class="card-body">
                 <div class="row {% if statistiques.expeditionHorsTournee == 0 %} text-success {% else %} text-danger {% endif %} text-white">
                     <div class="col-5">
@@ -122,7 +122,7 @@
             </div>
         </div>
         {# card statistique "enlevementHorsTournee" #}
-        <div class="card bg-light mb-3 {% if statistiques.enlevementHorsTournee > 0 %} clickable-card {% endif %}" data-href="{{ path('logistique_expedition_litige', {'typeColis' : 1}) }}">
+        <div class="card bg-light mb-3 {% if statistiques.enlevementHorsTournee > 0 %} clickable-card {% endif %}" data-href="#">
             <div class="card-body">
                 <div class="row {% if statistiques.enlevementHorsTournee == 0 %} text-success {% else %} text-danger {% endif %} text-white">
                     <div class="col-5">

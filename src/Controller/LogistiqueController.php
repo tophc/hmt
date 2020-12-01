@@ -673,14 +673,17 @@ class LogistiqueController extends AbstractController
         
         $titre = $this->translator->trans('Add an assignment');
 
+        // Ajout d'une affectation normale
         if ($request->attributes->get('_route') == "logistique_affectation_ajouter")  
         {
             $route = 'logistique/affectation/ajouter-modifier.html.twig';
             $form = $this->createForm(AffectationType::class, $affectation);
         }
+        // Ajout d'une affectation pour un chauffeur particulier
         else if ($request->attributes->get('_route') == "logistique_affectation_chauffeur_ajouter") 
         {
             $chauffeur = $repoChauffeur->find($entite);
+
             // On récupère le tableau d'objet  "CategoriePermisConduire" de l'objet "PermisConduire" de l'objet "Chauffeur"
             $categories = $chauffeur->getPermisConduire()->getCategoriePermisConduires();
             // On fait appel au service "logistiqueChauffeurService" pour déterminer la 'mma' selon la catégorie de permis du chauffeur
@@ -699,6 +702,7 @@ class LogistiqueController extends AbstractController
             // On envoie en parametre "$mma" au formulaire pour le query_builder du chanmp de type "Select"
             $form = $this->createForm(AffectationChauffeurType::class, $affectation, ['mma' => $mma]);
         }
+        // Ajout d'une affectation pour un véhicule particulier
         else if ($request->attributes->get('_route') == "logistique_affectation_vehicule_ajouter") 
         {   
             $vehicule = $repoVehicule->find($entite);
@@ -764,10 +768,10 @@ class LogistiqueController extends AbstractController
                 // On récupère les dates de début et de fin du formulaire        
                 $dateDebut = clone $form->get('dateAffectation')->getData();
                 $dateFin = clone $form->get('dateFin')->getData();
-                
+                 
                 // Retourne true s'il y a une erreur
                 $erreurAffectation = $logistiqueAffectationService->affectationMiltiplePrecontrole($affectation, $dateDebut, $dateFin);
-
+                
                 if ($erreurAffectation)
                 {  
                     $this->addFlash(
@@ -780,10 +784,10 @@ class LogistiqueController extends AbstractController
                         'form' => $form->createView()   
                     ]);                        
                 }  
-                
+
                 // Retourne une tableau d'objets "Affectation" valide et un tableau d'ID d'affectation invalide
                 $resultat =  $erreurAffectation = $logistiqueAffectationService->affectationMultipleControle($affectation, $dateDebut, $dateFin);
-
+                
                 return $this->render('logistique/affectation/multiple.html.twig', [
                     'titre' => $this->translator->trans('Multiple assignments list'),
                     'affectations' => $resultat['tabAffectations'],

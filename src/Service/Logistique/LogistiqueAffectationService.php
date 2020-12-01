@@ -191,7 +191,7 @@ class LogistiqueAffectationService extends AbstractController
             );                  
         }
 
-/*****************************************************************************************************************************
+
         // On vérifie si la dateAffectation est antérieur à la date du jour : si oui, message + $erreurAffectation = true
         if ($affectation->getDateAffectation() <  new DateTime('today'))
         {                  
@@ -202,7 +202,7 @@ class LogistiqueAffectationService extends AbstractController
                 $this->translator->trans('No assignment before').' : '.  Date('d-m-Y')
             );                                         
         }
-***************************************************************************************************************************/
+
         // On vérifie si le chauffeur est actif : si non, message + $erreurAffectation = true
         if (! $affectation->getChauffeur()->getStatutChauffeur())
         {
@@ -214,7 +214,19 @@ class LogistiqueAffectationService extends AbstractController
         }
 
         // On vérifie la validité du permis de conduire
-        if ($this->affectationDateValPermisControle($affectation)) $erreurAffectation = true; 
+        //if ($this->affectationDateValPermisControle($affectation)) $erreurAffectation = true; 
+
+        // On vérifie la validité du permis de conduire
+        if ($this->affectationDateValPermisControle($affectation)) 
+        {
+            $erreurAffectation = true;
+            
+            $this->addFlash(
+                'chauffeur', 
+                $this->translator->trans("Driver's license has expired")
+            );  
+        
+        } 
 
         // On verifie si le vehicule est actif : si non, message + $erreurAffectation = true
         if (! $affectation->getVehicule()->getStatutVehicule())
@@ -251,13 +263,18 @@ class LogistiqueAffectationService extends AbstractController
      */
     public function affectationMultipleControle($affectation, $dateDebut, $dateFin): array
     {
+        $erreurValPermis = false;
+        // Affectations invalides
         $affectationsAbandonnees = array();
+        // Les id des affectations invalides
         $listeId = array();
+        // Affectations valides
         $tabAffectations = array();
 
         for ($i = $dateDebut ; $i <= $dateFin ; $i->add(new DateInterval('P1D')))
         { 
-            $erreurAffectation = false;
+            $erreurAffectation  = false;
+           
 
             //Exclure les affectations du samedi et dimanche 
             if((date_format($i, 'D') !== "Sat") && (date_format($i, 'D') != "Sun"))
@@ -279,7 +296,7 @@ class LogistiqueAffectationService extends AbstractController
                 }
 
                 // On vérifie la validité du permis de conduire
-                if ($this->affectationDateValPermisControle($affectation)) $erreurAffectation = true; 
+                //if ($this->affectationDateValPermisControle($affectation)) $erreurAffectation = true; 
 
                 /*************************/               
                 /**** Champs vehicule ****/
@@ -295,6 +312,19 @@ class LogistiqueAffectationService extends AbstractController
                     $affectationsAbandonnees [] = clone $affectations;                
                 }
 
+
+                // On vérifie la validité du permis à la date '$i'
+                
+                $affectationTemp = clone $affectation;
+                $affectationTemp->setDateAffectation($i); 
+                if ($this->affectationDateValPermisControle($affectationTemp)) 
+                {
+                    $erreurAffectation = true;
+                    $erreurValPermis = true;
+                }
+                
+
+
                 // S'il n'y a pas d'erreurs, on persiste l'objet "Affectation"
                 if (!$erreurAffectation)
                 {
@@ -304,6 +334,8 @@ class LogistiqueAffectationService extends AbstractController
                                         ->setVehicule($affectation->getVehicule())
                                         ->setTournee($affectation->getTournee());   
 
+                    
+                                        
                     $this->manager->persist($affectationMultiple);  
                     $this->manager->flush();
 
@@ -346,6 +378,15 @@ class LogistiqueAffectationService extends AbstractController
             $this->addFlash(
                 'success', 
                 $this->translator->trans('The multiple assignment has been added'). ' !'
+            );
+        }
+
+        if ($erreurValPermis)
+        {
+            $dateValPermis = ($affectation->getchauffeur()->getPermisConduire()->getDateValPermisConduire())->format('d.m.Y');
+            $this->addFlash(
+                'warning', 
+                $this->translator->trans('The driver\'s license is valid until ')."$dateValPermis" .' !'
             );
         }
 
@@ -464,7 +505,7 @@ class LogistiqueAffectationService extends AbstractController
         $dateAffectation = clone $affectation->getDateAffectation();
         $dateValPermisConduire = clone $affectation->getChauffeur()->getPermisConduire()->getDateValPermisConduire();
         
-        if ($dateAffectation >= $dateValPermisConduire)$erreurPermis = true;
+        if ($dateAffectation > $dateValPermisConduire)$erreurPermis = true;
              
         return  $erreurPermis;
     }
