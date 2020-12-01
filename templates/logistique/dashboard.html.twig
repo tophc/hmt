@@ -48,7 +48,7 @@
     </div>
     <div class="card-deck">
         {# card statistique "expedition" new #}
-        <div class="card bg-light mb-3 clickable-card " data-href="#">
+        <div class="card bg-light mb-3 {% if statistiques.expedition > 0 %} clickable-card {% endif %}" data-href="#">
             <div class="card-body">
                 <div class="row">
                     <div class="col-3"><i class="fas fa-sign-out-alt fa-3x"></i></div>
@@ -77,8 +77,24 @@
                 </div>
             </div>
         </div> 
+        {# card statistique "expeditionHorsTournee" #}
+        <div class="card bg-light mb-3 {% if statistiques.expeditionHorsTournee > 0 %} clickable-card {% endif %}" data-href="{{ path('logistique_expedition_litige', {'typeColis' : 1 }) }}">
+            <div class="card-body">
+                <div class="row {% if statistiques.expeditionHorsTournee == 0 %} text-success {% else %} text-danger {% endif %} text-white">
+                    <div class="col-5">
+                        <i class="fas fa-question-circle fa-3x"></i>
+                    </div>
+                    <div class="col-7">
+                        <div class="row"><h4 class="card-title">{% trans %}No round{% endtrans %}</h4></div>
+                        <div class="row"> <h5>{% if statistiques.expeditionHorsTournee == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.expeditionHorsTournee}}{% endif %}</h5></div>      
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <div class="card-deck"> 
         {# card statistique "enlevement" #}  
-        <div class="card bg-light  mb-3  clickable-card" data-href="{{ path('logistique_enlevement_nouvelle', {'typeColis' : '0' }) }}">
+        <div class="card bg-light  mb-3 {% if statistiques.enlevement > 0 %} clickable-card {% endif %}" data-href="{{ path('logistique_enlevement_nouvelle', {'typeColis' : '0' }) }}">
             <div class="card-body">
                 <div class="row  text-center">
                     <div class="col-4">
@@ -104,7 +120,21 @@
                     </div>
                 </div>
             </div>
-        </div>   
+        </div>
+        {# card statistique "enlevementHorsTournee" #}
+        <div class="card bg-light mb-3 {% if statistiques.enlevementHorsTournee > 0 %} clickable-card {% endif %}" data-href="{{ path('logistique_expedition_litige', {'typeColis' : 1}) }}">
+            <div class="card-body">
+                <div class="row {% if statistiques.enlevementHorsTournee == 0 %} text-success {% else %} text-danger {% endif %} text-white">
+                    <div class="col-5">
+                        <i class="fas fa-question-circle fa-3x"></i>
+                    </div>
+                    <div class="col-7">
+                        <div class="row"><h4 class="card-title">{% trans %}No round{% endtrans %}</h4></div>
+                        <div class="row"> <h5>{% if statistiques.enlevementHorsTournee == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.enlevementHorsTournee}}{% endif %}</h5></div>      
+                    </div>
+                </div>
+            </div>
+        </div>     
     </div>  
     <div class="card-deck">
         {# card statistique "chauffeurLibre" #}

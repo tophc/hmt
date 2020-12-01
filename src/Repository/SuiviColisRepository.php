@@ -137,6 +137,38 @@ class SuiviColisRepository extends  ServiceEntityRepository
     }
 
     /**
+     * Retourne le nombre total d'objets "SuivisColis" du jour selon le "typeColis" non filtré
+     *
+     * @param bool $typeColis
+     * 
+     * @return int
+     */
+    public function listeColisHorsTournee($typeColis): int
+    {
+        $dateToday = new DateTime('today');
+        list($year,$month,$day) = explode("/", $dateToday->format('Y/m/d'));
+       
+        $dql = $this->createQueryBuilder('s') 
+                    ->select('s')
+                    ->leftJoin('s.colis', 'c')
+                    ->leftJoin('c.codePostal', 'p')
+                    ->leftJoin('s.etat', 'e')
+                    ->where('c.typeColis = :typeColis')
+                    ->setParameter('typeColis', $typeColis)
+                    ->andWhere('s.dateSuiviColis >= :date')
+                    ->setParameter('date',"$year-$month-$day")
+                    ->andWhere('e.codeEtat = :codeEtat')
+                    ->setParameter('codeEtat', 000)
+                    ->andWhere('p.tournee = :tournee' )
+                    ->setParameter('tournee', null)
+                    ->groupBy('s.colis')
+                    ->getQuery()
+                    ->getResult()
+        ; 
+        return count($dql);  
+    }
+
+    /**
      * Retourne un tableau d'objets "Suiviscolis" des objets "Colis" express du jour, filtré, trié selon l'appel Ajax de dataTables 
      *
      * @param int $start

@@ -55,8 +55,10 @@ class LogistiqueStatistiqueService
         $enlevementLitige           = $this->getCountEnlevementLitige();
         $chauffeurLibre             = $this->getCountChauffeurLibre();
         $vehiculeLibre              = $this->getCountVehiculeLibre();
+        $expeditionHorsTournee      = $this->getCountExpeditionHorsTournee();
+        $enlevementHorsTournee      = $this->getCountEnlevementHorsTournee();
         
-        return compact('requeteOuverteLogistique', 'requeteOuverteChauffeur', 'requeteOuverteSecretariat', 'expedition', 'express', 'enlevement', 'expeditionLitige', 'enlevementLitige', 'chauffeurLibre', 'vehiculeLibre');
+        return compact('requeteOuverteLogistique', 'requeteOuverteChauffeur', 'requeteOuverteSecretariat', 'expedition', 'express', 'enlevement', 'expeditionLitige', 'enlevementLitige', 'chauffeurLibre', 'vehiculeLibre', 'expeditionHorsTournee', 'enlevementHorsTournee');
     }
 
     /**
@@ -226,6 +228,20 @@ class LogistiqueStatistiqueService
         }
         
         return count($suiviColis);
+    }
+
+    public function getCountExpeditionHorsTournee()
+    {
+        $typeColis = 1;
+        
+        return $this->repoSuiviColis->listeColisHorsTournee($typeColis);
+    }
+
+    public function getCountEnlevementHorsTournee()
+    {
+        $typeColis = 0;
+        
+        return $this->repoSuiviColis->listeColisHorsTournee($typeColis);
     }
 
     /**
