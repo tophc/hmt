@@ -237,6 +237,10 @@ class LogistiqueColisService extends AbstractController
                 $results = $this->repoSuiviColis->getListeColisExpressDuJour($typeColis, $start, $length, $orders, $search); 
                 $total_objects_count = $this->repoSuiviColis->listeColisExpressDuJourCount($typeColis);
                 break; 
+            case 'logistique_orphelin';
+                $results = $this->repoSuiviColis->getListeColisOrphelin($typeColis, $start, $length, $orders, $search); 
+                $total_objects_count = $this->repoSuiviColis->listeColisOrphelinCount($typeColis);  
+                break;   
             default;
                 die;   
         } 

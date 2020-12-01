@@ -77,16 +77,16 @@
                 </div>
             </div>
         </div> 
-        {# card statistique "expeditionHorsTournee" #}
-        <div class="card bg-light mb-3 {% if statistiques.expeditionHorsTournee > 0 %} clickable-card {% endif %}" data-href="#">
+        {# card statistique "expeditionOrphelin" #}
+        <div class="card bg-light mb-3 {% if statistiques.expeditionOrphelin > 0 %} clickable-card {% endif %}" data-href="{{ path('logistique_orphelin', {'typeColis' : 1}) }}">
             <div class="card-body">
-                <div class="row {% if statistiques.expeditionHorsTournee == 0 %} text-success {% else %} text-danger {% endif %} text-white">
+                <div class="row {% if statistiques.expeditionOrphelin == 0 %} text-success {% else %} text-danger {% endif %} text-white">
                     <div class="col-5">
                         <i class="fas fa-question-circle fa-3x"></i>
                     </div>
                     <div class="col-7">
                         <div class="row"><h4 class="card-title">{% trans %}No round{% endtrans %}</h4></div>
-                        <div class="row"> <h5>{% if statistiques.expeditionHorsTournee == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.expeditionHorsTournee}}{% endif %}</h5></div>      
+                        <div class="row"> <h5>{% if statistiques.expeditionOrphelin == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.expeditionOrphelin}}{% endif %}</h5></div>      
                     </div>
                 </div>
             </div>
@@ -121,16 +121,16 @@
                 </div>
             </div>
         </div>
-        {# card statistique "enlevementHorsTournee" #}
-        <div class="card bg-light mb-3 {% if statistiques.enlevementHorsTournee > 0 %} clickable-card {% endif %}" data-href="#">
+        {# card statistique "enlevementOrphelin" #}
+        <div class="card bg-light mb-3 {% if statistiques.enlevementOrphelin > 0 %} clickable-card {% endif %}" data-href="{{ path('logistique_orphelin', {'typeColis' : 0}) }}">
             <div class="card-body">
-                <div class="row {% if statistiques.enlevementHorsTournee == 0 %} text-success {% else %} text-danger {% endif %} text-white">
+                <div class="row {% if statistiques.enlevementOrphelin == 0 %} text-success {% else %} text-danger {% endif %} text-white">
                     <div class="col-5">
                         <i class="fas fa-question-circle fa-3x"></i>
                     </div>
                     <div class="col-7">
                         <div class="row"><h4 class="card-title">{% trans %}No round{% endtrans %}</h4></div>
-                        <div class="row"> <h5>{% if statistiques.enlevementHorsTournee == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.enlevementHorsTournee}}{% endif %}</h5></div>      
+                        <div class="row"> <h5>{% if statistiques.enlevementOrphelin == 0 %}<i class="fas fa-check"></i>{% else %}{{statistiques.enlevementOrphelin}}{% endif %}</h5></div>      
                     </div>
                 </div>
             </div>

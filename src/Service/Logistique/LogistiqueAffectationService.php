@@ -127,7 +127,6 @@ class LogistiqueAffectationService extends AbstractController
                 'chauffeur', 
                 $this->translator->trans("Driver's license has expired")
             );  
-        
         } 
 
         /*************************/               
@@ -145,7 +144,7 @@ class LogistiqueAffectationService extends AbstractController
             $this->addFlash(
                 'vehicule', 
                 $this->translator->trans('Vehicle is already assigned for this date')
-                );                              
+            );                              
         } 
         // Pas nécessaire mais on sait jamais      
         // On verifie si le vehicule est actif : si non, message + $erreurAffectation = true
@@ -191,7 +190,6 @@ class LogistiqueAffectationService extends AbstractController
             );                  
         }
 
-
         // On vérifie si la dateAffectation est antérieur à la date du jour : si oui, message + $erreurAffectation = true
         if ($affectation->getDateAffectation() <  new DateTime('today'))
         {                  
@@ -227,7 +225,6 @@ class LogistiqueAffectationService extends AbstractController
             );  
         
         } 
-
         // On verifie si le vehicule est actif : si non, message + $erreurAffectation = true
         if (! $affectation->getVehicule()->getStatutVehicule())
         {
@@ -246,7 +243,6 @@ class LogistiqueAffectationService extends AbstractController
                 'chauffeur', 
                 $this->translator->trans("Driver's license has expired")
             );  
-        
         } 
 
         return $erreurAffectation;
@@ -275,7 +271,6 @@ class LogistiqueAffectationService extends AbstractController
         { 
             $erreurAffectation  = false;
            
-
             //Exclure les affectations du samedi et dimanche 
             if((date_format($i, 'D') !== "Sat") && (date_format($i, 'D') != "Sun"))
             {                                                                                                       
@@ -294,9 +289,6 @@ class LogistiqueAffectationService extends AbstractController
                     $erreurAffectation = true;   
                     $affectationsAbandonnees [] = clone $affectations;  
                 }
-
-                // On vérifie la validité du permis de conduire
-                //if ($this->affectationDateValPermisControle($affectation)) $erreurAffectation = true; 
 
                 /*************************/               
                 /**** Champs vehicule ****/
@@ -323,8 +315,6 @@ class LogistiqueAffectationService extends AbstractController
                     $erreurValPermis = true;
                 }
                 
-
-
                 // S'il n'y a pas d'erreurs, on persiste l'objet "Affectation"
                 if (!$erreurAffectation)
                 {
@@ -332,10 +322,9 @@ class LogistiqueAffectationService extends AbstractController
                     $affectationMultiple->setDateAffectation(clone $i)
                                         ->setChauffeur($affectation->getChauffeur())
                                         ->setVehicule($affectation->getVehicule())
-                                        ->setTournee($affectation->getTournee());   
-
+                                        ->setTournee($affectation->getTournee())
+                    ;   
                     
-                                        
                     $this->manager->persist($affectationMultiple);  
                     $this->manager->flush();
 
@@ -409,7 +398,6 @@ class LogistiqueAffectationService extends AbstractController
         $vehiculeOld = clone $oldAffectation->getVehicule();
 
         $date = clone $oldAffectation->getDateAffectation();
-    
 
         /**************************/               
         /**** Champs chauffeur ****/
@@ -475,6 +463,7 @@ class LogistiqueAffectationService extends AbstractController
                 );
             }                               
         } 
+
         // Pas nécessaire mais on sait jamais
         // On vérifie si le vehicule est actif : si non, message + $erreurAffectation = true
         if (! $vehiculeNew->getStatutVehicule())
@@ -707,7 +696,6 @@ class LogistiqueAffectationService extends AbstractController
             }
             $response .= '"]';
     
-            
             if(++$i !== $selected_objects_count)
             {
                 $response .= ',';

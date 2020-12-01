@@ -1198,6 +1198,21 @@ class LogistiqueController extends AbstractController
         ]);
     }
 
+    /**
+     * Permet d'afficher la liste de tous les objets "Colis" orphelins (sans tournée)
+     * 
+     * @Route("/logistique/orphelin/{typeColis}", name="logistique_orphelin")
+     *
+     * @return Response
+     */
+    public function listeColisOrphelin($typeColis): Response 
+    { 
+        return $this->render('logistique/colis/liste.html.twig', [
+            'titre' => $typeColis ? $this->translator->trans('Orphan deliveries list') : $this->translator->trans('Orphan pickup list'),
+            'typeColis' => $typeColis,
+        ]);
+    }
+
     //************************************************** Début : Section fichier liste Colis ********************************************************//
   
     /**

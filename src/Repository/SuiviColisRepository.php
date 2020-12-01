@@ -137,13 +137,48 @@ class SuiviColisRepository extends  ServiceEntityRepository
     }
 
     /**
-     * Retourne le nombre total d'objets "SuivisColis" du jour selon le "typeColis" non filtré
+     * Retourne un tableau d'objets "Suiviscolis" des objets "Colis" du jour selon "typeColis" et dont le code postal n'a pas de tournée, filtré, trieé selon l'appel Ajax de dataTables 
+     *
+     * @param bool $typeColis
+     * @param int $start
+     * @param int $length
+     * @param array $orders
+     * @param array $search 
+     * 
+     * @return array
+     */
+    public function getListeColisOrphelin($typeColis, $start, $length, $orders, $search): array
+    {
+        $dateToday = new DateTime('today');
+        list($year,$month,$day) = explode("/", $dateToday->format('Y/m/d'));
+         
+        $where =   
+            [
+                's.dateSuiviColis >= :date',
+                'e.codeEtat = :codeEtat',
+                'p.tournee IS NULL'
+            ]
+        ;
+        $parameter =   
+            [ 
+                'date' => "$year-$month-$day", 
+                'codeEtat' => 000
+            ]
+        ;    
+            
+        $otherConditions = ['where' => $where , 'parameter' => $parameter]  ; 
+            
+        return $this->getColis($typeColis, $start, $length, $orders, $search, $otherConditions);
+    }
+
+    /**
+     * Retourne le nombre total d'objets"Suiviscolis" des objets "Colis" du jour selon "typeColis" et dont le code postal n'a pas de tournée, non filtré
      *
      * @param bool $typeColis
      * 
      * @return int
      */
-    public function listeColisHorsTournee($typeColis): int
+    public function listeColisOrphelinCount($typeColis): int
     {
         $dateToday = new DateTime('today');
         list($year,$month,$day) = explode("/", $dateToday->format('Y/m/d'));
@@ -159,8 +194,8 @@ class SuiviColisRepository extends  ServiceEntityRepository
                     ->setParameter('date',"$year-$month-$day")
                     ->andWhere('e.codeEtat = :codeEtat')
                     ->setParameter('codeEtat', 000)
-                    ->andWhere('p.tournee = :tournee' )
-                    ->setParameter('tournee', null)
+                    ->andWhere('p.tournee IS NULL' )
+                    //->setParameter('tournee', 'IS NULL')
                     ->groupBy('s.colis')
                     ->getQuery()
                     ->getResult()
@@ -300,11 +335,13 @@ class SuiviColisRepository extends  ServiceEntityRepository
         // clause join
         $query      ->leftJoin('s.colis', 'c')
                     ->leftJoin('c.codePostal', 'p')
-                    ->leftJoin('s.etat', 'e');
+                    ->leftJoin('s.etat', 'e')
+        ;
         $countQuery ->leftJoin('s.colis', 'c')
                     ->leftJoin('c.codePostal', 'p')
-                    ->leftJoin('s.etat', 'e');
-
+                    ->leftJoin('s.etat', 'e')
+        ;
+        
         // clause where
         $query      ->where("c.typeColis = $typeColis");      
         $countQuery ->where("c.typeColis = $typeColis"); 
@@ -340,7 +377,8 @@ class SuiviColisRepository extends  ServiceEntityRepository
                                     'c.adresseDestinataire' => ':val',
                                     'c.numeroAdresseDestinataire' => ':val',
                                     'p.numCodePostal' => ':val',
-                                ];
+                                ]
+            ;
 
             $queryOrStatements = $query->expr()->orX();
             $countQueryOrStatements = $countQuery->expr()->orX();
