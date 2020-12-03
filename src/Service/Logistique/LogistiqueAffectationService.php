@@ -290,6 +290,15 @@ class LogistiqueAffectationService extends AbstractController
                     $affectationsAbandonnees [] = clone $affectations;  
                 }
 
+                // On vérifie la validité du permis à la date '$i'
+                $affectationTemp = clone $affectation;
+                $affectationTemp->setDateAffectation($i); 
+                if ($this->affectationDateValPermisControle($affectationTemp)) 
+                {
+                    $erreurAffectation = true;
+                    $erreurValPermis = true;
+                }
+
                 /*************************/               
                 /**** Champs vehicule ****/
                 /*************************/
@@ -302,17 +311,6 @@ class LogistiqueAffectationService extends AbstractController
                 {
                     $erreurAffectation = true;   
                     $affectationsAbandonnees [] = clone $affectations;                
-                }
-
-
-                // On vérifie la validité du permis à la date '$i'
-                
-                $affectationTemp = clone $affectation;
-                $affectationTemp->setDateAffectation($i); 
-                if ($this->affectationDateValPermisControle($affectationTemp)) 
-                {
-                    $erreurAffectation = true;
-                    $erreurValPermis = true;
                 }
                 
                 // S'il n'y a pas d'erreurs, on persiste l'objet "Affectation"
