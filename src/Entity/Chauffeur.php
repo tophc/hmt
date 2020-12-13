@@ -122,7 +122,7 @@ class Chauffeur implements UserInterface
      * 
      * @Assert\Type("Array")
      */
-    private $roles = [];
+    private $rolesChauffeur = [];
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\EtatCivil", inversedBy="chauffeurs")
@@ -390,7 +390,7 @@ class Chauffeur implements UserInterface
      */
     public Function setRoles(array $roles): self
     {
-        $this->roles = $roles;
+        $this->rolesChauffeur = $roles;
         
         return $this;
     }
@@ -400,7 +400,7 @@ class Chauffeur implements UserInterface
     // Plus nécessaire avec le type json
     public function getRoles(): array
     {
-        $roles = $this->roles;
+        $roles = $this->rolesChauffeur;
         
         return array_unique($roles);
     }
@@ -449,9 +449,6 @@ class Chauffeur implements UserInterface
      */
     public function initializeRoles()
     {
-        if(empty($this->role))
-        {
-            $this->roles =['ROLE_NEW_USER', 'ROLE_CHAUFFEUR'];           
-        }
+        $this->rolesChauffeur =['ROLE_NEW_USER', 'ROLE_CHAUFFEUR'];
     }
 }

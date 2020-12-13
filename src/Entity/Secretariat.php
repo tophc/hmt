@@ -64,7 +64,7 @@ class Secretariat implements UserInterface
     /**
      * @ORM\Column(type="json")
      */
-    private $roles = [];
+    private $rolesSecretariat = [];
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Requete", mappedBy="secretariat")
@@ -72,8 +72,6 @@ class Secretariat implements UserInterface
      * @Assert\Valid
      */
     private $requetes;
-
-    
 
     public function __construct()
     {
@@ -140,36 +138,9 @@ class Secretariat implements UserInterface
      */
     public Function setRoles(array $roles): self
     {
-        $this->roles = $roles;
+        $this->rolesSecretariat = $roles;
         return $this;
     }
-
-    /* Fonctions implementées par l'interface UserInterface nécéssaire à l'authentification */
-    /* A Modifier pour transformer le ArrayCollection d'objet retourné par getUserRole en tableau simple de chaine de caractère avec la fonction map */
-    
-    public function getRoles()
-    {
-        $roles = $this->roles;
-        return array_unique($roles);
-    }
-    
-    // ****Fonction implementé par l'interface UserInterface*****//
-    public function getPassword()
-    {        
-        return $this->passwordSecretariat;
-    }
-   
-    // ****Fonction implementé par l'interface UserInterface*****//
-	public function getSalt(){}
-    
-    // ****Fonction implementé par l'interface UserInterface*****//
-    public function getUsername()
-    {        
-        return $this->emailSecretariat;  //dans notre entité l'email sert de login (username)          
-    }
-
-    // Fonction implementées par l'interface UserInterface
-	public function eraseCredentials(){}
 
     /**
      * @return Collection|Requete[]
@@ -202,6 +173,32 @@ class Secretariat implements UserInterface
         return $this;
     }
 
+    /* Fonctions implementées par l'interface UserInterface nécéssaire à l'authentification */
+
+    public function getRoles()
+    {
+        $roles = $this->rolesSecretariat;
+        return array_unique($roles);
+    }
+    
+    // ****Fonction implementé par l'interface UserInterface*****//
+    public function getPassword()
+    {        
+        return $this->passwordSecretariat;
+    }
+   
+    // ****Fonction implementé par l'interface UserInterface*****//
+	public function getSalt(){}
+    
+    // ****Fonction implementé par l'interface UserInterface*****//
+    public function getUsername()
+    {        
+        return $this->emailSecretariat;  //dans notre entité l'email sert de login (username)          
+    }
+
+    // Fonction implementées par l'interface UserInterface
+	public function eraseCredentials(){}
+
     /* Méthodes créées manuellement */
 
     /**
@@ -213,10 +210,6 @@ class Secretariat implements UserInterface
      */
     public function initializeRoles()
     {
-        if(empty($this->role))
-        {
-            $this->roles = ['ROLE_NEW_USER','ROLE_SECRETARIAT'];
-        }
+        $this->rolesSecretariat = ['ROLE_NEW_USER','ROLE_SECRETARIAT']; 
     }
-
 }

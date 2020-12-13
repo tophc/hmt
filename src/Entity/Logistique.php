@@ -71,7 +71,7 @@ class Logistique implements UserInterface
     /**
      * @ORM\Column(type="json")
      */
-    private $roles = [];
+    private $rolesLogistique = [];
 
     public function __construct()
     {
@@ -169,7 +169,7 @@ class Logistique implements UserInterface
      */
     public Function setRoles(array $roles): self
     {
-        $this->roles = $roles;
+        $this->rolesLogistique = $roles;
         
         return $this;
     }
@@ -179,7 +179,7 @@ class Logistique implements UserInterface
     
     public function getRoles()
     {
-        $roles = $this->roles;
+        $roles = $this->rolesLogistique;
         return array_unique($roles);
     }
     
@@ -212,9 +212,6 @@ class Logistique implements UserInterface
      */
     public function initializeRoles()
     {
-        if(empty($this->role))
-        {
-            $this->roles = ['ROLE_NEW_USER','ROLE_LOGISTIQUE'];
-        }
+        $this->rolesLogistique = ['ROLE_NEW_USER','ROLE_LOGISTIQUE'];
     }
 }
