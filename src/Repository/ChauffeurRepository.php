@@ -3,7 +3,6 @@
 namespace App\Repository;
 
 use App\Entity\Chauffeur;
-use App\Entity\Affectation;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
@@ -48,38 +47,4 @@ class ChauffeurRepository extends ServiceEntityRepository
                     ->getResult()
         ;  
     }
-
-    /*
-    SELECT chauffeur.id FROM chauffeur 
-    WHERE NOT EXISTS 
-        (SELECT * FROM affectation 
-        WHERE affectation.chauffeur_id = chauffeur.id and affectation.date_affectation = '2020-11-18') 
-    ORDER BY chauffeur.id ASC
-
-    
-    public function getChauffeurLibre()
-    {
-
-        $subquery = $this->_em->createQueryBuilder('a')
-                         ->select('a')
-                         ->from('App\Entity\Affectation' , 'a')                     
-                         ->andwhere ('a.dateAffectation = :date')  
-                         ->setParameter('date', date('Y-m-d'))
-                         ->getDQL()
-        ;
-
-        $query = $this->_em->createQueryBuilder('c ') ;
-                    
-        $query->select('c')  
-              ->from('App\Entity\Chauffeur' , 'c') 
-              ->where($query->expr()->notIn('c' , $subquery))            
-              ->orderBy('c.id', 'ASC')
-              ->getQuery()
-              ->getResult()
-        ;  
-        
-        return $query;
-    }
-    */
-
 }

@@ -204,7 +204,7 @@ class Logistique implements UserInterface
     /* Méthodes créées manuellement */
 
     /**
-     * Permet d'initialiser le rôle d'un utilisateur nouvellement créé 
+     * Permet d'initialiser le rôle d'un utilisateur nouvellement créé (uniquement à la création)
      *
      * @ORM\PrePersist
      * 

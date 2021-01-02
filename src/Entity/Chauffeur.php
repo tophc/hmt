@@ -426,9 +426,9 @@ class Chauffeur implements UserInterface
     /* Méthodes créées manuellement */
 
     /**
-     * Permet d'initialiser le statut Chauffeur avant la persisance en DB (création et mise à jour)
+     * Permet d'initialiser le statut Chauffeur avant la persisance en DB (uniquement à la création)
      * 
-     *@ORM\PrePersist
+     * @ORM\PrePersist
      *
      * @return void
      */
@@ -440,7 +440,7 @@ class Chauffeur implements UserInterface
     }
 
     /**
-     * Permet d'initialiser le rôle d'un utilisateur nouvellement créé
+     * Permet d'initialiser le rôle d'un utilisateur nouvellement créé  (uniquement à la création)
      *
      * @ORM\PrePersist
      *

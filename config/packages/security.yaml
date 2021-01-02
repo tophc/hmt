@@ -35,7 +35,7 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        
+                
         chauffeur:
             pattern: ^/chauffeur
             anonymous: true
@@ -62,6 +62,7 @@ security:
                 login_path: logistique_login
                 check_path: logistique_login         
                 failure_path: logistique_login
+
         administration:
             pattern: ^/administration
             anonymous: true
