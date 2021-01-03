@@ -1,8 +1,52 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
-    <h4>{% trans %}About{% endtrans %}</h4>
+{% include 'partials/info.html.twig' %}
+<div class="container-fluid">  
+    <div class="row">
+        <div class="col-md-3">
+            &nbsp;
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <h3 class="card-header text-center">Gestion simplifiée d’une société de transport</h3>
+				<div class="card-body">
+                   <dl class="row"> 
+                        <dt class="col-md-4">Auteur : </dt>
+                        <dd class="col-md-8">Ismaili Yassine</dd> 
+                        <dt class="col-md-4">Contexte : </dt>
+                        <dd class="col-md-8">Travail de fin d’études</dd> 
+                        <dt class="col-md-4">Suivi : </dt>
+                        <dd class="col-md-8">Desmarets K., Namur X., Soneville V. </dd> 
+                        <dt class="col-md-4">Objectif : </dt>
+                        <dd class="col-md-8">Obtention du titre de « bachelier en informatique de gestion » </dd> 
+                        <dt class="col-md-4">Etablissement : </dt>
+                        <dd class="col-md-8">Institut d’Enseignement de Promotion Sociale de la Communauté Française</dd> 
+                        <dt class="col-md-4">Site :</dt>
+                        <dd class="col-md-8">Uccle</dd>
+                        <dt class="col-md-4">Section : </dt>
+                        <dd class="col-md-8">Informatique de gestion</dd> 
+                        <dt class="col-md-4">Année académique :</dt>
+                        <dd class="col-md-8"> 2019-2020</dd>                            
+                    </dl>     	                                
+                </div>
+                <div class="card-footer text-center">     
+                   <h5>Powered by</h5> <i class="fab fa-symfony fa-2x" data-toggle="tooltip" data-placement="bottom" title="Synfony 5.1"></i> <i class="fab fa-php fa-2x" data-toggle="tooltip" data-placement="bottom" title="PHP 7.3.12"></i>
+                
+                   
+                </div>
+            </div>   
+        </div>
+        <div class="col">&nbsp;</div>
+    </div>
 </div> 
   
 {% endblock %}
+{% block javascripts %}
+{# affichage d'une infobule au passage de la souris sur un élément #}
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+{% endblock %}    

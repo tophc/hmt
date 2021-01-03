@@ -1,8 +1,63 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
-    <h4>{% trans %}Drivers help{% endtrans %}</h4>
+<div class="container-fluid">
+    <div class="card-deck">
+        <div class="card mb-3">
+            <h3 class="card-header text-center">{% trans %}Dayat{% endtrans %}</h3>
+            <div class="card-body">
+                <p>
+                    Le dayat permet de communiquer les changement de statut d'un colis. Pour cela, il faut scanner le numéro de suivi disponible sur chaque colis.
+                    Quand le colis est scanné, les informations le concernant apparaissent à l'écran. il suffit ensuite de tapper sur le code correspondant au statu désiré.<br>
+                    L'ntitulé du "code suivi" apparait en bas de l'écran.<br>
+                    En cas d'erreur, il suffit d'appuyer à nouveau sur le même code pour l'effacer.
+                </p>
+
+            </div>  
+        </div>
+        <div class="card mb-3">
+            <h3 class="card-header text-center">{% trans %}Request{% endtrans %}</h3>
+            <div class="card-body">
+                <dl class="row"> 
+                    <dt class="col-md-4">{% trans %}Secretariat{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet de faire une demande au secrétariat</dd> 
+                    <dt class="col-md-4">{% trans %}Logistics{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet de faire une demande à la logistique</dd> 
+                    <dt class="col-md-4">{% trans %}Request history{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher l'historique des demandes</dd>                     
+                </dl>   
+            </div>  
+        </div>   
+        <div class="card mb-3">
+            <h3 class="card-header text-center">{% trans %}Planning{% endtrans %}</h3>
+            <div class="card-body">
+                <p>
+                    Le planning est affiché sous forme de tableau reprenant les informations pour chaque affectations.<br>
+                    <ul>
+                        <li>La date d'affectation</li>
+                        <li>Le véhicule affecté</li>
+                        <li>La marque et le modèle du véhicule affecté</li>
+                        <li>La tournée</li>
+                    </ul>
+                </p>
+            </div>  
+        </div>     	     	 
+        <div class="card mb-3">
+            <h3 class="card-header text-center">{% trans %}Fines{% endtrans %}</h3>
+            <div class="card-body">
+                <p>
+                    Les amendes sont affichées sous forme de tableau reprenant les informations pour chacunes d'elles.<br>
+                    <ul>
+                        <li>La date de l'infraction</li>
+                        <li>Le numéro de P.V.</li>
+                        <li>Le montant du P.V.</li>
+                        <li>Le véhicule</li>
+                        <li>Une éventuelle remarque</li>
+                    </ul>
+                </p>
+            </div>  
+        </div>     	     	   	     	 
+    </div>
 </div> 
   
 {% endblock %}

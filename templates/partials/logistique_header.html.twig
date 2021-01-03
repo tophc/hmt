@@ -63,9 +63,9 @@
                         <a href="{{ path('logistique_requete_ouvert')}}" class="dropdown-item">{% trans %}Pending request{% endtrans %}</a>
                         <a href="{{ path('logistique_requete_ferme')}}" class="dropdown-item">{% trans %}Closed request{% endtrans %}</a>
                     </div>
-                </li>                 
+                </li>                  
                 <li class="nav-item">           
-                    <a href="#" class="nav-link"><i class="fas fa-question-circle"></i> {% trans %}Help{% endtrans %}</a> 
+                    <a href="{{ path('logistique_help') }}" class="nav-link"><i class="fas fa-question-circle"></i> {% trans %}Help{% endtrans %}</a> 
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">           

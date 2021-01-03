@@ -1577,4 +1577,21 @@ class SecretariatController extends AbstractController
     //***********************************************************************************************************************************************//
 
     //***********************************************************************************************************************************************//
+
+     /**
+     * Affiche la page d'aide secretariat
+     * 
+     * @Route("/secretariat/help", name="secretariat_help")
+     *  
+     * @param TranslatorInterface $translator
+     * 
+     * @return Response
+     */
+    public function helpSecretariat(TranslatorInterface $translator): Response
+    {
+        return $this->render('secretariat/help.html.twig',[
+            'titre' => $translator->trans('Secretariat help')
+            ]
+        );
+    }
 }

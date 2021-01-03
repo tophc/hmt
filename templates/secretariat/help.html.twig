@@ -1,7 +1,94 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <h4>{% trans %}Secretariat help{% endtrans %}</h4>
+    <div class="container-fluid">
+        <div class="card-deck">
+            <div class="card mb-3">
+                <h3 class="card-header text-center">{% trans %}Drivers{% endtrans %}</h3>
+                <div class="card-body">
+                    <dl class="row"> 
+                        <dt class="col-md-4">{% trans %}Drivers list{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher la liste de tous les chauffeurs actifs</dd> 
+                        <dt class="col-md-4">{% trans %}Driver add{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'ajouter un nouveau chauffeur</dd> 
+                        <dt class="col-md-4">{% trans %}Archives{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher la liste de tous les chauffeurs inactifs</dd>
+                        <dt class="col-md-4">{% trans %}Licenses list{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher la liste de tous les permis de conduire</dd> 
+                        <dt class="col-md-4">{% trans %}Categories list{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher la liste de toutes les catégories de permis de conduire</dd> 
+                        <dt class="col-md-4">{% trans %}Categories add{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'ajouter unecatégorie de permis de conduire</dd>                        
+                    </dl>   
+                </div>  
+            </div>
+            <div class="card mb-3">
+                <h3 class="card-header text-center">{% trans %}Vehicles{% endtrans %}</h3>
+                <div class="card-body">
+                    <dl class="row"> 
+                        <dt class="col-md-4">{% trans %}Vehicles list{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher la liste de tous les véhicules actifs</dd> 
+                        <dt class="col-md-4">{% trans %}Vehicle add{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'ajouter un nouveau véhicule</dd> 
+                        <dt class="col-md-4">{% trans %}Archives{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher la liste de tous les véhicules inactifs</dd>
+                        <dt class="col-md-4">{% trans %}Models list{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher la liste de tous les modèles de véhicule</dd> 
+                        <dt class="col-md-4">{% trans %}Model add{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'ajouter un modèle de véhicule</dd> 
+                        <dt class="col-md-4">{% trans %}Maintenances list{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher la liste des entretiens de véhicule</dd>
+                        <dt class="col-md-4">{% trans %}V.I. refused{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher la liste de toutes les contrôles techniques refusés</dd> 
+                        <dt class="col-md-4">{% trans %}V.I. passed{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher la liste de toutes les contrôles techniques passés avec succès</dd>                          
+                    </dl> 
+                </div>  
+            </div>
+        </div> 
+        <div class="card-deck">   	     	 
+            <div class="card mb-3">
+                <h3 class="card-header text-center">{% trans %}Fines{% endtrans %}</h3>
+                <div class="card-body">
+                    <dl class="row"> 
+                        <dt class="col-md-4">{% trans %}Fines list{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher la liste de tous les amendes</dd> 
+                        <dt class="col-md-4">{% trans %}Fine add{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'ajouter une amende</dd>                         
+                    </dl> 
+                    <p>
+                        Les amendes sont affichées sous forme de tableau reprenant les informations pour chacunes d'elles.<br>
+                        <ul>
+                            <li>La date de l'infraction</li>
+                            <li>Le numéro de P.V.</li>
+                            <li>Le montant</li>
+                            <li>Le véhicule</li>
+                            <li>Le chauffeur</li>
+                            <li>Une éventuelle remarque</li>
+                            <li>Un bouton pour afficher le détail de l'amende</li>
+                            <li>Un bouton pour modifier l'amende</li>
+                        </ul>
+                    </p>
+                </div>  
+            </div> 
+            <div class="card mb-3">
+                <h3 class="card-header text-center">{% trans %}Request{% endtrans %}</h3>
+                <div class="card-body">
+                    <dl class="row">                       
+                        <dt class="col-md-4">{% trans %}Logistics{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet de faire une demande à la logistique</dd>
+                        <dt class="col-md-4">{% trans %}Administration{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet de faire une demande à l'administration</dd>  
+                        <dt class="col-md-4">{% trans %}Request history{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher l'historique des demandes</dd> 
+                        <dt class="col-md-4">{% trans %}Pending request{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher les demandes ouvertes</dd> 
+                        <dt class="col-md-4">{% trans %}Closed request{% endtrans %} :</dt>
+                        <dd class="col-md-8">Permet d'afficher les demandes fermées</dd>                     
+                    </dl>   
+                </div>  
+            </div>       	     	   	     	 
+        </div> 
     </div> 
 {% endblock %}
+ 

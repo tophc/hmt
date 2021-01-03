@@ -1,8 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+{% include 'partials/info.html.twig' %}
 <div class="container">
-    <h4>{% trans %}Help{% endtrans %}</h4>
+    <div class="row">
+        <div class="col-md-3">
+            &nbsp;
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <h3 class="card-header text-center">{% trans %}Home{% endtrans %}</h3>
+				<div class="card-body">
+                    <dl class="row"> 
+                        <dt class="col-md-4"><i class="fas fa-home"></i> {% trans %}Home{% endtrans %} : </dt>
+                        <dd class="col-md-8">Permet de revenir à l'accueil </dd> 
+                        <dt class="col-md-4">{% trans %}Help{% endtrans %} : </dt>
+                        <dd class="col-md-8">Permet d'obtenir de l'aide</dd> 
+                        <dt class="col-md-4">{% trans %}About{% endtrans %} : </dt>
+                        <dd class="col-md-8">Informations relatives à l'application </dd> 
+                        <dt class="col-md-4"><i class="fas fa-globe"></i> : </dt>
+                        <dd class="col-md-8">Permet de modifier la langue du site</dd> 
+                        <dt class="col-md-4"><li class="fas fa-user-shield"></li> : </dt>
+                        <dd class="col-md-8">Espace réservé à l'administrateur</dd> 
+                        <dt class="col-md-4">{% trans %}Driver area{% endtrans %} : </dt>
+                        <dd class="col-md-8">Espace réservé aux chauffeurs</dd> 
+                        <dt class="col-md-4">{% trans %}Secretariat area{% endtrans %} :</dt>
+                        <dd class="col-md-8">Espace réservé au secrétariat</dd>
+                        <dt class="col-md-4">{% trans %}Logistics area{% endtrans %} : </dt>
+                        <dd class="col-md-8">Espace réservé à la logistique</dd>                             
+                    </dl>   
+                </div>  
+            </div>     	 
+        </div>
+    </div>
 </div> 
   
 {% endblock %}

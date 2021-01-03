@@ -462,7 +462,7 @@ class ChauffeurController extends AbstractController
     }
 
     /**
-     * Affiche la page d'aide chauffeur
+     * Affiche la page d'aide chauffeur 
      * 
      * @Route("/chauffeur/help", name="chauffeur_help")
      *  

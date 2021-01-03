@@ -1,7 +1,128 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container">
-    <h4>{% trans %}Logistic help{% endtrans %}</h4>
-</div> 
+<div class="container-fluid">
+    <div class="card-deck">
+        <div class="card mb-3">
+            <h3 class="card-header text-center">{% trans %}Driver{% endtrans %}</h3>
+            <div class="card-body">
+                <p>
+                    Les chauffeurs actifs sont affichés sous forme de tableau reprenant les informations suivantes :<br>
+                    <ul>
+                        <li>Le nom de famille</li>
+                        <li>Le prénom</li>
+                        <li>L'adresse de couriel</li>
+                        <li>Le numéro de téléphone mobile professionnel </li>
+                        <li>Les catégories de permis de conduire</li>
+                        <li>Éventuellement un lien pour afficher la liste des affectations</li>
+                        <li>Un lien pour ajouter une affectation</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <h3 class="card-header text-center">{% trans %}Vehicles{% endtrans %}</h3>
+            <div class="card-body">
+                <p>
+                    Les véhicules actifs sont affichés sous forme de tableau reprenant les informations suivantes :<br>
+                    <ul>
+                        <li>le numéro d'immatriculation</li>
+                        <li>La marque du véhicule</li>
+                        <li>Le modèle de véhicule</li>
+                        <li>La capacité du véhicule exprimé en kilogramme</li>
+                        <li>Les catégories de permis de conduire</li>
+                        <li>Éventuellement un lien pour afficher la liste des affectations</li>
+                        <li>Un lien pour ajouter une affectation</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card-deck">
+        <div class="card mb-3">
+            <h3 class="card-header text-center">{% trans %}Assignment{% endtrans %}</h3>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-md-4">{% trans %}Assignments list{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de toutes les affectations futures</dd>
+                    <dt class="col-md-4">{% trans %}Assignment add{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'ajouter une affectation</dd>
+                    <dt class="col-md-4">{% trans %}Assignment archives{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de toutes les affectations passées</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <h3 class="card-header text-center">{% trans %}Round{% endtrans %}</h3>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-md-4">{% trans %}Rounds list{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de tous les tournées</dd>
+                    <dt class="col-md-4">{% trans %}Round add{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'ajouter une tournée</dd>
+                    <dt class="col-md-4">{% trans %}Postal codes list{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de tous les codes postaux</dd>
+                    <dt class="col-md-4">{% trans %}Postal code add{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'ajouter un code postal</dd>
+                </dl>
+            </div>
+        </div>
+    </div>   
+    <div class="card-deck">
+        <div class="card mb-3">
+            <h3 class="card-header text-center">{% trans %}Delivery{% endtrans %}</h3>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-md-4">{% trans %}All deliveries{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de toutes les livraisons</dd>
+                    <dt class="col-md-4">{% trans %}Today{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de toutes les livraisons du jour</dd>
+                    <dt class="col-md-4">{% trans %}Express{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de toutes les livraisons express du jour</dd>
+                    <dt class="col-md-4">{% trans %}Open{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de toutes les livraisons ouvertes</dd>
+                    <dt class="col-md-4">{% trans %}Closed{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de toutes les livraisons clôturées</dd>
+                    <dt class="col-md-4">{% trans %}Add{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'ajouter une livraison</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <h3 class="card-header text-center">{% trans %}Pickup{% endtrans %}</h3>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-md-4">{% trans %}All pickup{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de tous les enlèvements</dd>
+                    <dt class="col-md-4">{% trans %}Today{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de tous les enlèvements du jour</dd>
+                    <dt class="col-md-4">{% trans %}Open{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de tous les enlèvements ouverts</dd>
+                    <dt class="col-md-4">{% trans %}Closed{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher la liste de tous les enlèvements clôturés</dd>
+                    <dt class="col-md-4">{% trans %}Add{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'ajouter un enlèvement</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <h3 class="card-header text-center">{% trans %}Request{% endtrans %}</h3>
+            <div class="card-body">
+                <dl class="row">                       
+                    <dt class="col-md-4">{% trans %}Secretariat{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet de faire une demande au secrétariat</dd>
+                    <dt class="col-md-4">{% trans %}Administration{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet de faire une demande à l'administration</dd>  
+                    <dt class="col-md-4">{% trans %}Request history{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher l'historique des demandes</dd> 
+                    <dt class="col-md-4">{% trans %}Pending request{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher les demandes ouvertes</dd> 
+                    <dt class="col-md-4">{% trans %}Closed request{% endtrans %} :</dt>
+                    <dd class="col-md-8">Permet d'afficher les demandes fermées</dd>                     
+                </dl>   
+            </div>  
+        </div>       
+    </div>
+</div>
 {% endblock %}
+  

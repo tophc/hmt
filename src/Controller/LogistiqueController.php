@@ -1855,4 +1855,20 @@ class LogistiqueController extends AbstractController
     //***********************************************************************************************************************************************//
 
     //***********************************************************************************************************************************************//
+     /**
+     * Affiche la page d'aide logistique
+     * 
+     * @Route("/logistique/help", name="logistique_help")
+     *  
+     * @param TranslatorInterface $translator
+     * 
+     * @return Response
+     */
+    public function helpLogistique(TranslatorInterface $translator): Response
+    {
+        return $this->render('logistique/help.html.twig',[
+            'titre' => $translator->trans('Logistics help')
+            ]
+        );
+    }
 }
