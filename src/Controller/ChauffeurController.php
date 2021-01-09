@@ -68,7 +68,7 @@ class ChauffeurController extends AbstractController
             return $this->redirectToRoute("chauffeur_password");
         } 
         
-        //On fait appel au service de statistique "ChauffeurStatistiqueService"
+        //On fait appel au service "ChauffeurStatistiqueService"
         $statistiques = $chauffeurStatistiqueService->getStatistique($user);
      
         return $this->render('chauffeur/dashboard.html.twig', [
@@ -209,7 +209,7 @@ class ChauffeurController extends AbstractController
     }
 
     /**
-     * Permet d'afficher la "simultation" d'un "Dayat"
+     * Permet d'afficher la "simulation" d'un "Dayat"
      *
      * @Route("/chauffeur/dayat", name="chauffeur_dayat")
      * 
@@ -224,7 +224,7 @@ class ChauffeurController extends AbstractController
     }
 
     /**
-     * Permet d'afficher le profile "Chauffeur"
+     * Permet d'afficher le profil "Chauffeur"
      * 
      * @Route("/chauffeur/profile", name="chauffeur_profile")
      * 
@@ -285,7 +285,7 @@ class ChauffeurController extends AbstractController
     }
 
     /** 
-     * Permet de soumetre une "Requete" à un service (secrétariat ou logistique)
+     * Permet de soumettre une "Requete" à un service (secrétariat ou logistique)
      * 
      * @Route("/chauffeur/requete/{service}", name="chauffeur_requete")
      * 
@@ -339,7 +339,7 @@ class ChauffeurController extends AbstractController
                 $this->translator->trans('The message has been sent successfully') 
             );
 
-            //persiste le mail dans requete
+            //persiste le mail dans l'objet "Requete"
             $requete = new Requete;
             $requete->setMessageRequete($contact->getMessage()) 
                     ->setObjetRequete($contact->getSujet())
@@ -370,7 +370,7 @@ class ChauffeurController extends AbstractController
     }   
 
     /**
-     *  Permet de télécharger le fichier envoyer lors d'une requête
+     *  Permet de télécharger le fichier envoyé lors d'une requête
      * 
      * @Route("/chauffeur/fichier/{id}", name="chauffeur_requete_fichier")
      * 
@@ -431,7 +431,7 @@ class ChauffeurController extends AbstractController
     } 
 
     /**
-     * Permet d'afficher la liste de tous les objets 'Amende' du chauffeur sous forme de tableau eventuelement filtré sur le mois et l'année
+     * Permet d'afficher la liste de tous les objets 'Amende' du chauffeur sous forme de tableau éventuellement filtrés sur le mois et l'année
      * 
      * @Route("/chauffeur/amende/{month<[0-9]{2}>?}/{year<[0-9]{4}>?}", name="chauffeur_amende")
      * 

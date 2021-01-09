@@ -68,7 +68,7 @@ class SecretariatController extends AbstractController
      */
     public function dashboard(SecretariatStatistiqueService $secretariatStatistiqueService)
     {
-        // Si l'utilisateur a le role "ROLE_NEW_USER" on le redirige vers la page de modification du mot de passe
+        // Si l'utilisateur a le rôle "ROLE_NEW_USER" on le redirige vers la page de modification du mot de passe
         $user = $this->getUser();
         if (in_array("ROLE_NEW_USER", $user->getRoles()))
         {
@@ -89,12 +89,29 @@ class SecretariatController extends AbstractController
         ]);
     }   
 
+     /**
+     * Affiche la page d'aide secretariat
+     * 
+     * @Route("/secretariat/help", name="secretariat_help")
+     *  
+     * @param TranslatorInterface $translator
+     * 
+     * @return Response
+     */
+    public function helpSecretariat(TranslatorInterface $translator): Response
+    {
+        return $this->render('secretariat/help.html.twig',[
+            'titre' => $translator->trans('Secretariat help')
+            ]
+        );
+    }
+
     //***********************************************************************************************************************************************//
     //*********************************************************** Debut: Section Amende *************************************************************//
     //***********************************************************************************************************************************************//
     
     /**
-     * Permet d'affiche la liste de toutes les objets "Amende" sous forme de tableau 
+     * Permet d'afficher la liste de touts les objets "Amende" sous forme de tableau 
      * 
      * @Route("/secretariat/amende/liste/{month<[0-9]{2}>?}/{year<[0-9]{4}>?}", name="secretariat_amende_liste")
      * 
@@ -189,7 +206,7 @@ class SecretariatController extends AbstractController
     }
 
     /**
-     * Permet de filtrer le champ "immatriculationVehicule" Lors de l'ajout d'un objet "Amende"
+     * Permet de filtrer le champ "immatriculationVehicule" lors de l'ajout d'un objet "Amende"
      * 
      * @Route("/secretariat/vehicule/filtrer", name="secretariat_vehicule_filtrer")
      * 
@@ -302,7 +319,7 @@ class SecretariatController extends AbstractController
     }
 
     /**
-     * Permet de suprimer un objet "Chauffeur"
+     * Permet de supprimer un objet "Chauffeur"
      * 
      * @Route("/secretariat/chauffeur/{id}/supprimer", name="secretariat_chauffeur_supprimer")
      * 
@@ -345,9 +362,6 @@ class SecretariatController extends AbstractController
        
         if($form->isSubmitted() && $form->isValid())
         {
-            //A faire : générer un mdp et l'envoyer par email
-            
-           
             $manager->persist($chauffeur);
             $manager->flush();         
             
@@ -410,7 +424,6 @@ class SecretariatController extends AbstractController
         ]);
     }
 
-    //il faudra verifier les affectation au préalable (role logistique)
     /**
      * Permet d'activer ou de désactiver un objet "Chauffeur" (changement du statutChauffeur)
      * 
@@ -564,30 +577,6 @@ class SecretariatController extends AbstractController
         ]);
     }
 
-    // Pertinence à vérifier
-    /**
-     * Permet de suprimer un objet "Vehicule"
-     * 
-     * @Route("/secretariat/vehicule/{id}/supprimer", name="secretariat_vehicule_supprimer")
-     * 
-     * @param Vehicule $vehicule
-     * @param EntityManagerInterface $manager
-     * 
-     * @return Response
-     */
-    public function supprimerVehicule(Vehicule $vehicule, EntityManagerInterface $manager): Response
-    {
-        $manager->remove($vehicule);
-        $manager->flush();
-       
-        $this->addFlash(
-            'success',
-            $this->translator->trans('The vehicle has been deleted').' !'
-        );
-        
-        return $this->redirectToRoute("secretariat_vehicule_liste");
-    }
-
     /**
      * Permet d'ajouter un objet "Vehicule"
      * 
@@ -670,7 +659,6 @@ class SecretariatController extends AbstractController
         ]);
     }
 
-    //il faudra verifier les affectation au préalable (role logistique)
     /**
      * Permet d'activer ou de desactiver un objet "Vehicule" (changement du statutVehicule)
      * 
@@ -753,30 +741,6 @@ class SecretariatController extends AbstractController
             'modeleVehicules' => $modeleVehicules, 
             'titre' => $this->translator->trans('Models list')  
         ]);
-    }
-
-    // A vérifier la pertinence
-    /**
-     * Permet de suprimer un objet "ModeleVehicule"
-     * 
-     * @Route("/secretariat/modele-vehicule/{id}/supprimer", name="secretariat_modele-vehicule_supprimer")
-     * 
-     * @param ModeleVehicule $modeleVehicule
-     * @param EntityManagerInterface $manager
-     * 
-     * @return Response
-     */
-    public function supprimerModeleVehicule(ModeleVehicule $modeleVehicule, EntityManagerInterface $manager): Response
-    {
-        $manager->remove($modeleVehicule);
-        $manager->flush();
-       
-        $this->addFlash(
-            'success',
-            $this->translator->trans('The model has been deleted').' !'
-        );
-        
-        return $this->redirectToRoute("secretariat_modele-vehicule_liste");
     }
 
     /**
@@ -934,7 +898,7 @@ class SecretariatController extends AbstractController
             'titre' => $this->translator->trans('Driver\'s licenses list').' : '. $this->translator->trans('expired')    
         ]);
     }
-    // A verifier la pertinence
+
     /**
      * Permet de suprimer un objet "PermisConduire"
      * 
@@ -985,29 +949,6 @@ class SecretariatController extends AbstractController
             'categoriePermisConduires' => $categoriePermisConduires, 
             'titre' => $this->translator->trans('Categories list')    
         ]);
-    }
-    // A verifier la pertinence
-    /**
-     * Permet de suprimer un objet "CategoriePermisConduire"
-     * 
-     * @Route("/secretariat/categorie-permis-conduire/{id}/supprimer", name="secretariat_categorie-permis-conduire_supprimer")
-     * 
-     * @param CategoriePermisConduire $categoriePermisConduire
-     * @param EntityManagerInterface $manager
-     * 
-     * @return Response
-     */
-    public function supprimerCategoriePermisConduire(CategoriePermisConduire $categoriePermisConduire, EntityManagerInterface $manager): Response
-    {
-        $manager->remove($categoriePermisConduire);
-        $manager->flush();
-       
-        $this->addFlash(
-            'success',
-            $this->translator->trans('The category has been deleted').' !'
-        );
-        
-        return $this->redirectToRoute("secretariat_categorie-permis-conduire_liste");
     }
     
     /**
@@ -1090,7 +1031,7 @@ class SecretariatController extends AbstractController
     //***********************************************************************************************************************************************//
 
     /** 
-     * Permet de soumetre une "Requete" au service logistique
+     * Permet de soumettre une requete au service logistique
      * 
      * @Route("/secretariat/requete/service/{service}", name="secretariat_requete")
      * 
@@ -1184,7 +1125,7 @@ class SecretariatController extends AbstractController
     }
 
     /**
-     *  Permet d'affiche la liste de toutes les objets "Requete" de l'objet "Secretariat" sous forme de tableau (éventuelement par statutRequete)
+     * Permet d'afficher la liste de tous les objets "Requete" de l'objet "Secretariat" sous forme de tableau (éventuelement par statutRequete)
      * 
      * @Route("/secretariat/requete/liste/{statut<ouvert|ferme>?}", name="secretariat_requete_liste")
      * 
@@ -1208,7 +1149,7 @@ class SecretariatController extends AbstractController
     }    
 
     /**
-     * Permet d'affiche la liste de tous les objets "Requete" en cours sous forme de tableau (éventuelement par requerantRequete)
+     * Permet d'afficher la liste de tous les objets "Requete" en cours sous forme de tableau (éventuelement par requerantRequete)
      * 
      * @Route("/secretariat/requete/ouvert/{requerant<logistique|chauffeur>?}", name="secretariat_requete_ouvert")
      * 
@@ -1276,7 +1217,7 @@ class SecretariatController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
-            // On récupère le message, on ajoute l'auteur et on reinjecte le message (Sonneville)
+            // On récupère le message, on ajoute l'auteur et on réinjecte le message (Sonneville)
             $user = $this->getUser();
             $message = $requete->getNoteRequete();
 
@@ -1577,21 +1518,4 @@ class SecretariatController extends AbstractController
     //***********************************************************************************************************************************************//
 
     //***********************************************************************************************************************************************//
-
-     /**
-     * Affiche la page d'aide secretariat
-     * 
-     * @Route("/secretariat/help", name="secretariat_help")
-     *  
-     * @param TranslatorInterface $translator
-     * 
-     * @return Response
-     */
-    public function helpSecretariat(TranslatorInterface $translator): Response
-    {
-        return $this->render('secretariat/help.html.twig',[
-            'titre' => $translator->trans('Secretariat help')
-            ]
-        );
-    }
 }

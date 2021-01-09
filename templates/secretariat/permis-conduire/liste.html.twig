@@ -21,9 +21,10 @@
                     </thead>
                     <tbody>  
                         {% for permisConduire in permisConduires %}
-                            <tr {% if not permisConduire.titulairePermisConduire.statutChauffeur %} class = "text-warning"{% endif %} }}>   
+                            <tr {% if not permisConduire.titulairePermisConduire.statutChauffeur %} class = "text-warning" {% endif %}>   
                                 <td>{{permisConduire.numPermisConduire }}</td>
-                                <td>{{permisConduire.dateValPermisConduire | date('d.m.Y') }}</td>
+
+                                <td>{{permisConduire.dateValPermisConduire | date('d.m.Y') }} {% if permisConduire.dateValPermisConduire < date('today') %}<span class="text-danger">{% trans %}Expired{% endtrans %}</span>{% endif %}</td>
                                 <td>{{permisConduire.titulairePermisConduire.nomChauffeur}}</td>
                                 <td>{{permisConduire.titulairePermisConduire.prenomChauffeur}}</td>
                                 <td>

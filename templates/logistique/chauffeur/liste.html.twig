@@ -32,21 +32,22 @@
                                        {% if chauffeur.permisConduire.categoriePermisConduires is not empty %}
                                             {% for categorie in chauffeur.permisConduire.categoriePermisConduires %} 
                                                 <p class="badge {% if chauffeur.permisConduire.dateValPermisConduire < date('today') %} badge-danger {% else %} badge-dark {% endif %}" title="{% trans %}Category{% endtrans %} : {{categorie.nomCategoriePermisConduire}}" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="{{categorie.infoCategoriePermisConduire}}">
-                                                    {{categorie.nomCategoriePermisConduire}} 
-                                                   
+                                                    {{categorie.nomCategoriePermisConduire}}                                                  
                                                 </p> 
                                             {% endfor %} 
                                             {% if chauffeur.permisConduire.dateValPermisConduire < date('today') %}<span class="text-danger">{% trans %}Expired{% endtrans %}</span>{% endif %}
                                         {% else %}
-                                        <span class="btn btn-outline-warning text-danger">{% trans %}No category{% endtrans %}</span>
+                                        <span class="text-danger">{% trans %}No category{% endtrans %}</span>
                                         {% endif %}
                                     {% else %}    
-                                        <span class="btn btn-outline-warning text-danger">{% trans %}No driver's licence{% endtrans %}</span>
+                                        <span class=" text-danger">{% trans %}No driver's licence{% endtrans %}</span>
                                     {% endif %}    
                                 </td>
-                                <td class = "text-right">
-                                    {% if chauffeur.permisConduire.dateValPermisConduire < date('today') %}
-                                        <span class="badge badge-danger">{% trans %}No driver's licence{% endtrans %}</span>
+                                <td class = "text-right">                                
+                                    {% if not chauffeur.permisConduire %}
+                                        <span class="text-danger">{% trans %}No driver's licence{% endtrans %}</span>
+                                    {% elseif chauffeur.permisConduire.dateValPermisConduire < date('today') %} 
+                                        <span class="text-danger">{% trans %}Driver's licence expired{% endtrans %}</span>
                                     {% else %}
                                         {% if element['affectations'] is empty and chauffeur.statutChauffeur == 1 %}                                
                                             <a href="{{ path('logistique_affectation_chauffeur_ajouter', {'entite': chauffeur.id}) }}" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="bottom" title="{% trans %}No assignment : add one{% endtrans %} !" ><i class="fas fa-plus"></i></a>                                      
@@ -59,8 +60,7 @@
                                         {% endif %}
                                     {% endif %}    
                                 </td>
-                            </tr>
-                        
+                            </tr> 
                         {% endfor %}    
                     </tbody>
                 </table>  

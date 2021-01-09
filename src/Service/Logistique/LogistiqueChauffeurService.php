@@ -32,7 +32,7 @@ class LogistiqueChauffeurService
     }
 
     /**
-     * Retourne la liste des objet "Chauffeur" sans affectation le jour en cours | un permis Valide | un statut actif
+     * Retourne la liste des objet "Chauffeur" sans affectation le jour en cours | un permis valide | un statut actif
      *
      * @return array
      */
@@ -54,7 +54,7 @@ class LogistiqueChauffeurService
                 }
             }
 
-            if ($libre && $chauffeur->getStatutChauffeur() && $chauffeur->getPermisConduire()->getDateValPermisConduire() > date('Y-m-d')) $tableChauffeurLibre [] = clone $chauffeur;
+            if ($libre && $chauffeur->getStatutChauffeur() &&  $chauffeur->getPermisConduire() != null && $chauffeur->getPermisConduire()->getDateValPermisConduire() > date('Y-m-d')) $tableChauffeurLibre [] = clone $chauffeur;
         }
 
         return $tableChauffeurLibre;

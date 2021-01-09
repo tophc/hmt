@@ -87,7 +87,7 @@ class LogistiqueController extends AbstractController
      */
     public function dashboard(): Response
     {
-        // Si l'utilisateur a le role "ROLE_NEW_USER" on le redirige vers la page de modification du mot de passe
+        // Si l'utilisateur a le rôle "ROLE_NEW_USER" on le redirige vers la page de modification du mot de passe
         $user = $this->getUser();
         if (in_array("ROLE_NEW_USER", $user->getRoles()))
         {
@@ -104,6 +104,23 @@ class LogistiqueController extends AbstractController
             'statistiques'      => $this->logistiqueStatistiqueService->getStatistique(),  
             'titre'             => $this->translator->trans('Dashboard')
         ]);
+    }
+
+     /**
+     * Affiche la page d'aide logistique
+     * 
+     * @Route("/logistique/help", name="logistique_help")
+     *  
+     * @param TranslatorInterface $translator
+     * 
+     * @return Response
+     */
+    public function helpLogistique(TranslatorInterface $translator): Response
+    {
+        return $this->render('logistique/help.html.twig',[
+            'titre' => $translator->trans('Logistics help')
+            ]
+        );
     }
 
     //***********************************************************************************************************************************************//
@@ -314,7 +331,7 @@ class LogistiqueController extends AbstractController
     {
         $date = new DateTime('today');
         $currentAffectations = [];
-        # Si l'objet "Tournee" n'a pas d'affectation : message autorisant la suppression de cette objet  #}
+        // Si l'objet "Tournee" n'a pas d'affectation : message autorisant la suppression de cette objet 
         $affectations = array();
         
         // On récupère tous les objets "Afectation" de cette tournée 
@@ -329,7 +346,7 @@ class LogistiqueController extends AbstractController
                 $currentAffectations [] = clone $current ;
             }
         }
-        # Si l'objet "Tournee" n'a pas d'affectation : message autorisant la suppression de cette objet  #}
+        // Si l'objet "Tournee" n'a pas d'affectation : message autorisant la suppression de cette objet
         if (empty($affectations))
         {
             $this->addFlash(
@@ -346,7 +363,7 @@ class LogistiqueController extends AbstractController
     }
 
     /**
-     * Permet d'afficher les objets "Colis"  du jour d'un objet "Tournee"
+     * Permet d'afficher les objets "Colis" du jour d'un objet "Tournee"
      *
      * @Route("/logistique/tournee/{id}/colis", name="logistique_tournee_colis")
      * 
@@ -371,7 +388,7 @@ class LogistiqueController extends AbstractController
         if (! empty($codePostal)){
             $cpTournee =  implode(',', $codePostal);
 
-            //colis avec codes postaux de la tournée
+            //colis avec code postal de la tournée
             $colisTournee = $manager->createQuery(
                 "SELECT c
                 FROM App\Entity\Colis c
@@ -383,7 +400,7 @@ class LogistiqueController extends AbstractController
             )   
             ->getResult();
 
-            //Pour chaque Colis du Tableau "colisTournee" on récuper le colis
+            //Pour chaque colis du Tableau "colisTournee" on récuper le colis
             foreach ($colisTournee as $colis)
             {
                 //Pour chaque suiviColis du tableau $colis->getSuiviColis() on récupere le suiviColis
@@ -393,7 +410,7 @@ class LogistiqueController extends AbstractController
                     //On ajoute le codeEtat dans un tableau 
                     $tableauEtatParColis[] = $suivis->getEtat()->getCodeEtat();
                 } 
-                //On verifie si l'obet "Colis" a été livré (999)
+                //On vérifie si l'obet "Colis" a été livré (999)
                 if (! (in_array("999", $tableauEtatParColis)))
                 {
                     $colisFiltre [] = clone $colis;       
@@ -490,7 +507,7 @@ class LogistiqueController extends AbstractController
     }
 
     /**
-     * Permet d'affiche la liste de toutes les objets "Affectation" futures sous forme de tableau 
+     * Permet d'afficher la liste de tous les objets "Affectation" futures sous forme de tableau 
      * 
      * @Route("/logistique/affectation/liste", name="logistique_affectation_liste")
      * 
@@ -504,7 +521,7 @@ class LogistiqueController extends AbstractController
     }
 
     /**
-     * Permet d'affiche la liste de toutes les objets "Affectation" passées sous forme de tableau 
+     * Permet d'afficher la liste de tous les objets "Affectation" passés sous forme de tableau 
      * 
      * @Route("/logistique/affectation/archive", name="logistique_affectation_archive")
      * 
@@ -518,7 +535,7 @@ class LogistiqueController extends AbstractController
     }
 
     /**
-     * Permet d'affiche la liste de tous les objets "Affectation" invalides
+     * Permet d'afficher la liste de tous les objets "Affectation" invalides
      * 
      * @Route("/logistique/affectation/liste/invalide", name="logistique_affectation_liste_invalide")
      * 
@@ -600,7 +617,7 @@ class LogistiqueController extends AbstractController
      */
     public function modifierAffectation(Affectation $affectation, Request $request, EntityManagerInterface $manager, LogistiqueAffectationService $logistiqueAffectationService): Response
     {
-        // On empèche la modification d'un objet "Affectation" passé
+        // On empêche la modification d'un objet "Affectation" passé
         if ( $affectation->getDateAffectation() < new dateTime('today'))
         {
             $this->addFlash(
@@ -699,16 +716,16 @@ class LogistiqueController extends AbstractController
 
             $titre .= ' : <strong>'. $chauffeur->getNomChauffeur().' '.$chauffeur->getPrenomChauffeur() .'</strong>'.' ('.implode(', ', $tableauCategories).')';
             $route = 'logistique/affectation/chauffeur/ajouter.html.twig';
-            // On envoie en parametre "$mma" au formulaire pour le query_builder du chanmp de type "Select"
+            // On envoie en paramètre "$mma" au formulaire pour le query_builder du chanmp de type "Select"
             $form = $this->createForm(AffectationChauffeurType::class, $affectation, ['mma' => $mma]);
         }
         // Ajout d'une affectation pour un véhicule particulier
         else if ($request->attributes->get('_route') == "logistique_affectation_vehicule_ajouter") 
         {   
             $vehicule = $repoVehicule->find($entite);
-            // On récupère la "mma" du vehicule
+            // On récupère la "mma" du véhicule
             $mma = $vehicule->getModeleVehicule()->getCapaciteModeleVehicule();
-            // On fait appel au service "logistiqueVehiculeService" pour déterminer la catégorie de permis nécéssaire au véhicule
+            // On fait appel au service "logistiqueVehiculeService" pour déterminer la catégorie de permis nécessaire au véhicule
             $categoriePermis = $this->logistiqueVehiculeService->getCategoriePermis($mma); 
             $affectation->setVehicule($vehicule);
             $titre .= ' : <strong>'. $vehicule->getImmatriculationVehicule().'</strong>';
@@ -733,7 +750,7 @@ class LogistiqueController extends AbstractController
     
         if($form->isSubmitted() && $form->isValid())
         {   
-            // Si la date de fin n'est pas définie on persistera une affectation : Affectation unique
+            // Si la date de fin n'est pas définie, on persistera une affectation : Affectation unique
             if ($form->get('dateFin')->getData() == "")
             {
                 //Renvoi true si il y a une erreur
@@ -879,7 +896,7 @@ class LogistiqueController extends AbstractController
     //***********************************************************************************************************************************************//
     
     /**
-     * Permet d'affiche la liste de tous les objets "Chauffeur" actifs sous forme de tableau
+     * Permet d'afficher la liste de tous les objets "Chauffeur" actifs sous forme de tableau
      * 
      * @Route("/logistique/chauffeur/liste", name="logistique_chauffeur_liste")
      * 
@@ -894,7 +911,7 @@ class LogistiqueController extends AbstractController
         $affectationFuture = array();
         $chauffeurs = $repoChauffeur->findBy(['statutChauffeur' => 1], []);
 
-        // Pour chaques chauffeurs on récupère les affectations futures dans '$affetcationFuture'
+        // Pour chaque chauffeur, on récupère les affectations futures dans '$affetcationFuture'
         foreach ($chauffeurs as $chauffeur)
         {
             $affetcationFuture = $repoAffectation->findByDateFuturChauffeur($chauffeur);
@@ -910,7 +927,7 @@ class LogistiqueController extends AbstractController
     }
 
     /**
-     * Permet d'affiche la liste de tous les objets "Chauffeur" actifs et sans affectaion pour la journée en cours sous forme de tableau
+     * Permet d'affiche la liste de tous les objets "Chauffeur" actifs et sans affectaions pour la journée en cours sous forme de tableau
      * 
      * @Route("/logistique/chauffeur/list/libre", name="logistique_chauffeur_libre")
      * 
@@ -925,7 +942,7 @@ class LogistiqueController extends AbstractController
         $affectationFuture = array();
         $chauffeurLibre = $this->logistiqueChauffeurService->getChauffeurLibre();
 
-        // Pour chaques chauffeurs on récupère les affectations futures dans '$affetcationFuture'
+        // Pour chaque chauffeur, on récupère les affectations futures dans '$affetcationFuture'
         foreach ($chauffeurLibre as $chauffeur)
         {
             $affetcationFuture = $repoAffectation->findByDateFuturChauffeur($chauffeur);
@@ -993,7 +1010,7 @@ class LogistiqueController extends AbstractController
         $affectationFuture = array();
         $vehicules = $repoVehicule->findBy(['statutVehicule' => 1], []);
 
-        // Pour chaques vehicules on récupère les affectations futures dans '$affetcationFuture'
+        // Pour chaque vehicule, on récupère les affectations futures dans '$affetcationFuture'
         foreach ($vehicules as $vehicule)
         {
             $affetcationFuture = $repoAffectation->findByDateFuturVehicule($vehicule);
@@ -1022,7 +1039,7 @@ class LogistiqueController extends AbstractController
         $affectationFuture = array();
         $vehiculeLibre = $this->logistiqueVehiculeService->getVehiculeLibre();
 
-        // Pour chaques vehicules on récupère les affectations futures dans '$affetcationFuture'
+        // Pour chaque vehicule, on récupère les affectations futures dans '$affetcationFuture'
         foreach ($vehiculeLibre as $vehicule)
         {
             $affetcationFuture = $repoAffectation->findByDateFuturVehicule($vehicule);
@@ -1037,7 +1054,7 @@ class LogistiqueController extends AbstractController
     }
 
     /**
-     * Permet d'afficher les objets "Affectation" d'un objet "vehicule" à partir du jour en cours
+     * Permet d'afficher les objets "Affectation" d'un objet "Vehicule" à partir du jour en cours
      * 
      * @Route("/logistique/vehicule/{id}/affectation", name="logistique_vehicule_affectation")
      * 
@@ -1074,7 +1091,7 @@ class LogistiqueController extends AbstractController
     //***********************************************************************************************************************************************//
      
     /**
-     * Retiurne un fichier json à la requête Ajax de dataTAbles Colis
+     * Retourne un fichier json à la requête Ajax de dataTAbles Colis
      *
      * @Route("/logistique/colis/api/{typeColis}/{route}", name="logistique_colis_api")
      * 
@@ -1094,7 +1111,7 @@ class LogistiqueController extends AbstractController
     }
     
     /**
-     * Permet d'afficher la liste de tous les objets "Colis", expédition ou enlèvement
+     * Permet d'afficher la liste de tous les objets "Colis" (expédition ou enlèvement)
      * 
      * @Route("/logistique/expedition/liste/{typeColis}", name="logistique_expedition_liste")
      * @Route("/logistique/enlevement/liste/{typeColis}", name="logistique_enlevement_liste")
@@ -1148,7 +1165,7 @@ class LogistiqueController extends AbstractController
     }
     
     /**
-     * Permet d'afficher la liste de tous les objets "Colis"  livrés
+     * Permet d'afficher la liste de tous les objets "Colis" livrés
      * 
      * @Route("/logistique/expedition/livre/{typeColis}", name="logistique_expedition_livre")
      * @Route("/logistique/enlevement/livre/{typeColis}", name="logistique_enlevement_livre")
@@ -1238,7 +1255,7 @@ class LogistiqueController extends AbstractController
         if($form->isSubmitted() && $form->isValid())
         {
             $uploadedFile = $form->get('fichier')->getData();
-            // En fonction du nombre de ligne du fichier csv on mofifie le le paramètre time_limit() du serveur php (php.ini) 
+            // En fonction du nombre de ligne du fichier csv on mofifie le paramètre time_limit() du serveur php (php.ini) 
             if ($uploadedFile) 
             {  
                 $lignes = count(file($uploadedFile));
@@ -1298,7 +1315,7 @@ class LogistiqueController extends AbstractController
     }
     
     /**
-     * Permet de modifier un objet "Colis" ( la propriété "noteColis" uniquement) (expédition et enlèvement)
+     * Permet de modifier un objet "Colis" (la propriété "noteColis" uniquement) (expédition et enlèvement)
      * 
      * @Route("/logistique/expedition/{id}/modifier", name="logistique_expedition_modifier")
      * @Route("/logistique/enlevement/{id}/modifier", name="logistique_enlevement_modifier")
@@ -1483,7 +1500,7 @@ class LogistiqueController extends AbstractController
     //***********************************************************************************************************************************************//
 
     /**
-     * Permet de cloturer manuellement un objet "Colis" comme étant livrée
+     * Permet de clôturer manuellement un objet "Colis" comme étant livrée
      * 
      * @Route("/logistique/colis/{id}/cloturer", name="logistique_colis_cloturer")
      * 
@@ -1510,7 +1527,7 @@ class LogistiqueController extends AbstractController
         if  (! in_array(999, $tableauEtat )) 
         {   
             $suiviColis = new SuiviColis();
-            //on crée un nouvel objet "SuiviColis" qu'on hydrate avec le $colis, le $etat et la dateTime
+            //on crée un nouvel objet "SuiviColis" qu'on hydrate avec "$colis", "$etat" et la date
             $suiviColis ->setColis($colis)
                         ->setEtat($etat)
                         ->setDateSuiviColis(new dateTime())
@@ -1572,7 +1589,7 @@ class LogistiqueController extends AbstractController
         if  (! in_array("008", $tableauEtat )) 
         {   
             $suiviColis = new SuiviColis();
-            //on crée un nouvel objet "SuiviColis" qu'on hydrate avec le $colis, le $etat et la dateTime
+            //on crée un nouvel objet "SuiviColis" qu'on hydrate avec "$colis", "$etat" et la date
             $suiviColis ->setColis($colis)
                         ->setEtat($etat)
                         ->setDateSuiviColis(new dateTime())
@@ -1603,7 +1620,7 @@ class LogistiqueController extends AbstractController
     //***********************************************************************************************************************************************//
 
     /** 
-     * Permet de soumetre une "Requete" au service secrétariat
+     * Permet de soumettre une "Requete" au service secrétariat
      * 
      * @Route("/logistique/requete/service/{service}", name="logistique_requete")
      * 
@@ -1650,7 +1667,7 @@ class LogistiqueController extends AbstractController
             if ($uploadedFile)
             {
                 $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
-                // Permet de créer une url propre(sans espaces, sans caractère spéciaux)
+                // Permet de créer une url propre(sans espaces, sans caractères spéciaux)
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename.'-'. date('d-m-Y-His') .'.'.$uploadedFile->guessExtension();
 
@@ -1672,7 +1689,7 @@ class LogistiqueController extends AbstractController
                 $this->translator->trans('The message has been sent successfully').' !'
             );
 
-            //persiste le mail dans requete
+            //persiste le mail dans l'objet "Requete"
             $requete = new Requete;
             $requete->setMessageRequete($contact->getMessage()) 
                     ->setObjetRequete($contact->getSujet())
@@ -1795,7 +1812,7 @@ class LogistiqueController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
-            // On récupère le message et l'utilisateur connecté, on ajoute l'auteur et on reinjecte le message (Sonneville)
+            // On récupère le message et l'utilisateur connecté, on ajoute l'auteur et on réinjecte le message (Sonneville)
             $user = $this->getUser();
             $message = $requete->getNoteRequete();
            
@@ -1855,20 +1872,5 @@ class LogistiqueController extends AbstractController
     //***********************************************************************************************************************************************//
 
     //***********************************************************************************************************************************************//
-     /**
-     * Affiche la page d'aide logistique
-     * 
-     * @Route("/logistique/help", name="logistique_help")
-     *  
-     * @param TranslatorInterface $translator
-     * 
-     * @return Response
-     */
-    public function helpLogistique(TranslatorInterface $translator): Response
-    {
-        return $this->render('logistique/help.html.twig',[
-            'titre' => $translator->trans('Logistics help')
-            ]
-        );
-    }
+    
 }

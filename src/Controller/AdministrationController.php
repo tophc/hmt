@@ -138,7 +138,7 @@ class AdministrationController extends AbstractController
         
         if($form->isSubmitted() && $form->isValid())
         {
-            // On récupère le message, on ajoute l'auteur et on reinjecte le message (Sonneville)
+            // On récupère le message, on ajoute l'auteur et on réinjecte le message (Sonneville)
             $user = $this->getUser();
             $message = $requete->getNoteRequete();
 
@@ -459,7 +459,7 @@ class AdministrationController extends AbstractController
     }
 
     /**
-     * Permet d'activer ou de desactiver un utilisateur
+     * Permet d'activer ou de désactiver un utilisateur
      *
      * @Route("/administration/{service}/{id}/desactiver", name="administration_user_desactiver")
      * 
@@ -492,9 +492,9 @@ class AdministrationController extends AbstractController
          // Si l'utilisateur existe et n'a pas le rôle 'ROLE_DISABLED'
         if ($user && ! in_array('ROLE_DISABLED', $user->getRoles()))
         {
-            // Réinitialise le 'password' à une valeur aléatoire et on remplace les rôles par le rôle 'ROLE_DISABLED'
+            // Réinitialise le 'password' à une valeur aléatoire 5 (5 chifres)et on remplace les rôles par le rôle 'ROLE_DISABLED'
             $user->setRoles(["ROLE_DISABLED"])
-                 ->setPassword($encoder->encodePassword($user,random_int(1, 10)))
+                ->setPassword($encoder->encodePassword($user,random_int(0, 9).random_int(0, 9).random_int(0, 9).random_int(0, 9).random_int(0, 9)))
             ;
 
             $manager->persist($user);

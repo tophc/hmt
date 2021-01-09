@@ -1809,6 +1809,26 @@
         <source>No round</source>
         <target>Geen rond</target>
       </trans-unit>
+      <trans-unit id="1j4eh6g" resname="Logistics help">
+        <source>Logistics help</source>
+        <target>Logistieke hulp</target>
+      </trans-unit>
+      <trans-unit id="Zt56oVm" resname="Orphan deliveries list">
+        <source>Orphan deliveries list</source>
+        <target>Lijst van verweesde leveringen</target>
+      </trans-unit>
+      <trans-unit id="fW3uB0l" resname="Orphan pickup list">
+        <source>Orphan pickup list</source>
+        <target>Lijst van weesontvoeringen</target>
+      </trans-unit>
+      <trans-unit id="KqkdvxI" resname="The driver's license is valid until">
+        <source>The driver's license is valid until</source>
+        <target>Het rijbewijs is geldig tot</target>
+      </trans-unit>
+      <trans-unit id="btfwRE_" resname="Driver's licence expired">
+        <source>Driver's licence expired</source>
+        <target>Rijbewijs verlopen</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

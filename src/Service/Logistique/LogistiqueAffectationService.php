@@ -373,7 +373,7 @@ class LogistiqueAffectationService extends AbstractController
             $dateValPermis = ($affectation->getchauffeur()->getPermisConduire()->getDateValPermisConduire())->format('d.m.Y');
             $this->addFlash(
                 'warning', 
-                $this->translator->trans('The driver\'s license is valid until ')."$dateValPermis" .' !'
+                $this->translator->trans('The driver\'s license is valid until')."$dateValPermis" .' !'
             );
         }
 
