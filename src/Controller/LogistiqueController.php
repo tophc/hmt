@@ -521,6 +521,34 @@ class LogistiqueController extends AbstractController
     }
 
     /**
+     * Permet d'afficher la liste de tous les objets "Affectation" futures des véhicules inactifs sous forme de tableau 
+     * 
+     * @Route("/logistique/affectation/vehicule-inactif", name="logistique_affectation_vehicule_inactif")
+     * 
+     * @return Response
+     */
+    public function listeAffectationFutureVehiculeInactif(): Response
+    {   
+        return $this->render('logistique/affectation/liste.html.twig', [          
+            'titre' => $this->translator->trans('Assignments list'),   
+        ]);
+    }
+
+    /**
+     * Permet d'afficher la liste de tous les objets "Affectation" futures des chauffeurs inactifs sous forme de tableau 
+     * 
+     * @Route("/logistique/affectation/chauffeur-inactif", name="logistique_affectation_chauffeur_inactif")
+     * 
+     * @return Response
+     */
+    public function listeAffectationFutureChauffeurInactif(): Response
+    {   
+        return $this->render('logistique/affectation/liste.html.twig', [          
+            'titre' => $this->translator->trans('Assignments list'),   
+        ]);
+    }
+
+    /**
      * Permet d'afficher la liste de tous les objets "Affectation" passés sous forme de tableau 
      * 
      * @Route("/logistique/affectation/archive", name="logistique_affectation_archive")

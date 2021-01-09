@@ -418,6 +418,7 @@ class LogistiqueAffectationService extends AbstractController
                 );   
             }                               
         }
+
         // Pas nécessaire mais on sait jamais
         // On vérifie si le chauffeur n'est pas actif :  message + $erreurAffectation = true
         if (! $chauffeurNew->getStatutChauffeur())
@@ -610,6 +611,14 @@ class LogistiqueAffectationService extends AbstractController
             case 'logistique_affectation_archive': 
                 $results = $this->repoAffectation->getListeAffectationArchive($start, $length, $orders, $search); 
                 $total_objects_count = $this->repoAffectation->listeAffectationArchiveCount();  
+            break; 
+            case 'logistique_affectation_vehicule_inactif': 
+                $results = $this->repoAffectation->getListeAffectationVehiculeInactif($start, $length, $orders, $search); 
+                $total_objects_count = $this->repoAffectation->getAffectationVehiculeInactifCount();  
+            break; 
+            case 'logistique_affectation_chauffeur_inactif': 
+                $results = $this->repoAffectation->getListeAffectationChauffeurInactif($start, $length, $orders, $search); 
+                $total_objects_count = $this->repoAffectation->getAffectationChauffeurInactifCount();  
             break; 
             default;
                 die;   

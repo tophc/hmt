@@ -8,6 +8,9 @@ use App\Repository\ChauffeurRepository;
 use App\Repository\SuiviColisRepository;
 use App\Repository\AffectationRepository;
 use Doctrine\ORM\EntityManagerInterface; 
+use App\Service\Logistique\LogistiqueVehiculeService;
+use App\Service\Logistique\LogistiqueChauffeurService;
+
 
 class LogistiqueStatistiqueService 
 {
@@ -16,7 +19,7 @@ class LogistiqueStatistiqueService
     private $repoSuiviColis;
     private $logistiqueChauffeurService;
     private $logistiqueVehiculeService;
-    //private $repoChauffeur;
+    private $repoAffectation;
     
     /**
      * Constructeur
@@ -26,16 +29,17 @@ class LogistiqueStatistiqueService
      * @param SuiviColisRepository $repoSuiviColis
      * @param LogistiqueChauffeurService $logistiqueChauffeurService
      * @param LogistiqueVehiculeService $logistiqueVehiculeService
+     * @param AffectationRepository $repoAffectation
      * 
      */
-    public function __construct(/*ChauffeurRepository $repoChauffeur,*/EntityManagerInterface $manager, RequeteRepository $repoRequete, SuiviColisRepository $repoSuiviColis, LogistiqueChauffeurService $logistiqueChauffeurService, LogistiqueVehiculeService $logistiqueVehiculeService)
+    public function __construct(EntityManagerInterface $manager, RequeteRepository $repoRequete, SuiviColisRepository $repoSuiviColis, LogistiqueChauffeurService $logistiqueChauffeurService, LogistiqueVehiculeService $logistiqueVehiculeService, AffectationRepository $repoAffectation)
     {
         $this->manager                      = $manager;
         $this->repoRequete                  = $repoRequete;
         $this->repoSuiviColis               = $repoSuiviColis;
         $this->logistiqueChauffeurService   = $logistiqueChauffeurService;
         $this->logistiqueVehiculeService    = $logistiqueVehiculeService;
-        //$this->repoChauffeur              = $repoChauffeur;
+        $this->repoAffectation              = $repoAffectation;
     }
     
     /**
@@ -45,20 +49,22 @@ class LogistiqueStatistiqueService
      */
     public function getStatistique(): array
     {
-        $requeteOuverteLogistique   = $this->getCountRequeteOuverteLogistique();
-        $requeteOuverteChauffeur    = $this->getCountRequeteOuverteChauffeur();
-        $requeteOuverteSecretariat  = $this->getCountRequeteOuverteSecretariat();
-        $expedition                 = $this->getCountExpedition();
-        $express                    = $this->getCountExpress();
-        $enlevement                 = $this->getCountEnlevement();
-        $expeditionLitige           = $this->getCountExpeditionLitige();
-        $enlevementLitige           = $this->getCountEnlevementLitige();
-        $chauffeurLibre             = $this->getCountChauffeurLibre();
-        $vehiculeLibre              = $this->getCountVehiculeLibre();
-        $expeditionOrphelin         = $this->getCountExpeditionOrphelin();
-        $enlevementOrphelin         = $this->getCountEnlevementOrphelin();
+        $requeteOuverteLogistique       = $this->getCountRequeteOuverteLogistique();
+        $requeteOuverteChauffeur        = $this->getCountRequeteOuverteChauffeur();
+        $requeteOuverteSecretariat      = $this->getCountRequeteOuverteSecretariat();
+        $expedition                     = $this->getCountExpedition();
+        $express                        = $this->getCountExpress();
+        $enlevement                     = $this->getCountEnlevement();
+        $expeditionLitige               = $this->getCountExpeditionLitige();
+        $enlevementLitige               = $this->getCountEnlevementLitige();
+        $chauffeurLibre                 = $this->getCountChauffeurLibre();
+        $vehiculeLibre                  = $this->getCountVehiculeLibre();
+        $expeditionOrphelin             = $this->getCountExpeditionOrphelin();
+        $enlevementOrphelin             = $this->getCountEnlevementOrphelin();
+        $affectationChauffeurInactif    = $this->getCountAffectationChauffeurInactif();
+        $affectationVehiculeInactif     = $this->getCountAffectationVehiculeInactif();
         
-        return compact('requeteOuverteLogistique', 'requeteOuverteChauffeur', 'requeteOuverteSecretariat', 'expedition', 'express', 'enlevement', 'expeditionLitige', 'enlevementLitige', 'chauffeurLibre', 'vehiculeLibre', 'expeditionOrphelin', 'enlevementOrphelin');
+        return compact('requeteOuverteLogistique', 'requeteOuverteChauffeur', 'requeteOuverteSecretariat', 'expedition', 'express', 'enlevement', 'expeditionLitige', 'enlevementLitige', 'chauffeurLibre', 'vehiculeLibre', 'expeditionOrphelin', 'enlevementOrphelin', 'affectationChauffeurInactif', 'affectationVehiculeInactif');
     }
 
     /**
@@ -252,7 +258,6 @@ class LogistiqueStatistiqueService
     public function getCountChauffeurLibre(): int
     {
         return count($this->logistiqueChauffeurService->getChauffeurLibre());
-        //return count($this->repoChauffeur->getChauffeurLibre());
     }
     
     /**
@@ -263,5 +268,25 @@ class LogistiqueStatistiqueService
     public function getCountVehiculeLibre(): int
     {
        return count($this->logistiqueVehiculeService->getVehiculeLibre());
+    }
+
+    /**
+     * Retourne le nombre d'objets "Vehicule" innactifs mais affectés dans le future
+     *
+     * @return int
+     */
+    public function getCountAffectationVehiculeInactif(): int
+    {
+       return $this->repoAffectation->getAffectationVehiculeInactifCount();
+    }
+
+    /**
+     * Retourne le nombre d'objets "Chauffeur" innactifs mais affectés dans le future
+     *
+     * @return int
+     */
+    public function getCountAffectationChauffeurInactif(): int
+    {
+       return $this->repoAffectation->getAffectationChauffeurInactifCount();
     }
 }

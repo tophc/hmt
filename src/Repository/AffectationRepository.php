@@ -117,6 +117,111 @@ class AffectationRepository extends ServiceEntityRepository
     }  
 
     /**
+     * Retourne un tableau d'objets "Affectation" futures des chauffeurs innactifs, filtré, trieé selon l'appel Ajax de dataTables 
+     *
+     * @param int $start
+     * @param int $length
+     * @param array $orders
+     * @param array $search 
+     * 
+     * @return array
+     */
+    public function getListeAffectationChauffeurInactif($start, $length, $orders, $search): array
+    {
+        $date = new DateTime();
+        $where = 
+            [
+                'a.dateAffectation >= :date',
+                'c.statutChauffeur = :inactif'
+            ];
+        $parameter = 
+            [
+                'date' => $date->sub(new DateInterval('P1D')),
+                'inactif' => 0
+            ]; 
+
+        $otherConditions = ['where' => $where , 'parameter' => $parameter]  ; 
+
+        return $this->getAffectation($start, $length, $orders, $search, $otherConditions); 
+           
+    }
+
+    /**
+     * Retourne le nombre total d'objets "Affectation" futures des chauffeurs innactifs
+     *
+     * @return int
+     */
+    public function getAffectationChauffeurInactifCount(): int
+    {
+        $dateTime = new DateTime();
+        $date = $dateTime->sub(new DateInterval('P1D'));
+        $dql = $this->createQueryBuilder('a')
+                    ->select('a')
+                    ->leftJoin('a.chauffeur', 'c')
+                    ->andWhere('a.dateAffectation >= :date')
+                    ->setParameter('date', $date)
+                    ->andWhere('c.statutChauffeur = :inactif')
+                    ->setParameter('inactif', 0)            
+                    ->getQuery()
+                    ->getResult()    
+        ; 
+        
+        return count($dql);     
+    }
+
+    /**
+     * Retourne un tableau d'objets "Affectation" futures des véhicules innactifs, filtré, trieé selon l'appel Ajax de dataTables 
+     *
+     * @param int $start
+     * @param int $length
+     * @param array $orders
+     * @param array $search 
+     * 
+     * @return array
+     */
+    public function getListeAffectationVehiculeInactif($start, $length, $orders, $search): array
+    {
+        $date = new DateTime();
+        $where = 
+            [
+                'a.dateAffectation >= :date',
+                'v.statutVehicule = :inactif'
+            ];
+        $parameter = 
+            [
+                'date' => $date->sub(new DateInterval('P1D')),
+                'inactif' => 0
+            ]; 
+
+        $otherConditions = ['where' => $where , 'parameter' => $parameter]  ; 
+
+        return $this->getAffectation($start, $length, $orders, $search, $otherConditions); 
+    }
+
+    /**
+     * Retourne le nombre total d'objets "Affectation" futures des véhicules innactifs
+     *
+     * @return int
+     */
+    public function getAffectationVehiculeInactifCount(): int
+    {
+        $dateTime = new DateTime();
+        $date = $dateTime->sub(new DateInterval('P1D'));
+        $dql = $this->createQueryBuilder('a')
+                    ->select('a')
+                    ->leftJoin('a.vehicule', 'v')
+                    ->where('a.dateAffectation >= :date')
+                    ->setParameter('date', $date)
+                    ->andWhere('v.statutVehicule = :inactif')
+                    ->setParameter('inactif', 0)            
+                    ->getQuery()
+                    ->getResult()    
+        ; 
+        
+        return count($dql); 
+    }
+
+    /**
      * Prépare les données pour la requête Ajax du plugin "dataTables", retourne un tableau d'abjets "Affectation"
      * 
      * @param int $start
