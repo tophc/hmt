@@ -589,7 +589,7 @@ class LogistiqueAffectationService extends AbstractController
             $orders     = $this->requestStack->getCurrentRequest()->request->get('order');
             $columns    = $this->requestStack->getCurrentRequest()->request->get('columns');
         }
-        else // si la request n'est pas de type POST 
+        else // Si la request n'est pas de type POST 
         {
            die; 
         }
@@ -597,11 +597,11 @@ class LogistiqueAffectationService extends AbstractController
         // Orders
         foreach ($orders as $key => $order)
         {
-            //convertit le numéro de colonne en nom de colonne
+            // Convertit le numéro de colonne en nom de colonne
             $orders[$key]['name'] = $columns[$order['column']]['name'];
         }
         
-        // Fait appel au à la méthode du SuiviColisRepository correspondante à la route
+        // Fait appel à la méthode du SuiviColisRepository correspondante à la route
         switch($route)
         {
             case 'logistique_affectation_liste':
@@ -625,7 +625,7 @@ class LogistiqueAffectationService extends AbstractController
         }
 
         $objects = $results["results"];
-        // nombre total de $resultat
+        // Nombre total de $resultat
         $selected_objects_count = count($objects);
         // Nombre total d'objets après le filtrag sur le critère de recherche
         $filtered_objects_count = $results["countResult"];
@@ -639,7 +639,7 @@ class LogistiqueAffectationService extends AbstractController
         $i = 0;
         foreach ($objects as $key => $affectation)
         {
-            //construit la réponse 'json'
+            // Construit la réponse 'json'
             $response .= '["';
 
             $j = 0; 

@@ -19,21 +19,4 @@ class ControleTechniqueRepository extends ServiceEntityRepository
         parent::__construct($registry, ControleTechnique::class);
     }
 
-    /**
-     * Renvoi un tableau d'objet "ControleTechnique" avec le statutControleTechnique à 1 (ouvert = refusé) groupé par "Vehicule"
-     *
-     * @return array
-     */
-    public function getControleTechniqueRefuse(): array
-    {
-        return $this->createQueryBuilder('c') 
-            ->select('c') 
-            ->leftJoin('c.vehicule',  'v')
-            ->where ('c.statutControleTechnique = :statut')
-            ->setParameter('statut', '1')
-            ->groupBy('v')
-            ->getQuery()
-            ->getResult()
-        ;  
-    }
 }

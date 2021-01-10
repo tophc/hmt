@@ -201,11 +201,11 @@ class LogistiqueColisService extends AbstractController
         // Orders
         foreach ($orders as $key => $order)
         {
-            //convertit le numéro de colonne en nom de colonne
+            // Converti le numéro de colonne en nom de colonne
             $orders[$key]['name'] = $columns[$order['column']]['name'];
         }
         
-        // Fait appel au à la méthode du SuiviColisRepository correspondante à la route
+        // Fait appel à la méthode du SuiviColisRepository correspondante à la route
         switch($route)
         {
             case 'logistique_expedition_liste':
@@ -246,7 +246,7 @@ class LogistiqueColisService extends AbstractController
         } 
 
         $objects = $results["results"];
-        // nombre total de $resultat
+        // Nombre total de $resultat
         $selected_objects_count = count($objects);
         // Nombre d'objets après les filtrage
         $filtered_objects_count = $results["countResult"];
@@ -260,7 +260,7 @@ class LogistiqueColisService extends AbstractController
         $i = 0;
         foreach ($objects as $key => $suiviColis)
         {
-            //construit la réponse 'json'
+            // Construit la réponse 'json'
             $response .= '["';
 
             $j = 0; 
@@ -361,14 +361,14 @@ class LogistiqueColisService extends AbstractController
 
         foreach ($tableauColisNonFiltre as $colis)
         {
-            //Pour chaque suiviColis du tableau $colis->getSuiviColis() on récupere le suiviColis
+            // Pour chaque suiviColis du tableau $colis->getSuiviColis() on récupere le suiviColis
             $tableauEtatParColis = [];
             foreach ($colis->getSuiviColis() as $suivis)
             {
-                //On ajoute le codeEtat dans un tableau 
+                // On ajoute le codeEtat dans un tableau 
                 $tableauEtatParColis[] = $suivis->getEtat()->getCodeEtat();
             } 
-            //On verifie si l'obet "Colis" a été livré (999)
+            // On vérifie si l'obet "Colis" a été livré (999)
             if (! (in_array("999", $tableauEtatParColis)))
             {
                 $colisFiltre [] = clone $colis;       

@@ -1031,7 +1031,7 @@ class SecretariatController extends AbstractController
     //***********************************************************************************************************************************************//
 
     /** 
-     * Permet de soumettre une requete au service logistique
+     * Permet de soumettre une requête au service logistique
      * 
      * @Route("/secretariat/requete/service/{service}", name="secretariat_requete")
      * 
@@ -1085,7 +1085,7 @@ class SecretariatController extends AbstractController
                 $this->translator->trans('Your message has been successfully sent').' !'
             );
 
-            //persiste le mail dans requete
+            //persiste le mail dans $requete
             $requete = new Requete;
             $requete->setMessageRequete($contact->getMessage()) 
                     ->setObjetRequete($contact->getSujet())
@@ -1380,7 +1380,7 @@ class SecretariatController extends AbstractController
     //***********************************************************************************************************************************************//
 
     //***********************************************************************************************************************************************//
-
+ 
     //***********************************************************************************************************************************************//
     //***************************************************** Debut : Section ControleTechnique *******************************************************//
     //***********************************************************************************************************************************************//

@@ -3,12 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Amende;
+use App\Entity\Vehicule;
 use App\Form\ApplicationType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType; 
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\TextType; 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -29,7 +30,7 @@ class AmendeType extends ApplicationType
                 ->add('numAmende', TextType::class, $this->getConfiguration('Number', 'Reference number of the fine'))
                 ->add('montantAmende', MoneyType::class, $this->getConfiguration('Amount', 'Amount of the fine'))
                 ->add('remarqueAmende', TextareaType::class, $this->getConfiguration('Note', 'Add a note (optional)', ['required' => false])) 
-                ->add('vehicule', TextType::class, $this->getConfiguration('Vehicle', 'Search a vehicle by platenumber'))
+                ->add('vehicule', TextType::class, $this->getConfiguration('Vehicle', 'Search a vehicle by platenumber'))          
                 ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])          
         ;
 

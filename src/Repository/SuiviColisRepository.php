@@ -6,9 +6,7 @@ use DateTime;
 use Doctrine\ORM\Query;
 use App\Entity\SuiviColis;
 use Doctrine\ORM\QueryBuilder;
-
 use Doctrine\ORM\EntityManagerInterface;
-use phpDocumentor\Reflection\Types\Integer;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -195,7 +193,6 @@ class SuiviColisRepository extends  ServiceEntityRepository
                     ->andWhere('e.codeEtat = :codeEtat')
                     ->setParameter('codeEtat', 000)
                     ->andWhere('p.tournee IS NULL' )
-                    //->setParameter('tournee', 'IS NULL')
                     ->groupBy('s.colis')
                     ->getQuery()
                     ->getResult()

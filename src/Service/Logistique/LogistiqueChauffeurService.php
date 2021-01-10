@@ -32,7 +32,7 @@ class LogistiqueChauffeurService
     }
 
     /**
-     * Retourne la liste des objet "Chauffeur" sans affectation le jour en cours | un permis valide | un statut actif
+     * Retourne la liste des objet "Chauffeur" sans affectations le jour en cours | un permis valide | un statut actif
      *
      * @return array
      */

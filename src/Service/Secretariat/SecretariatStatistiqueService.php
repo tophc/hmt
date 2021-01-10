@@ -130,7 +130,7 @@ class SecretariatStatistiqueService
      *
      * @return int
      */
-    public function getCountPermisConduireBientot(): int
+    public function getCountPermisConduireBientot(): int 
     {
         return count($this->repoPermisConduire->getPermisConduireBientot());
     }

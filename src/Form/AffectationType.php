@@ -8,14 +8,10 @@ use App\Entity\Chauffeur;
 use App\Entity\Affectation;
 use App\Form\ApplicationType;
 use Doctrine\ORM\EntityRepository;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
-use App\Repository\ChauffeurRepository;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Form\DataTransformer\IdChauffeurToChauffeurTransformer;
@@ -23,15 +19,6 @@ use App\Form\DataTransformer\IdChauffeurToChauffeurTransformer;
 
 class AffectationType extends ApplicationType
 {
-    private $transformer;
-    private $repoChauffeur; 
-
-    public function  __construct(IdChauffeurToChauffeurTransformer $transformer, ChauffeurRepository $repoChauffeur){
-        
-        $this->transformer = $transformer;
-        $this->repoChauffeur = $repoChauffeur;
-    }
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('dateAffectation', DateType::class, [
@@ -76,9 +63,6 @@ class AffectationType extends ApplicationType
                 ]) 
                 ->add('save', SubmitType::class,['label' => 'Validate', 'attr' => ['class' => 'btn btn-outline-dark']])
         ;
-                   
-        // Plus nécessaire dans la version 5.1
-        //$builder->get('chauffeur')->addModelTransformer($this->transformer); 
     }
 
     public function configureOptions(OptionsResolver $resolver)
